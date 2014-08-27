@@ -1,0 +1,7 @@
+parameters:
+#    blood_window_bw.example.class: BloodWindow\BWBundle\Example
+
+services:
+#    blood_window_bw.example:
+#        class: %blood_window_bw.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

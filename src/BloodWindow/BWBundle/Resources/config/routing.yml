@@ -1,0 +1,3 @@
+blood_window_bw_homepage:
+    path:     /
+    defaults: { _controller: BloodWindowBWBundle:Default:index }
