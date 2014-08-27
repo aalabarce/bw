@@ -1,0 +1,4 @@
+blood_window_bw:
+    resource: "@BloodWindowBWBundle/Resources/config/routing.yml"
+    prefix:   /
+
