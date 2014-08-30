@@ -10,11 +10,11 @@
         <![endif]-->
     <title>Free Multipurpose Template : RUMA</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="/web/bundles/bloodwindowbw/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLE CSS -->
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/web/bundles/bloodwindowbw/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
-    <link href="css/style.css" rel="stylesheet" />    
+    <link href="/web/bundles/bloodwindowbw/css/style.css" rel="stylesheet" />    
     <!-- GOOGLE FONT -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
@@ -82,19 +82,19 @@
                     <div class="carousel-inner">
                         <div class="item active">
 
-                            <img src="img/1.jpg" alt="" />
+                            <img src="/web/bundles/bloodwindowbw/img/1.jpg" alt="" />
                             <div class="carousel-caption" >
                                 <h4 class="back-light">Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc.</h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="img/2.jpg" alt="" />
+                            <img src="/web/bundles/bloodwindowbw/img/2.jpg" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light">Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc.</h4>
                             </div>
                         </div>
                         <div class="item">
-                            <img src="img/3.jpg" alt="" />
+                            <img src="/web/bundles/bloodwindowbw/img/3.jpg" alt="" />
                             <div class="carousel-caption ">
                                 <h4 class="back-light">Aenean faucibus luctus enim. Duis quis sem risu suspend lacinia elementum nunc.</h4>
                             </div>
@@ -119,7 +119,7 @@
              
                  <div class="row text-center pad-row  ">
 <div class="col-md-4 col-sm-4 ">
-                        <img class="img-circle" src="img/team1.png" alt="" />
+                        <img class="img-circle" src="/web/bundles/bloodwindowbw/img/team1.png" alt="" />
                            <h3><strong>Jhon Deo Alex</strong> </h3>
                        <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -128,7 +128,7 @@
                             <a href="#" class="btn btn-primary" >Read Details</a>
                     </div>
                      <div class="col-md-4 col-sm-4 ">
-                        <img class="img-circle" src="img/team2.jpg" alt="" />
+                        <img class="img-circle" src="/web/bundles/bloodwindowbw/img/team2.jpg" alt="" />
                            <h3><strong>Jhon Deo Alex</strong> </h3>
                        <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -249,7 +249,7 @@
             <div class="container">
            <div class="row text-center pad-bottom" >
             <div class="col-md-12">
-                <img src="img/clients.png" alt="" class="img-responsive" />
+                <img src="/web/bundles/bloodwindowbw/img/clients.png" alt="" class="img-responsive" />
             </div>
                
                </div>
@@ -293,12 +293,12 @@
     <!--/.FOOTER END-->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY  -->
-    <script src="plugins/jquery-1.10.2.js"></script>
-    <script src="bundles/bloodwindow/plugins/jquery.prettyPhoto.js"></script>
+    <script src="/web/bundles/bloodwindowbw/plugins/jquery-1.10.2.js"></script>
+    <script src="/web/bundles/bloodwindowbw/plugins/jquery.prettyPhoto.js"></script>
     <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="plugins/bootstrap.js"></script>
+    <script src="/web/bundles/bloodwindowbw/js/bootstrap.min.js"></script>
   <!-- CUSTOM SCRIPTS  -->
-    <script src="js/custom.js"></script>
-     <script src="bundles/bloodwindow/js/landingPage.js"></script>
+    <script src="/web/bundles/bloodwindowbw/js/custom.js"></script>
+     <script src="/web/bundles/bloodwindowbw/js/landingPage.js"></script>
 </body>
 </html>
