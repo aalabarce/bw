@@ -144,6 +144,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\DefaultController::indexAction',  '_route' => 'blood_window_bw_homepage',);
         }
 
+        if (0 === strpos($pathinfo, '/admin/corto')) {
+            // admin_corto
+            if (rtrim($pathinfo, '/') === '/admin/corto') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'admin_corto');
+                }
+
+                return array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::indexAction',  '_route' => 'admin_corto',);
+            }
+
+            // admin_corto_show
+            if (preg_match('#^/admin/corto/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_corto_show')), array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::showAction',));
+            }
+
+            // admin_corto_new
+            if ($pathinfo === '/admin/corto/new') {
+                return array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::newAction',  '_route' => 'admin_corto_new',);
+            }
+
+            // admin_corto_create
+            if ($pathinfo === '/admin/corto/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_admin_corto_create;
+                }
+
+                return array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::createAction',  '_route' => 'admin_corto_create',);
+            }
+            not_admin_corto_create:
+
+            // admin_corto_edit
+            if (preg_match('#^/admin/corto/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_corto_edit')), array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::editAction',));
+            }
+
+            // admin_corto_update
+            if (preg_match('#^/admin/corto/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_admin_corto_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_corto_update')), array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::updateAction',));
+            }
+            not_admin_corto_update:
+
+            // admin_corto_delete
+            if (preg_match('#^/admin/corto/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_admin_corto_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_corto_delete')), array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\CortoController::deleteAction',));
+            }
+            not_admin_corto_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login

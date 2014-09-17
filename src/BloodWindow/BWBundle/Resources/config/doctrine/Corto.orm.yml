@@ -1,0 +1,43 @@
+BloodWindow\BWBundle\Entity\Corto:
+    type: entity
+    table: corto
+    repositoryClass: BloodWindow\BWBundle\Entity\CortoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        anio:
+            type: integer
+        generoFk:
+            type: integer
+        festivalFk:
+            type: integer
+        url:
+            type: string
+            length: '1000'
+        duracion:
+            type: integer
+        director:
+            type: string
+            length: '500'
+        compania:
+            type: string
+            length: '500'
+        telefono:
+            type: string
+            length: '100'
+        sitioWeb:
+            type: string
+            length: '1000'
+        sinopsisEspaniol:
+            type: string
+            length: '4000'
+        sinopsisIngles:
+            type: string
+            length: '4000'
+        nominado:
+            type: integer
+    lifecycleCallbacks: {  }

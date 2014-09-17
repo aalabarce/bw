@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Corto</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Anio</th>
+                <td>{{ entity.anio }}</td>
+            </tr>
+            <tr>
+                <th>Generofk</th>
+                <td>{{ entity.generoFk }}</td>
+            </tr>
+            <tr>
+                <th>Festivalfk</th>
+                <td>{{ entity.festivalFk }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ entity.url }}</td>
+            </tr>
+            <tr>
+                <th>Duracion</th>
+                <td>{{ entity.duracion }}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{ entity.director }}</td>
+            </tr>
+            <tr>
+                <th>Compania</th>
+                <td>{{ entity.compania }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ entity.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Sitioweb</th>
+                <td>{{ entity.sitioWeb }}</td>
+            </tr>
+            <tr>
+                <th>Sinopsisespaniol</th>
+                <td>{{ entity.sinopsisEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Sinopsisingles</th>
+                <td>{{ entity.sinopsisIngles }}</td>
+            </tr>
+            <tr>
+                <th>Nominado</th>
+                <td>{{ entity.nominado }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_corto') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_corto_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,30 @@
+admin_corto:
+    path:     /
+    defaults: { _controller: "BloodWindowBWBundle:Corto:index" }
+
+admin_corto_show:
+    path:     /{id}/show
+    defaults: { _controller: "BloodWindowBWBundle:Corto:show" }
+
+admin_corto_new:
+    path:     /new
+    defaults: { _controller: "BloodWindowBWBundle:Corto:new" }
+
+admin_corto_create:
+    path:     /create
+    defaults: { _controller: "BloodWindowBWBundle:Corto:create" }
+    requirements: { _method: post }
+
+admin_corto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BloodWindowBWBundle:Corto:edit" }
+
+admin_corto_update:
+    path:     /{id}/update
+    defaults: { _controller: "BloodWindowBWBundle:Corto:update" }
+    requirements: { _method: post|put }
+
+admin_corto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BloodWindowBWBundle:Corto:delete" }
+    requirements: { _method: post|delete }
