@@ -5,3 +5,7 @@ blood_window_bw_homepage:
 BloodWindowBWBundle_admin_corto:
     resource: "@BloodWindowBWBundle/Resources/config/routing/corto.yml"
     prefix: /admin/corto
+
+BloodWindowBWBundle_corto:
+    path:     /corto/{id}
+    defaults: { _controller: BloodWindowBWBundle:Default:detalleCorto }

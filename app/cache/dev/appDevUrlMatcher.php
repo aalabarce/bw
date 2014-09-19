@@ -204,6 +204,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // BloodWindowBWBundle_corto
+        if (0 === strpos($pathinfo, '/corto') && preg_match('#^/corto/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'BloodWindowBWBundle_corto')), array (  '_controller' => 'BloodWindow\\BWBundle\\Controller\\DefaultController::detalleCortoAction',));
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login
