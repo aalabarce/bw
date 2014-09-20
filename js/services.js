@@ -2,11 +2,19 @@
 
 /* Services */
 
-angular.module('bloodWindow', ['ngResource']);
+angular.module('bloodWindowServices', [])
+    .factory('Home', ['$http', function($http) {
 
-.factory('Corto', ['$resource',
-  function($resource){
-    return $resource('phones/:phoneId.json', {}, {
-      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-    });
-  }]);
+    var urlBase = '/192.168.0.116:80/bw';
+    var Home = {};
+
+    Home.test = function () {
+    	return 'hola';
+    };
+
+    Corto.getCortoId = function (json) {
+        return $http.post(urlBase, json);
+    };
+
+    return Corto;
+}]);

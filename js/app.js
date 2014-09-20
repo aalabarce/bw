@@ -4,7 +4,7 @@
 
 //angular.module('bloodWindow', ['ui.router', 'bloodWindowAnimations', 'bloodWindowControllers', 'bloodWindowServices' ])
 
-angular.module('bloodWindow', ['ngRoute', 'bloodWindowControllers' ])
+angular.module('bloodWindow', ['ngRoute', 'bloodWindowControllers', 'bloodWindowServices'])
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.
@@ -34,5 +34,5 @@ angular.module('bloodWindow', ['ngRoute', 'bloodWindowControllers' ])
     }])
 
     .run(['$rootScope', function($rootScope) {
-       //$state.transitionTo('phones'); 
+       $rootScope.serverURL = "web/app_dev.php"; // Change URL
     }]);
