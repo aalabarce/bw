@@ -28,7 +28,7 @@ class DefaultController extends Controller
         {
             $parametros = json_decode($jsonRequest, true);
         }
-
+        
         $id = $parametros['id'];
 
         // Voy a la base de datos y busco el corto

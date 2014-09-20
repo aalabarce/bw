@@ -7,5 +7,9 @@ BloodWindowBWBundle_admin_corto:
     prefix: /admin/corto
 
 BloodWindowBWBundle_corto:
-    path:     /corto/{id}
+    path:     /corto
     defaults: { _controller: BloodWindowBWBundle:Default:detalleCorto }
+
+BloodWindowBWBundle_filtrar:
+    path:     /buscar/corto
+    defaults: { _controller: BloodWindowBWBundle:Default:obtenerCortos }
