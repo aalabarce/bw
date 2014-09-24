@@ -5,10 +5,11 @@
 angular.module('bloodWindowControllers', [])
 
 .controller('SidebarCtrl', ['$scope', function($scope) {
-  $scope.content = ['home', 'corto/1', 'industria', 'proyecto/1', 'work/1'];
+  $scope.isCollapsed = true;
+  $scope.content = ['home', 'industria', 'proyecto/1', 'work/1'];
 }])
 
-.controller('HomeCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+.controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', function($scope, $http, $rootScope, $modal) {
 
   // ***** START API ***** Get All Cortos with filters
   $scope.searchTitulo = "example titulo"; // Edit stored parameters
@@ -31,6 +32,42 @@ angular.module('bloodWindowControllers', [])
       console.log(data, status); //remove for production
   });
   // ***** END API *****
+
+  // ***** START OPEN MODAL CORTO DETAIL *****
+  $scope.openCortoDetail = function (cortoId) {
+
+    var modalInstance = $modal.open({
+      templateUrl: 'templates/modals/modal.corto.detail.html',
+      controller: 'CortoDetailCtrl',
+      size: 'lg',
+      resolve: {
+        cortoId: function () {
+          return cortoId;
+        }
+      }
+    });
+
+    /*
+    modalInstance.result.then(function (selectedItem) {
+      $scope.selected = selectedItem;
+    }, function () {
+      $log.info('Modal dismissed at: ' + new Date());
+    });
+    */
+  };
+  // ***** END OPEN MODAL CORTO DETAIL *****
+
+  $scope.myInterval = 5000;
+  $scope.slides = [
+    {'id' : '1',
+    'image': 'http://placekitten.com/605/300',
+    'text' : 'Alexia',
+    'small' : 'A pesar de que Alexia, la ex novia de Franco, ha fallecido hace algún tiempo.'},
+    {'id' : '2',
+    'image': 'http://placekitten.com/601/300',
+    'text' : 'Otra Pelicula',
+    'small' : 'Franco aún conserva su contacto en las redes sociales. Cuando se decide a eliminar'}
+  ];
 
 }])
 
@@ -75,8 +112,9 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', function($scope, $routeParams, $http, $rootScope) {
-  $scope.id = $routeParams.cortoId;
+.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, cortoId) {
+
+  $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
   
   // ***** START API ***** Get corto detail
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
@@ -93,6 +131,16 @@ angular.module('bloodWindowControllers', [])
       console.log(data, status); //remove for production
   });
   // ***** END API *****
+
+  // ***** START MODAL CLOSE FUNCTIONS *****
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+  // ***** END MODAL CLOSE FUNCTIONS *****
 
 }])
 
