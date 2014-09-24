@@ -28,3 +28,8 @@ admin_corto_delete:
     path:     /{id}/delete
     defaults: { _controller: "BloodWindowBWBundle:Corto:delete" }
     requirements: { _method: post|delete }
+
+admin_corto_upload_pic:
+    path:     /upload
+    defaults: { _controller: "BloodWindowBWBundle:Corto:subirImagen" }
+    requirements: { _method: post }

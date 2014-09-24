@@ -1,0 +1,30 @@
+admin_proyecto:
+    path:     /
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:index" }
+
+admin_proyecto_show:
+    path:     /{id}/show
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:show" }
+
+admin_proyecto_new:
+    path:     /new
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:new" }
+
+admin_proyecto_create:
+    path:     /create
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:create" }
+    requirements: { _method: post }
+
+admin_proyecto_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:edit" }
+
+admin_proyecto_update:
+    path:     /{id}/update
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:update" }
+    requirements: { _method: post|put }
+
+admin_proyecto_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:delete" }
+    requirements: { _method: post|delete }

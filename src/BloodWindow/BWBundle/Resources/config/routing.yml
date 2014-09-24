@@ -6,6 +6,18 @@ BloodWindowBWBundle_admin_corto:
     resource: "@BloodWindowBWBundle/Resources/config/routing/corto.yml"
     prefix: /admin/corto
 
+BloodWindowBWBundle_admin_festival:
+    resource: "@BloodWindowBWBundle/Resources/config/routing/festival.yml"
+    prefix:   /admin/festival
+
+BloodWindowBWBundle_admin_genero:
+    resource: "@BloodWindowBWBundle/Resources/config/routing/genero.yml"
+    prefix:   /admin/genero
+
+BloodWindowBWBundle_admin_proyecto:
+    resource: "@BloodWindowBWBundle/Resources/config/routing/proyecto.yml"
+    prefix:   /admin/proyecto
+
 BloodWindowBWBundle_corto:
     path:     /corto
     defaults: { _controller: BloodWindowBWBundle:Default:detalleCorto }
@@ -13,3 +25,4 @@ BloodWindowBWBundle_corto:
 BloodWindowBWBundle_filtrar:
     path:     /buscar/corto
     defaults: { _controller: BloodWindowBWBundle:Default:obtenerCortos }
+

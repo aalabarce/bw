@@ -1,0 +1,30 @@
+admin_festival:
+    path:     /
+    defaults: { _controller: "BloodWindowBWBundle:Festival:index" }
+
+admin_festival_show:
+    path:     /{id}/show
+    defaults: { _controller: "BloodWindowBWBundle:Festival:show" }
+
+admin_festival_new:
+    path:     /new
+    defaults: { _controller: "BloodWindowBWBundle:Festival:new" }
+
+admin_festival_create:
+    path:     /create
+    defaults: { _controller: "BloodWindowBWBundle:Festival:create" }
+    requirements: { _method: post }
+
+admin_festival_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BloodWindowBWBundle:Festival:edit" }
+
+admin_festival_update:
+    path:     /{id}/update
+    defaults: { _controller: "BloodWindowBWBundle:Festival:update" }
+    requirements: { _method: post|put }
+
+admin_festival_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BloodWindowBWBundle:Festival:delete" }
+    requirements: { _method: post|delete }

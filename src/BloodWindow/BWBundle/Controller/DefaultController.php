@@ -8,6 +8,10 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\HttpFoundation\Response;
 
+use Doctrine\ORM\EntityRepository;
+
+
+
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -55,7 +59,7 @@ class DefaultController extends Controller
     public function obtenerCortosAction()
     {
          // Recibo el JSON con el filtro
-        $parametros = array();
+        /*$parametros = array();
         $jsonRequest = $this->get("request")->getContent();
         if (!empty($jsonRequest))
         {
@@ -68,23 +72,29 @@ class DefaultController extends Controller
         $ano = $parametros['ano'];
         $titulo = $parametros['titulo'];
         $festival = $parametros['festival'];
-      
+      */
         // set doctrine
-        $cortoHome = $this->getContainer()->get('doctrine')->getManager()->getConnection();
+
+        $cortoHome = $this->getDoctrine()->getManager()->getConnection();
 
         // prepare statement
-        $sth = $cortoHome->prepare("CALL JobQueueGetJob(1)");
+        $sth = $cortoHome->prepare("SELECT * FROM corto c
+        JOIN festival f ON c.festivalFk = f.id
+        JOIN genero g ON c.generoFk = g.id
+        WHERE 
+        c.titulo LIKE CONCAT('%', '' ,'%')
+        OR c.anio = 2010
+        OR f.nombre LIKE CONCAT('%', '','%')
+        OR g.nombre LIKE CONCAT('%', '' ,'%');");
 
         // execute and fetch
         $sth->execute();
-        $result = $sth->fetch();
-
-        // DEBUG
-        if ($input->getOption('verbose')) {
-            $output->writeln(var_dump($result));
-        }
+        $result = $sth->fetchAll();
 
         var_dump($result);die;
+        
+
+        echo json_encode($result);die;
     }
 
     public function obtenerFestivalesAction()

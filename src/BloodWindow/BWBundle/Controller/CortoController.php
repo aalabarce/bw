@@ -3,10 +3,13 @@
 namespace BloodWindow\BWBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BloodWindow\BWBundle\Entity\Corto;
 use BloodWindow\BWBundle\Form\CortoType;
+
 
 /**
  * Corto controller.
@@ -220,5 +223,39 @@ class CortoController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    public function subirImagenAction()
+    {
+        $output_dir = "C:\wamp\www\bw\uploads\\temp\\";
+        if(isset($_FILES["myfile"]))
+        {
+            $ret = array();
+
+            $error =$_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if(!is_array($_FILES["myfile"]["name"])) //single file
+            {
+                $fileName = $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                $ret[]= $fileName;
+            }
+            else  //Multiple files, file[]
+            {
+              $fileCount = count($_FILES["myfile"]["name"]);
+              for($i=0; $i < $fileCount; $i++)
+              {
+                $fileName = $_FILES["myfile"]["name"][$i];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$output_dir.$fileName);
+                $ret[]= $fileName;
+              }
+            
+            }
+            $response = new Response(json_encode($ret));
+            $response->headers->set('Content-Type', 'application/json'); 
+
+            return $response;
+         }
     }
 }

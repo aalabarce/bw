@@ -40,4 +40,7 @@ BloodWindow\BWBundle\Entity\Corto:
             length: '4000'
         nominado:
             type: integer
+        titulo:
+            type: string
+            length: '200'            
     lifecycleCallbacks: {  }

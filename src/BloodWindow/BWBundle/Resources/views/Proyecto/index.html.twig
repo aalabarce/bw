@@ -1,0 +1,90 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <h1>Proyecto list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tituloespaniol</th>
+                <th>Tituloingles</th>
+                <th>Pais</th>
+                <th>Duracion</th>
+                <th>Sinopsisespaniol</th>
+                <th>Sinopsisingles</th>
+                <th>Presupuesto</th>
+                <th>Financiacionespaniol</th>
+                <th>Financiacioningles</th>
+                <th>Objetivoespaniol</th>
+                <th>Objetivoingles</th>
+                <th>Estadoespaniol</th>
+                <th>Estadoingles</th>
+                <th>Visionespaniol</th>
+                <th>Visioningles</th>
+                <th>Cvprodespaniol</th>
+                <th>Cvprodingles</th>
+                <th>Cvdirespaniol</th>
+                <th>Cvdiringles</th>
+                <th>Director</th>
+                <th>Productor</th>
+                <th>Compania</th>
+                <th>Email</th>
+                <th>Telefono</th>
+                <th>Website</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_proyecto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.tituloEspaniol }}</td>
+                <td>{{ entity.tituloIngles }}</td>
+                <td>{{ entity.pais }}</td>
+                <td>{{ entity.duracion }}</td>
+                <td>{{ entity.sinopsisEspaniol }}</td>
+                <td>{{ entity.sinopsisIngles }}</td>
+                <td>{{ entity.presupuesto }}</td>
+                <td>{{ entity.financiacionEspaniol }}</td>
+                <td>{{ entity.financiacionIngles }}</td>
+                <td>{{ entity.objetivoEspaniol }}</td>
+                <td>{{ entity.objetivoIngles }}</td>
+                <td>{{ entity.estadoEspaniol }}</td>
+                <td>{{ entity.estadoIngles }}</td>
+                <td>{{ entity.visionEspaniol }}</td>
+                <td>{{ entity.visionIngles }}</td>
+                <td>{{ entity.cvProdEspaniol }}</td>
+                <td>{{ entity.cvProdIngles }}</td>
+                <td>{{ entity.cvDirEspaniol }}</td>
+                <td>{{ entity.cvDirIngles }}</td>
+                <td>{{ entity.director }}</td>
+                <td>{{ entity.productor }}</td>
+                <td>{{ entity.compania }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.website }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_proyecto_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_proyecto_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('admin_proyecto_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

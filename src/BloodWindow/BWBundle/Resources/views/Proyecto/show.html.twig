@@ -1,0 +1,128 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Proyecto</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Tituloespaniol</th>
+                <td>{{ entity.tituloEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Tituloingles</th>
+                <td>{{ entity.tituloIngles }}</td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td>{{ entity.pais }}</td>
+            </tr>
+            <tr>
+                <th>Duracion</th>
+                <td>{{ entity.duracion }}</td>
+            </tr>
+            <tr>
+                <th>Sinopsisespaniol</th>
+                <td>{{ entity.sinopsisEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Sinopsisingles</th>
+                <td>{{ entity.sinopsisIngles }}</td>
+            </tr>
+            <tr>
+                <th>Presupuesto</th>
+                <td>{{ entity.presupuesto }}</td>
+            </tr>
+            <tr>
+                <th>Financiacionespaniol</th>
+                <td>{{ entity.financiacionEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Financiacioningles</th>
+                <td>{{ entity.financiacionIngles }}</td>
+            </tr>
+            <tr>
+                <th>Objetivoespaniol</th>
+                <td>{{ entity.objetivoEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Objetivoingles</th>
+                <td>{{ entity.objetivoIngles }}</td>
+            </tr>
+            <tr>
+                <th>Estadoespaniol</th>
+                <td>{{ entity.estadoEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Estadoingles</th>
+                <td>{{ entity.estadoIngles }}</td>
+            </tr>
+            <tr>
+                <th>Visionespaniol</th>
+                <td>{{ entity.visionEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Visioningles</th>
+                <td>{{ entity.visionIngles }}</td>
+            </tr>
+            <tr>
+                <th>Cvprodespaniol</th>
+                <td>{{ entity.cvProdEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Cvprodingles</th>
+                <td>{{ entity.cvProdIngles }}</td>
+            </tr>
+            <tr>
+                <th>Cvdirespaniol</th>
+                <td>{{ entity.cvDirEspaniol }}</td>
+            </tr>
+            <tr>
+                <th>Cvdiringles</th>
+                <td>{{ entity.cvDirIngles }}</td>
+            </tr>
+            <tr>
+                <th>Director</th>
+                <td>{{ entity.director }}</td>
+            </tr>
+            <tr>
+                <th>Productor</th>
+                <td>{{ entity.productor }}</td>
+            </tr>
+            <tr>
+                <th>Compania</th>
+                <td>{{ entity.compania }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ entity.email }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ entity.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ entity.website }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('admin_proyecto') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('admin_proyecto_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

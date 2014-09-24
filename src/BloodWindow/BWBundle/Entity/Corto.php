@@ -15,6 +15,11 @@ class Corto
     private $id;
 
     /**
+     * @var string
+     */
+    private $titulo;
+
+    /**
      * @var integer
      */
     private $anio;
@@ -84,6 +89,29 @@ class Corto
     {
         return $this->id;
     }
+
+    /**
+     * Set titulo
+     *
+     * @param string $titulo
+     * @return Corto
+     */
+    public function setTitulo($titulo)
+    {
+        $this->titulo = $titulo;
+    
+        return $this;
+    }
+
+    /**
+     * Get titulo
+     *
+     * @return string 
+     */
+    public function getTitulo()
+    {
+        return $this->titulo;
+    }    
 
     /**
      * Set anio

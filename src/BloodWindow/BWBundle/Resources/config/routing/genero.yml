@@ -1,0 +1,30 @@
+admin_genero:
+    path:     /
+    defaults: { _controller: "BloodWindowBWBundle:Genero:index" }
+
+admin_genero_show:
+    path:     /{id}/show
+    defaults: { _controller: "BloodWindowBWBundle:Genero:show" }
+
+admin_genero_new:
+    path:     /new
+    defaults: { _controller: "BloodWindowBWBundle:Genero:new" }
+
+admin_genero_create:
+    path:     /create
+    defaults: { _controller: "BloodWindowBWBundle:Genero:create" }
+    requirements: { _method: post }
+
+admin_genero_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BloodWindowBWBundle:Genero:edit" }
+
+admin_genero_update:
+    path:     /{id}/update
+    defaults: { _controller: "BloodWindowBWBundle:Genero:update" }
+    requirements: { _method: post|put }
+
+admin_genero_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BloodWindowBWBundle:Genero:delete" }
+    requirements: { _method: post|delete }

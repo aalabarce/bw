@@ -1,0 +1,15 @@
+BloodWindow\BWBundle\Entity\Genero:
+    type: entity
+    table: genero
+    repositoryClass: BloodWindow\BWBundle\Entity\GeneroRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+    lifecycleCallbacks: {  }

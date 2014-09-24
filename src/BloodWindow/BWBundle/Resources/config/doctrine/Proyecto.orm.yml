@@ -1,0 +1,84 @@
+BloodWindow\BWBundle\Entity\Proyecto:
+    type: entity
+    table: proy_en_desa
+    repositoryClass: BloodWindow\BWBundle\Entity\ProyectoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        tituloEspaniol:
+            type: string
+            length: '200'
+        tituloIngles:
+            type: string
+            length: '200'
+        pais:
+            type: string
+            length: '100'
+        duracion:
+            type: integer
+        sinopsisEspaniol:
+            type: string
+            length: '4000'
+        sinopsisIngles:
+            type: string
+            length: '4000'
+        presupuesto:
+            type: float
+        financiacionEspaniol:
+            type: string
+            length: '4000'
+        financiacionIngles:
+            type: string
+            length: '4000'
+        objetivoEspaniol:
+            type: string
+            length: '4000'
+        objetivoIngles:
+            type: string
+            length: '4000'
+        estadoEspaniol:
+            type: string
+            length: '4000'
+        estadoIngles:
+            type: string
+            length: '4000'
+        visionEspaniol:
+            type: string
+            length: '4000'
+        visionIngles:
+            type: string
+            length: '4000'
+        cvProdEspaniol:
+            type: string
+            length: '4000'
+        cvProdIngles:
+            type: string
+            length: '4000'
+        cvDirEspaniol:
+            type: string
+            length: '4000'
+        cvDirIngles:
+            type: string
+            length: '4000'
+        director:
+            type: string
+            length: '100'
+        productor:
+            type: string
+            length: '100'
+        compania:
+            type: string
+            length: '100'
+        email:
+            type: string
+            length: '100'
+        telefono:
+            type: integer
+        website:
+            type: string
+            length: '1000'
+    lifecycleCallbacks: {  }
