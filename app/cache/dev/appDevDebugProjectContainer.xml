@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:/wamp/www/bw/app</parameter>
+    <parameter key="kernel.root_dir">/Users/martinhaiek1/Documents/Development/bw/app</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">app</parameter>
-    <parameter key="kernel.cache_dir">C:/wamp/www/bw/app/cache/dev</parameter>
-    <parameter key="kernel.logs_dir">C:/wamp/www/bw/app/logs</parameter>
+    <parameter key="kernel.cache_dir">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev</parameter>
+    <parameter key="kernel.logs_dir">/Users/martinhaiek1/Documents/Development/bw/app/logs</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
@@ -27,10 +27,10 @@
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
-    <parameter key="database_port">null</parameter>
+    <parameter key="database_port">8889</parameter>
     <parameter key="database_name">bloodwindow</parameter>
-    <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_user">martin</parameter>
+    <parameter key="database_password">haiek</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -91,7 +91,7 @@
     <parameter key="debug.errors_logger_listener.class">Symfony\Component\HttpKernel\EventListener\ErrorsLoggerListener</parameter>
     <parameter key="debug.event_dispatcher.class">Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher</parameter>
     <parameter key="debug.stopwatch.class">Symfony\Component\Stopwatch\Stopwatch</parameter>
-    <parameter key="debug.container.dump">C:/wamp/www/bw/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
+    <parameter key="debug.container.dump">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/appDevDebugProjectContainer.xml</parameter>
     <parameter key="debug.controller_resolver.class">Symfony\Component\HttpKernel\Controller\TraceableControllerResolver</parameter>
     <parameter key="debug.debug_handlers_listener.class">Symfony\Component\HttpKernel\EventListener\DebugHandlersListener</parameter>
     <parameter key="kernel.secret">ffa648a809ac349533766c557e7d0eb96469da8e</parameter>
@@ -113,7 +113,7 @@
     <parameter key="session.storage.options" type="collection">
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/wamp/www/bw/app/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="security.secure_random.class">Symfony\Component\Security\Core\Util\SecureRandom</parameter>
     <parameter key="form.resolved_type_factory.class">Symfony\Component\Form\ResolvedFormTypeFactory</parameter>
@@ -190,7 +190,7 @@
     <parameter key="data_collector.form.extractor.class">Symfony\Component\Form\Extension\DataCollector\FormDataExtractor</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/wamp/www/bw/app/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/profiler</parameter>
     <parameter key="profiler.storage.username"></parameter>
     <parameter key="profiler.storage.password"></parameter>
     <parameter key="profiler.storage.lifetime">86400</parameter>
@@ -214,7 +214,7 @@
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
-    <parameter key="router.resource">C:/wamp/www/bw/app/cache/dev/assetic/routing.yml</parameter>
+    <parameter key="router.resource">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic/routing.yml</parameter>
     <parameter key="router.cache_class_prefix">appDev</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
@@ -333,7 +333,7 @@
       <parameter key="exception_controller">twig.controller.exception:showAction</parameter>
       <parameter key="autoescape_service">null</parameter>
       <parameter key="autoescape_service_method">null</parameter>
-      <parameter key="cache">C:/wamp/www/bw/app/cache/dev/twig</parameter>
+      <parameter key="cache">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/twig</parameter>
       <parameter key="charset">UTF-8</parameter>
       <parameter key="paths" type="collection"/>
     </parameter>
@@ -403,7 +403,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.auth_mode">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.timeout">30</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:/wamp/www/bw/app/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -427,7 +427,7 @@
     <parameter key="assetic.worker.ensure_filter.class">Assetic\Factory\Worker\EnsureFilterWorker</parameter>
     <parameter key="assetic.value_supplier.class">Symfony\Bundle\AsseticBundle\DefaultValueSupplier</parameter>
     <parameter key="assetic.node.paths" type="collection"/>
-    <parameter key="assetic.cache_dir">C:/wamp/www/bw/app/cache/dev/assetic</parameter>
+    <parameter key="assetic.cache_dir">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
       <parameter>BloodWindowBWBundle</parameter>
     </parameter>
@@ -439,8 +439,8 @@
     <parameter key="assetic.debug">true</parameter>
     <parameter key="assetic.use_controller">true</parameter>
     <parameter key="assetic.enable_profiler">false</parameter>
-    <parameter key="assetic.read_from">C:/wamp/www/bw/app/../web</parameter>
-    <parameter key="assetic.write_to">C:/wamp/www/bw/app/../web</parameter>
+    <parameter key="assetic.read_from">/Users/martinhaiek1/Documents/Development/bw/app/../web</parameter>
+    <parameter key="assetic.write_to">/Users/martinhaiek1/Documents/Development/bw/app/../web</parameter>
     <parameter key="assetic.variables" type="collection"/>
     <parameter key="assetic.java.bin">/usr/bin/java</parameter>
     <parameter key="assetic.node.bin">/usr/bin/node</parameter>
@@ -507,7 +507,7 @@
     <parameter key="doctrine.orm.naming_strategy.default.class">Doctrine\ORM\Mapping\DefaultNamingStrategy</parameter>
     <parameter key="doctrine.orm.naming_strategy.underscore.class">Doctrine\ORM\Mapping\UnderscoreNamingStrategy</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/wamp/www/bw/app/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="sensio_framework_extra.view.guesser.class">Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser</parameter>
     <parameter key="sensio_framework_extra.controller.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\ControllerListener</parameter>
@@ -662,7 +662,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:/wamp/www/bw/app/Resources</argument>
+                <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources</argument>
               </service>
             </argument>
             <argument type="service" id="templating.locator"/>
@@ -688,7 +688,7 @@
               <service class="Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder" public="false">
                 <argument type="service" id="kernel"/>
                 <argument type="service" id="templating.filename_parser"/>
-                <argument>C:/wamp/www/bw/app/Resources</argument>
+                <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources</argument>
               </service>
             </argument>
           </service>
@@ -710,7 +710,7 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator">
       <argument type="service" id="kernel"/>
-      <argument>C:/wamp/www/bw/app/Resources</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources</argument>
     </service>
     <service id="uri_signer" class="Symfony\Component\HttpKernel\UriSigner">
       <argument>ffa648a809ac349533766c557e7d0eb96469da8e</argument>
@@ -794,7 +794,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/bw/app/cache/dev/translations</argument>
+        <argument key="cache_dir">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/translations</argument>
         <argument key="debug">true</argument>
       </argument>
     </service>
@@ -1192,11 +1192,11 @@
     </service>
     <service id="security.secure_random" class="Symfony\Component\Security\Core\Util\SecureRandom">
       <tag name="monolog.logger" channel="security"/>
-      <argument>C:/wamp/www/bw/app/cache/dev/secure_random.seed</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/secure_random.seed</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="ignore"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy">
-      <argument type="service" id="aa28a4d71a18d9e5094ea05d76a89515e6f58c1af36efd2a71a74fb87e95f46f_1"/>
+      <argument type="service" id="f605833eb7e53b9907f796b2889c165b5a173623119031be5a9d3d39b9e6e2f9_1"/>
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry">
@@ -1409,7 +1409,7 @@
     <service id="templating.filename_parser" class="Symfony\Bundle\FrameworkBundle\Templating\TemplateFilenameParser"/>
     <service id="templating.locator" class="Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator" public="false">
       <argument type="service" id="file_locator"/>
-      <argument>C:/wamp/www/bw/app/cache/dev</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev</argument>
     </service>
     <service id="templating.helper.slots" class="Symfony\Component\Templating\Helper\SlotsHelper">
       <tag name="templating.helper" alias="slots"/>
@@ -1447,7 +1447,7 @@
     <service id="templating.helper.code" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper">
       <tag name="templating.helper" alias="code"/>
       <argument>null</argument>
-      <argument>C:/wamp/www/bw/app</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="templating.helper.translator" class="Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper">
@@ -1500,8 +1500,8 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Component\Form/Resources/config/validation.xml</argument>
-          <argument>C:\wamp\www\bw\vendor\friendsofsymfony\user-bundle\FOS\UserBundle\Resources\config\validation.xml</argument>
+          <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Component/Form/Resources/config/validation.xml</argument>
+          <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1522,7 +1522,7 @@
         </argument>
       </call>
       <call method="addXmlMapping">
-        <argument>C:\wamp\www\bw\vendor\friendsofsymfony\user-bundle\FOS\UserBundle\DependencyInjection\Compiler/../../Resources/config/validation/orm.xml</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/DependencyInjection/Compiler/../../Resources/config/validation/orm.xml</argument>
       </call>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator">
@@ -1538,7 +1538,7 @@
       <argument type="service" id="uri_signer"/>
       <argument>/_fragment</argument>
     </service>
-    <service id="aa28a4d71a18d9e5094ea05d76a89515e6f58c1af36efd2a71a74fb87e95f46f_1" class="Symfony\Component\Form\ResolvedFormTypeFactory"/>
+    <service id="f605833eb7e53b9907f796b2889c165b5a173623119031be5a9d3d39b9e6e2f9_1" class="Symfony\Component\Form\ResolvedFormTypeFactory"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension">
       <tag name="form.type_extension" alias="form"/>
       <argument type="service" id="data_collector.form"/>
@@ -1547,7 +1547,7 @@
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service">
         <service class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-          <argument>file:C:/wamp/www/bw/app/cache/dev/profiler</argument>
+          <argument>file:/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/profiler</argument>
           <argument></argument>
           <argument></argument>
           <argument>86400</argument>
@@ -1774,7 +1774,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>541d918c86a0e</argument>
+            <argument>541dbfdd52bb0</argument>
           </service>
         </argument>
       </argument>
@@ -2066,7 +2066,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>541d918c86a0e</argument>
+            <argument>541dbfdd52bb0</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2187,7 +2187,7 @@
         <argument key="exception_controller">twig.controller.exception:showAction</argument>
         <argument key="autoescape_service">null</argument>
         <argument key="autoescape_service_method">null</argument>
-        <argument key="cache">C:/wamp/www/bw/app/cache/dev/twig</argument>
+        <argument key="cache">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/twig</argument>
         <argument key="charset">UTF-8</argument>
         <argument key="paths" type="collection"/>
       </argument>
@@ -2237,7 +2237,7 @@
           <service class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
             <tag name="twig.extension"/>
             <argument>null</argument>
-            <argument>C:/wamp/www/bw/app</argument>
+            <argument>/Users/martinhaiek1/Documents/Development/bw/app</argument>
             <argument>UTF-8</argument>
           </service>
         </argument>
@@ -2359,7 +2359,7 @@
       <argument>true</argument>
     </service>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
-      <argument>C:/wamp/www/bw/app/logs/dev.log</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/logs/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
     </service>
@@ -2370,9 +2370,9 @@
       <argument>false</argument>
       <argument type="collection"/>
     </service>
-    <service id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_3" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator"/>
-    <service id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_2" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator"/>
-    <service id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_1" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator"/>
+    <service id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_3" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator"/>
+    <service id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_2" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator"/>
+    <service id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_1" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator"/>
     <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="service_container"/>
@@ -2405,7 +2405,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:/wamp/www/bw/app/cache/dev/assetic/config</argument>
+                <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2423,7 +2423,7 @@
             </argument>
             <argument type="service">
               <service class="Assetic\Cache\ConfigCache" public="false">
-                <argument>C:/wamp/www/bw/app/cache/dev/assetic/config</argument>
+                <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic/config</argument>
               </service>
             </argument>
             <argument>true</argument>
@@ -2440,7 +2440,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BloodWindowBWBundle</argument>
-                  <argument>C:/wamp/www/bw/app/Resources/BloodWindowBWBundle/views</argument>
+                  <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources/BloodWindowBWBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2448,7 +2448,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BloodWindowBWBundle</argument>
-                  <argument>C:\wamp\www\bw\src\BloodWindow\BWBundle/Resources/views</argument>
+                  <argument>/Users/martinhaiek1/Documents/Development/bw/src/BloodWindow/BWBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2467,7 +2467,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BloodWindowBWBundle</argument>
-                  <argument>C:/wamp/www/bw/app/Resources/BloodWindowBWBundle/views</argument>
+                  <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources/BloodWindowBWBundle/views</argument>
                   <argument>/\.[^.]+\.php$/</argument>
                 </service>
               </argument>
@@ -2475,7 +2475,7 @@
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
                   <argument>BloodWindowBWBundle</argument>
-                  <argument>C:\wamp\www\bw\src\BloodWindow\BWBundle/Resources/views</argument>
+                  <argument>/Users/martinhaiek1/Documents/Development/bw/src/BloodWindow/BWBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.php$/</argument>
                 </service>
               </argument>
@@ -2491,7 +2491,7 @@
             <tag name="assetic.formula_resource" loader="twig"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>C:/wamp/www/bw/app/Resources/views</argument>
+            <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources/views</argument>
             <argument>/\.[^.]+\.twig$/</argument>
           </service>
         </argument>
@@ -2504,7 +2504,7 @@
             <tag name="assetic.formula_resource" loader="php"/>
             <argument type="service" id="templating.loader"/>
             <argument></argument>
-            <argument>C:/wamp/www/bw/app/Resources/views</argument>
+            <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources/views</argument>
             <argument>/\.[^.]+\.php$/</argument>
           </service>
         </argument>
@@ -2517,7 +2517,7 @@
       <argument type="service">
         <service class="Symfony\Component\DependencyInjection\ParameterBag\ParameterBag" factory-method="getParameterBag" factory-service="service_container" public="false"/>
       </argument>
-      <argument>C:/wamp/www/bw/app/../web</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/../web</argument>
       <argument>true</argument>
       <call method="addWorker">
         <argument type="service">
@@ -2550,7 +2550,7 @@
       </call>
     </service>
     <service id="assetic.cache" class="Assetic\Cache\FilesystemCache" public="false">
-      <argument>C:/wamp/www/bw/app/cache/dev/assetic/assets</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic/assets</argument>
     </service>
     <service id="assetic.request_listener" class="Symfony\Bundle\AsseticBundle\EventListener\RequestListener">
       <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
@@ -2574,10 +2574,10 @@
       <argument type="collection">
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
-        <argument key="port">null</argument>
+        <argument key="port">8889</argument>
         <argument key="dbname">bloodwindow</argument>
-        <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="user">martin</argument>
+        <argument key="password">haiek</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
       </argument>
@@ -2652,7 +2652,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_56b38d243dde72f96d593f117231709234e556adca70697d60f86536cf99c8cc</argument>
+                  <argument>sf2orm_default_75789652c076715d4e97dce4cdd5343a67a28e226be5a4f71412414bdc7cb7e5</argument>
                 </call>
               </service>
             </argument>
@@ -2661,7 +2661,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_56b38d243dde72f96d593f117231709234e556adca70697d60f86536cf99c8cc</argument>
+                  <argument>sf2orm_default_75789652c076715d4e97dce4cdd5343a67a28e226be5a4f71412414bdc7cb7e5</argument>
                 </call>
               </service>
             </argument>
@@ -2670,7 +2670,7 @@
             <argument type="service">
               <service class="Doctrine\Common\Cache\ArrayCache" public="false">
                 <call method="setNamespace">
-                  <argument>sf2orm_default_56b38d243dde72f96d593f117231709234e556adca70697d60f86536cf99c8cc</argument>
+                  <argument>sf2orm_default_75789652c076715d4e97dce4cdd5343a67a28e226be5a4f71412414bdc7cb7e5</argument>
                 </call>
               </service>
             </argument>
@@ -2682,7 +2682,7 @@
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver" public="false">
                       <argument type="collection">
-                        <argument key="C:\wamp\www\bw\vendor\friendsofsymfony\user-bundle\FOS\UserBundle\Resources\config\doctrine">FOS\UserBundle\Entity</argument>
+                        <argument key="/Users/martinhaiek1/Documents/Development/bw/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine">FOS\UserBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -2695,7 +2695,7 @@
                   <argument type="service">
                     <service class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
                       <argument type="collection">
-                        <argument key="C:\wamp\www\bw\src\BloodWindow\BWBundle\Resources\config\doctrine">BloodWindow\BWBundle\Entity</argument>
+                        <argument key="/Users/martinhaiek1/Documents/Development/bw/src/BloodWindow/BWBundle/Resources/config/doctrine">BloodWindow\BWBundle\Entity</argument>
                       </argument>
                       <call method="setGlobalBasename">
                         <argument>mapping</argument>
@@ -2710,7 +2710,7 @@
                       <argument type="service">
                         <service class="Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator">
                           <argument type="collection">
-                            <argument key="C:\wamp\www\bw\vendor\friendsofsymfony\user-bundle\FOS\UserBundle\Resources\config\doctrine\model">FOS\UserBundle\Model</argument>
+                            <argument key="/Users/martinhaiek1/Documents/Development/bw/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/doctrine/model">FOS\UserBundle\Model</argument>
                           </argument>
                           <argument>.orm.xml</argument>
                         </service>
@@ -2723,7 +2723,7 @@
             </argument>
           </call>
           <call method="setProxyDir">
-            <argument>C:/wamp/www/bw/app/cache/dev/doctrine/orm/Proxies</argument>
+            <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/doctrine/orm/Proxies</argument>
           </call>
           <call method="setProxyNamespace">
             <argument>Proxies</argument>
@@ -2967,7 +2967,7 @@
       <argument type="service" id="router" on-invalid="ignore"/>
     </service>
     <service id="sensio_distribution.webconfigurator" class="Sensio\Bundle\DistributionBundle\Configurator\Configurator">
-      <argument>C:/wamp/www/bw/app</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app</argument>
       <call method="addStep">
         <argument type="service">
           <service class="Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep" public="false">
@@ -3115,7 +3115,7 @@
       <argument>true</argument>
     </service>
     <service id="session.storage.filesystem" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage">
-      <argument>C:/wamp/www/bw/app/cache/dev/sessions</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -3162,9 +3162,9 @@
     <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <argument type="service" id="service_container"/>
-      <argument>C:/wamp/www/bw/app/cache/dev/assetic/routing.yml</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/assetic/routing.yml</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/wamp/www/bw/app/cache/dev</argument>
+        <argument key="cache_dir">/Users/martinhaiek1/Documents/Development/bw/app/cache/dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
         <argument key="generator_base_class">Symfony\Component\Routing\Generator\UrlGenerator</argument>
@@ -3183,7 +3183,7 @@
       <argument type="service">
         <service class="Doctrine\Common\Annotations\AnnotationReader" public="false"/>
       </argument>
-      <argument>C:/wamp/www/bw/app/cache/dev/annotations</argument>
+      <argument>/Users/martinhaiek1/Documents/Development/bw/app/cache/dev/annotations</argument>
       <argument>true</argument>
     </service>
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
@@ -3203,50 +3203,50 @@
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="templating.name_parser"/>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Bundle\FrameworkBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Bundle\SecurityBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Bundle/SecurityBundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Bundle\TwigBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\swiftmailer-bundle\Symfony\Bundle\SwiftmailerBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/swiftmailer-bundle/Symfony/Bundle/SwiftmailerBundle/Resources/views</argument>
         <argument>Swiftmailer</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\doctrine\doctrine-bundle\Doctrine\Bundle\DoctrineBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\friendsofsymfony\user-bundle\FOS\UserBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views</argument>
         <argument>FOSUser</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\src\BloodWindow\BWBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/src/BloodWindow/BWBundle/Resources/views</argument>
         <argument>BloodWindowBW</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\src\Acme\DemoBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/src/Acme/DemoBundle/Resources/views</argument>
         <argument>AcmeDemo</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\sensio\distribution-bundle\Sensio\Bundle\DistributionBundle/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views</argument>
         <argument>SensioDistribution</argument>
       </call>
       <call method="addPath">
-        <argument>C:/wamp/www/bw/app/Resources/views</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/app/Resources/views</argument>
       </call>
       <call method="addPath">
-        <argument>C:\wamp\www\bw\vendor\symfony\symfony\src\Symfony\Bridge\Twig/Resources/views/Form</argument>
+        <argument>/Users/martinhaiek1/Documents/Development/bw/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form</argument>
       </call>
     </service>
     <service id="debug.templating.engine.twig" class="Symfony\Bundle\TwigBundle\Debug\TimedTwigEngine">
@@ -3293,9 +3293,9 @@
         <argument type="service">
           <service class="Swift_Transport_Esmtp_AuthHandler" public="false">
             <argument type="collection">
-              <argument type="service" id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_1"/>
-              <argument type="service" id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_2"/>
-              <argument type="service" id="f7a6cd421b0f168f0740de74ec292e754d9d65fe631f2c1f4d4fa0cb45194f27_3"/>
+              <argument type="service" id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_1"/>
+              <argument type="service" id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_2"/>
+              <argument type="service" id="3f5820bebd9813d57bee324b66415a9c331a7e3de7dede5fb530fd626b9b3e92_3"/>
             </argument>
             <call method="setUsername">
               <argument>null</argument>
