@@ -34,8 +34,8 @@ angular.module('bloodWindowControllers', [])
   //$scope.searchTitulo = "example titulo"; // Edit stored parameters
   //$scope.searchAno = "example anio"; // Edit stored parameters
   //$scope.searchDirector = "example director"; // Edit stored parameters
-  $scope.searchGenero = "example genero"; // Edit stored parameters
-  $scope.searchFestival = "example festival"; // Edit stored parameters
+  $scope.searchGenero = "1"; // Edit stored parameters
+  $scope.searchFestival = "1"; // Edit stored parameters
 
   $scope.inputBuscador = "example buscador"; // Edit stored parameters
 
@@ -59,7 +59,7 @@ angular.module('bloodWindowControllers', [])
   $scope.openCortoDetail = function (cortoId) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'templates/modals/modal.corto.detail.html',
+      templateUrl: '/web/bundles/bloodwindowbw/templates/modals/modal.corto.detail.html',
       controller: 'CortoDetailCtrl',
       size: 'lg',
       resolve: {
