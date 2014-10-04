@@ -4,24 +4,46 @@
 
 angular.module('bloodWindowControllers', [])
 
-.controller('SidebarCtrl', ['$scope', function($scope) {
+.controller('SidebarCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+  
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
   $scope.isCollapsed = true;
   $scope.content = ['home', 'industria', 'proyecto/1', 'work/1'];
+
+  $scope.change = function () {
+    $rootScope.searchInputText = $scope.searchInput;
+  }
+  
+
 }])
 
-.controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', function($scope, $http, $rootScope, $modal) {
+.controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', '$location', function($scope, $http, $rootScope, $modal, $location) {
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
+  // Get value from input search and get data from API
+   $scope.showCarousel = true;
+   $scope.$watch('searchInputText', function() {
+      if($rootScope.searchInputText) $scope.showCarousel = false;
+      else $scope.showCarousel = true;
+   });
 
   // ***** START API ***** Get All Cortos with filters
-  $scope.searchTitulo = "example titulo"; // Edit stored parameters
-  $scope.searchAno = "example anio"; // Edit stored parameters
-  $scope.searchDirector = "example director"; // Edit stored parameters
+  //$scope.searchTitulo = "example titulo"; // Edit stored parameters
+  //$scope.searchAno = "example anio"; // Edit stored parameters
+  //$scope.searchDirector = "example director"; // Edit stored parameters
   $scope.searchGenero = "example genero"; // Edit stored parameters
   $scope.searchFestival = "example festival"; // Edit stored parameters
 
-  $scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
+  $scope.inputBuscador = "example buscador"; // Edit stored parameters
+
+  //$scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
+  $scope.sendToAPI = '{"inputBuscador": "' + $scope.inputBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
   $http({
       method: 'POST',
-      url: $rootScope.serverURL + "/buscar",
+      url: $rootScope.serverURL + "/buscar/corto",
       data: $scope.sendToAPI
   })
   .success(function(data, status){
@@ -37,7 +59,7 @@ angular.module('bloodWindowControllers', [])
   $scope.openCortoDetail = function (cortoId) {
 
     var modalInstance = $modal.open({
-      templateUrl: '/web/bundles/bloodwindowbw/templates/modals/modal.corto.detail.html',
+      templateUrl: 'templates/modals/modal.corto.detail.html',
       controller: 'CortoDetailCtrl',
       size: 'lg',
       resolve: {
@@ -47,32 +69,53 @@ angular.module('bloodWindowControllers', [])
       }
     });
 
-    /*
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-    */
   };
   // ***** END OPEN MODAL CORTO DETAIL *****
 
+  // ***** START CAROUSEL *****
   $scope.myInterval = 5000;
   $scope.slides = [
-    {'id' : '1',
-    'image': 'http://placekitten.com/605/300',
-    'text' : 'Alexia',
-    'small' : 'A pesar de que Alexia, la ex novia de Franco, ha fallecido hace algún tiempo.'},
-    {'id' : '2',
-    'image': 'http://placekitten.com/601/300',
-    'text' : 'Otra Pelicula',
-    'small' : 'Franco aún conserva su contacto en las redes sociales. Cuando se decide a eliminar'}
+    {
+    'id' : '1',
+    'image': '../theme/images/blue.jpg',
+    'title' : 'American Horror Story',
+    'name' : 'American Horror Story\: Murder House',
+    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
+    'director' : 'Ryan Murphy and Brad Falchuk',
+    'duration' : '45 mins',
+    'festival' : 'Cannes, Valparaiso'
+    }, {
+    'id' : '2',
+    'image': '../theme/images/purple.jpg',
+    'title' : 'American Horror Story',
+    'name' : 'American Horror Story\: Murder House',
+    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
+    'director' : 'Ryan Murphy and Brad Falchuk',
+    'duration' : '45 mins',
+    'festival' : 'Cannes, Valparaiso'
+    }, {
+    'id' : '3',
+    'image': '../theme/images/red.jpg',
+    'title' : 'American Horror Story',
+    'name' : 'American Horror Story\: Murder House',
+    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
+    'director' : 'Ryan Murphy and Brad Falchuk',
+    'duration' : '45 mins',
+    'festival' : 'Cannes, Valparaiso'
+    }
   ];
+  // ***** END CAROUSEL *****
+
+  // ***** START RESULT TABS *****
+  // ***** END RESULT TABS *****
 
 }])
 
-.controller('IndustriaCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+.controller('IndustriaCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
   
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
   // ***** START API ***** Get All Proyectos with filters
   $scope.orderBy = "anio"; // Edit stored parameters
   $scope.orderBy = "financiacion"; // Edit stored parameters
@@ -144,7 +187,11 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('ProyectoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', function($scope, $routeParams, $http, $rootScope) {
+.controller('ProyectoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
+
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
   $scope.id = $routeParams.proyectoId;
 
   // ***** START API ***** Get proyecto detail
@@ -165,7 +212,11 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', function($scope, $routeParams, $http, $rootScope) {
+.controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
+
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
   $scope.id = $routeParams.workId;
 
   // ***** START API ***** Get work detail

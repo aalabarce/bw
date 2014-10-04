@@ -9,19 +9,19 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.
         when('/home', {
-          templateUrl: '/web/bundles/bloodwindowbw/templates/content.home.html',
+          templateUrl: 'templates/content.home.html',
           controller: 'HomeCtrl'
         }).
         when('/industria', {
-          templateUrl: '/web/bundles/bloodwindowbw/templates/content.industria.html',
+          templateUrl: 'templates/content.industria.html',
           controller: 'IndustriaCtrl'
         }).
         when('/proyecto/:proyectoId', {
-          templateUrl: '/web/bundles/bloodwindowbw/templates/content.proyecto.detail.html',
+          templateUrl: 'templates/content.proyecto.detail.html',
           controller: 'ProyectoDetailCtrl'
         }).
         when('/work/:workId', {
-          templateUrl: '/web/bundles/bloodwindowbw/templates/content.work.detail.html',
+          templateUrl: 'templates/content.work.detail.html',
           controller: 'WorkDetailCtrl'
         }).
         otherwise({

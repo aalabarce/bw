@@ -1,17 +1,425 @@
-<div>
-	<h1>Home</h1>
+<div class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+	<a class="ico-en pull-right" href="#"><img class="img-responsive" src="../theme/images/ico-eng.png" alt="" /></a>
+	<a class="ico-es pull-right" href="#"><img class="img-responsive" src="../theme/images/ico-esp.png" alt="" /></a>
+</div>
+<div class="clearfix"></div>
+<!--slider -->
+<article class="slide">
+	<section class="block">
 
-	<div style="height: 305px">
-		<carousel interval="myInterval">
+		<carousel interval="myInterval" ng-show="showCarousel">
 		  <slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
-		    <img ng-src="{{slide.image}}" style="margin:auto;">
-		    <div class="carousel-caption">
-		      <h4>Slide {{$index}}</h4>
-		      <p>{{slide.text}}</p>
-		      <small>{{slide.small}}</small>
-		    </div>
+            	<div class="desc-item col-lg-6 col-md-6 hidden-sm hidden-xs" style="text-align: left;">
+            		<h1>{{slide.title}}</h1>
+            		<div class="info-item">
+            			<h2>{{slide.name}}</h2>
+            			<p>{{slide.synopsis}}</p>
+						<div class="detail-info-item">
+							<p class="director">Director: <b>{{slide.director}}</b> </p>
+							<p class="duracion">Duración: <b>{{slide.duration}}</b></p>
+							<p class="festival">Festival: <b>{{slide.festival}}</b></p>
+						</div>
+            		</div>
+            	</div>
+                <img src="{{slide.image}}" alt="Slide{{slide.id}}" />
 		  </slide>
 		</carousel>
-	</div>
 
-</div>
+		<!-- Show when user is searching for something -->
+		<h1 ng-hide="showCarousel">{{searchInputText}}</h1>
+
+	</section>
+</article>
+<section class="cat-movies">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<ul class="nav nav-tabs listado-tabs" role="tablist">
+		  <li><a data-toggle="tab" role="tab" href="#sitges">Sitges</a></li>
+		  <li class="active"><a data-toggle="tab" role="tab" href="#fantastic">Fantastic Fest Austin</a></li>
+		  <li><a data-toggle="tab" role="tab" href="#pifan">Pifan</a></li>
+		  <li><a data-toggle="tab" role="tab" href="#bifff">Bifff</a></li>
+		  <li><a data-toggle="tab" role="tab" href="#morbido">Morbido</a></li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+	      <div id="sitges" class="tab-pane fade">
+	        <div class="item-listado-tab">
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-7.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-8.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-9.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-10.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-11.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-12.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        </div>
+	      </div>
+	      <div id="fantastic" class="tab-pane fade active in">
+	        <div class="item-listado-tab">
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-1.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-2.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-3.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-4.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-5.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-6.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        </div>
+	      </div>
+	      <div id="pifan" class="tab-pane fade">
+	        <div class="item-listado-tab">
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-13.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-14.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-15.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-16.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-17.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-18.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        </div>
+	      </div>
+	      <div id="bifff" class="tab-pane fade">
+	        <div class="item-listado-tab">
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-1.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-2.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-3.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-4.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-5.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-6.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        </div>
+	      </div>
+	      <div id="morbido" class="tab-pane fade">
+	        <div class="item-listado-tab">
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-7.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-8.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-9.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-10.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-11.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb">
+	        		<a href="photos/iceland/">
+	        			<div class="desc-item-listado">
+	        				<h3>Night of the living dead</h3>
+	        				<p>Genero: <span>Terror</span></p>
+	        				<p>Año: <span>2013</span></p>
+	        				<p>Director: <span>George A. Romero</span></p>
+	        				<p>Festival: <span>Fantastic Fest Austin</span></p>
+	        			</div>
+	        			<img src="../theme/images/img-cat-12.jpg" class="img-responsive">
+	        		</a>
+	        	</div>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+</section>
