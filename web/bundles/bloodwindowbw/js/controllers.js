@@ -13,7 +13,10 @@ angular.module('bloodWindowControllers', [])
   $scope.content = ['home', 'industria', 'proyecto/1', 'work/1'];
 
   $scope.change = function () {
-    $rootScope.searchInputText = $scope.searchInput;
+    if(typeof $scope.searchInput == "undefined") {
+      $rootScope.searchInputText = "";
+    }
+    else $rootScope.searchInputText = $scope.searchInput;
   }
   
 
@@ -23,37 +26,47 @@ angular.module('bloodWindowControllers', [])
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
 
-  // Get value from input search and get data from API
-   $scope.showCarousel = true;
-   $scope.$watch('searchInputText', function() {
-      if($rootScope.searchInputText) $scope.showCarousel = false;
-      else $scope.showCarousel = true;
-   });
+  // ***** START API ***** Get Carousel Cortos
+  $scope.slides = "";
+  $scope.getCarouselCortos = function() {
+    $http({
+    method: 'POST',
+    url: $rootScope.serverURL + "/buscar/corto/carousel"
+    })
+    .success(function(data, status){
+        $scope.slides = data;
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
+  // ***** END API *****
 
   // ***** START API ***** Get All Cortos with filters
-  //$scope.searchTitulo = "example titulo"; // Edit stored parameters
-  //$scope.searchAno = "example anio"; // Edit stored parameters
-  //$scope.searchDirector = "example director"; // Edit stored parameters
+  $scope.filterCortos = "";
+  $scope.getFilterCortos = function() {
+    $scope.searchGenero = ""; // Edit stored parameters
+    $scope.searchFestival = ""; // Edit stored parameters
+    $scope.searchBuscador = ""; // Edit stored parameters
 
-  $scope.searchGenero = "12"; // Edit stored parameters
-  $scope.searchFestival = "1"; // Edit stored parameters
+    //$scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
+    $scope.sendToAPI = '{"inputBuscador": "' + $scope.searchBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
+    $http({
+        method: 'POST',
+        url: $rootScope.serverURL + "/buscar/corto",
+        data: $scope.sendToAPI
+    })
+    .success(function(data, status){
+        $scope.filterCortos = data;
+        //alert($scope.filterCortos[0].id);
+        console.log(data, status);  //remove for production
 
-  $scope.inputBuscador = "test"; // Edit stored parameters
-
-  //$scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
-  $scope.sendToAPI = '{"inputBuscador": "' + $scope.inputBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
-  $http({
-      method: 'POST',
-      url: $rootScope.serverURL + "/buscar/corto",
-      data: $scope.sendToAPI
-  })
-  .success(function(data, status){
-      console.log(data, status);  //remove for production
-
-  })
-  .error(function(data, status){
-      console.log(data, status); //remove for production
-  });
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
+  $scope.getFilterCortos();
   // ***** END API *****
 
   // ***** START OPEN MODAL CORTO DETAIL *****
@@ -74,38 +87,19 @@ angular.module('bloodWindowControllers', [])
   // ***** END OPEN MODAL CORTO DETAIL *****
 
   // ***** START CAROUSEL *****
+  $scope.getCarouselCortos();
   $scope.myInterval = 5000;
-  $scope.slides = [
-    {
-    'id' : '1',
-    'image': '/web/bundles/bloodwindowbw/theme/images/blue.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }, {
-    'id' : '2',
-    'image': '/web/bundles/bloodwindowbw/theme/images/purple.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }, {
-    'id' : '3',
-    'image': '/web/bundles/bloodwindowbw/theme/images/red.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }
-  ];
+
   // ***** END CAROUSEL *****
+
+  // ***** START INPUT SEARCH RESULT *****
+  // Get value from input search and get data from API
+  $scope.showCarousel = true;
+  $scope.$watch('searchInputText', function() {
+    if($rootScope.searchInputText) $scope.showCarousel = false;
+    else $scope.showCarousel = true;
+  });
+  // ***** END INPUT SEARCH RESULT *****
 
   // ***** START RESULT TABS *****
   // ***** END RESULT TABS *****
