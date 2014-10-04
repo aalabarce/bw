@@ -1,2 +1,4 @@
 /app/cache/*
 /app/logs/*
+/uploads/temp/*
+/app/config/parameters.yml
