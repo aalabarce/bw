@@ -77,7 +77,7 @@ angular.module('bloodWindowControllers', [])
   $scope.slides = [
     {
     'id' : '1',
-    'image': '../theme/images/blue.jpg',
+    'image': '/web/bundles/bloodwindowbw/theme/images/blue.jpg',
     'title' : 'American Horror Story',
     'name' : 'American Horror Story\: Murder House',
     'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
@@ -86,7 +86,7 @@ angular.module('bloodWindowControllers', [])
     'festival' : 'Cannes, Valparaiso'
     }, {
     'id' : '2',
-    'image': '../theme/images/purple.jpg',
+    'image': '/web/bundles/bloodwindowbw/theme/images/purple.jpg',
     'title' : 'American Horror Story',
     'name' : 'American Horror Story\: Murder House',
     'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
@@ -95,7 +95,7 @@ angular.module('bloodWindowControllers', [])
     'festival' : 'Cannes, Valparaiso'
     }, {
     'id' : '3',
-    'image': '../theme/images/red.jpg',
+    'image': '/web/bundles/bloodwindowbw/theme/images/red.jpg',
     'title' : 'American Horror Story',
     'name' : 'American Horror Story\: Murder House',
     'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',

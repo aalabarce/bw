@@ -9,19 +9,19 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.
         when('/home', {
-          templateUrl: 'templates/content.home.html',
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.home.html',
           controller: 'HomeCtrl'
         }).
         when('/industria', {
-          templateUrl: 'templates/content.industria.html',
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.industria.html',
           controller: 'IndustriaCtrl'
         }).
         when('/proyecto/:proyectoId', {
-          templateUrl: 'templates/content.proyecto.detail.html',
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.proyecto.detail.html',
           controller: 'ProyectoDetailCtrl'
         }).
         when('/work/:workId', {
-          templateUrl: 'templates/content.work.detail.html',
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.work.detail.html',
           controller: 'WorkDetailCtrl'
         }).
         otherwise({
@@ -30,5 +30,5 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
     }])
 
     .run(['$rootScope', function($rootScope) {
-       $rootScope.serverURL = "web/app_dev.php"; // Change URL
+       $rootScope.serverURL = "/web/app_dev.php"; // Change URL
     }]);

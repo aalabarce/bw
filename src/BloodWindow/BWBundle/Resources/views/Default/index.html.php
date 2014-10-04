@@ -9,19 +9,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
 
 	<!-- Angular Modules -->
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-	<script src="js/services.js"></script>
-	<script src="js/angular-route.js"></script>
-	<script src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+  <script src="/web/bundles/bloodwindowbw/js/app.js"></script>
+  <script src="/web/bundles/bloodwindowbw/js/controllers.js"></script>
+	<script src="/web/bundles/bloodwindowbw/js/services.js"></script>
+	<script src="/web/bundles/bloodwindowbw/js/angular-route.js"></script>
+	<script src="/web/bundles/bloodwindowbw/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="theme/css/bootstrap.css" media="all" /> <!-- llamado al CSS de BOOTSTRAP -->
-  <link rel="stylesheet" type="text/css" href="theme/css/fontello.css" media="all" /> <!-- llamado a FONTELLO -->
-  <link rel="stylesheet" type="text/css" href="theme/css/styles.css" media="all" /> <!-- llamado a MIS STYLES -->
+  <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/bootstrap.css" media="all" /> <!-- llamado al CSS de BOOTSTRAP -->
+  <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/fontello.css" media="all" /> <!-- llamado a FONTELLO -->
+  <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/styles.css" media="all" /> <!-- llamado a MIS STYLES -->
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'> <!-- GOOGLE FONT OSWALD -->
   <!-- JQUERY -->
-  <script src="theme/js/respond.js"></script> <!-- llamado a RESPOND para hacer que IE viejos entienda la semantica de HTML5. ESTE VA ARRIBA -->
+  <script src="/web/bundles/bloodwindowbw/theme/js/respond.js"></script> <!-- llamado a RESPOND para hacer que IE viejos entienda la semantica de HTML5. ESTE VA ARRIBA -->
   <script>
     function toggleCodes(on) {
       var obj = document.getElementById('icons');
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 logoHeader">
           <a class="navbar-brand" href="#">
-            <img class="img-responsive" src="theme/images/logo.png" alt="" />
+            <img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/logo.png" alt="" />
           </a>
         </div>
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 menuHeader">
