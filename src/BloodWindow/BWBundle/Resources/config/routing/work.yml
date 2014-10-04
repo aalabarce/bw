@@ -1,0 +1,30 @@
+admin_work:
+    path:     /
+    defaults: { _controller: "BloodWindowBWBundle:Work:index" }
+
+admin_work_show:
+    path:     /{id}/show
+    defaults: { _controller: "BloodWindowBWBundle:Work:show" }
+
+admin_work_new:
+    path:     /new
+    defaults: { _controller: "BloodWindowBWBundle:Work:new" }
+
+admin_work_create:
+    path:     /create
+    defaults: { _controller: "BloodWindowBWBundle:Work:create" }
+    requirements: { _method: post }
+
+admin_work_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "BloodWindowBWBundle:Work:edit" }
+
+admin_work_update:
+    path:     /{id}/update
+    defaults: { _controller: "BloodWindowBWBundle:Work:update" }
+    requirements: { _method: post|put }
+
+admin_work_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "BloodWindowBWBundle:Work:delete" }
+    requirements: { _method: post|delete }

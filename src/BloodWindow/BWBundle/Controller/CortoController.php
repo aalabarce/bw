@@ -46,9 +46,11 @@ class CortoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
+            
             return $this->redirect($this->generateUrl('admin_corto_show', array('id' => $entity->getId())));
         }
+
+
 
         return $this->render('BloodWindowBWBundle:Corto:new.html.twig', array(
             'entity' => $entity,
@@ -159,7 +161,10 @@ class CortoController extends Controller
      *
      */
     public function updateAction(Request $request, $id)
-    {
+    { 
+        // Muevo del path 
+        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BloodWindowBWBundle:Corto')->find($id);
@@ -225,9 +230,15 @@ class CortoController extends Controller
         ;
     }
 
+    /**
+    *   Sube una imagen de un corto a la carpeta temporal, para despues cuando es confirmado el cambio
+    *   es movida a la ruta definitiva
+    **/
     public function subirImagenAction()
     {
-        $output_dir = "C:\wamp\www\bw\uploads\\temp\\";
+
+        // outputdir: C:\wamp\www\bw\uploads\\temp\\
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "uploads/temp/";
         if(isset($_FILES["myfile"]))
         {
             $ret = array();
@@ -259,3 +270,4 @@ class CortoController extends Controller
          }
     }
 }
+    

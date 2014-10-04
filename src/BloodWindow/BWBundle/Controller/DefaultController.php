@@ -19,7 +19,7 @@ class DefaultController extends Controller
     	$cortoHome = $this->getDoctrine()->getRepository('BloodWindowBWBundle:Corto');
     	$cortos = $cortoHome->findAll();
 
-        return $this->render('BloodWindowBWBundle:Default:landingPage.html.php');
+        return $this->render('BloodWindowBWBundle:Default:index.html.php');
     }
 
     public function detalleCortoAction()
@@ -59,42 +59,48 @@ class DefaultController extends Controller
     public function obtenerCortosAction()
     {
          // Recibo el JSON con el filtro
-        /*$parametros = array();
+        $parametros = array();
         $jsonRequest = $this->get("request")->getContent();
         if (!empty($jsonRequest))
         {
             $parametros = json_decode($jsonRequest, true);
         }
 
-        $id = $parametros['id'];
         $genero = $parametros['genero'];
         $director = $parametros['director'];
-        $ano = $parametros['ano'];
+        $anio = $parametros['ano'];
         $titulo = $parametros['titulo'];
         $festival = $parametros['festival'];
-      */
+      
         // set doctrine
 
         $cortoHome = $this->getDoctrine()->getManager()->getConnection();
 
         // prepare statement
-        $sth = $cortoHome->prepare("SELECT * FROM corto c
+
+        $sql = "SELECT c.id, c.titulo, c.anio, f.id as festival, g.id as genero FROM corto c
         JOIN festival f ON c.festivalFk = f.id
         JOIN genero g ON c.generoFk = g.id
         WHERE 
-        c.titulo LIKE CONCAT('%', '' ,'%')
-        OR c.anio = 2010
-        OR f.nombre LIKE CONCAT('%', '','%')
-        OR g.nombre LIKE CONCAT('%', '' ,'%');");
+        (c.titulo LIKE CONCAT('%', " . $titulo . " ,'%')
+        OR c.director LIKE CONCAT('%', " . $director . " ,'%')
+        OR c.anio = " . $anio . ")";
+
+        empty($festival)?:$sql .= " AND f.id = " . $festival;
+        empty($genero)?:$sql .= " AND g.id = " . $genero;
+        
+        $sql .= ";";
+
+        $sth = $cortoHome->prepare($sql);
 
         // execute and fetch
         $sth->execute();
-        $result = $sth->fetchAll();
+        $result = $sth->fetchAll();    
 
-        var_dump($result);die;
-        
+        $response = new Response(json_encode($result));
+        $response->headers->set('Content-Type', 'application/json');
 
-        echo json_encode($result);die;
+        return $response;
     }
 
     public function obtenerFestivalesAction()

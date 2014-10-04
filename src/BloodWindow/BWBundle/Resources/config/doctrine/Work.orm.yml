@@ -1,0 +1,28 @@
+BloodWindow\BWBundle\Entity\Work:
+    type: entity
+    table: wip
+    repositoryClass: BloodWindow\BWBundle\Entity\WorkRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: '100'
+        anio:
+            type: integer
+        director:
+            type: string
+            length: '100'
+        pais:
+            type: string
+            length: '100'
+        compania:
+            type: string
+            length: '100'
+        estado:
+            type: integer
+    lifecycleCallbacks: {  }

@@ -18,6 +18,10 @@ BloodWindowBWBundle_admin_proyecto:
     resource: "@BloodWindowBWBundle/Resources/config/routing/proyecto.yml"
     prefix:   /admin/proyecto
 
+BloodWindowBWBundle_admin_work:
+     resource: "@BloodWindowBWBundle/Resources/config/routing/work.yml"
+     prefix:   /admin/work
+
 BloodWindowBWBundle_corto:
     path:     /corto
     defaults: { _controller: BloodWindowBWBundle:Default:detalleCorto }

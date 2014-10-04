@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" ng-app="bloodWindow">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title>Blood Window</title>
+
+  	<!-- AngularJS -->
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+
+  	<!-- Angular Modules -->
+	<script src="/web/bundles/bloodwindowbw/js/app.js"></script>
+  	<script src="/web/bundles/bloodwindowbw/js/controllers.js"></script>
+  	<script src="/web/bundles/bloodwindowbw/js/services.js"></script>
+  	<script src="/web/bundles/bloodwindowbw/js/angular-route.js"></script>
+  	<script src="/web/bundles/bloodwindowbw/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="/web/bundles/bloodwindowbw/css/starter-template.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="SidebarCtrl">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Blood Widow</a>
+        </div>
+        <div class="navbar-collapse" ng-class="{collapse: isCollapsed}">
+          <ul class="nav navbar-nav">
+          	<li ng-repeat="page in content"><a href="#{{page}}">{{page}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div ng-view class="starter-template" >
+      </div>
+
+    </div>
+	
+</body>
+</html>
