@@ -34,3 +34,10 @@ BloodWindowBWBundle_carousel:
     path:     /buscar/corto/carousel
     defaults: { _controller: BloodWindowBWBundle:Default:obtenerCortosCarousel }
 
+BloodWindowBWBundle_obtener_festivales:
+    path:     /buscar/festival
+    defaults: { _controller: BloodWindowBWBundle:Default:obtenerFestivales }
+
+BloodWindowBWBundle_obtener_generos:
+    path:     /buscar/genero
+    defaults: { _controller: BloodWindowBWBundle:Default:obtenerGeneros }
