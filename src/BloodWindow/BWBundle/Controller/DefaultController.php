@@ -110,6 +110,32 @@ class DefaultController extends Controller
         return $response;
     }
 
+    /**
+    *   Obtiene la info de los cortos que van en el carousel
+    *   de la landing
+    */
+    public function obtenerCortosCarouselAction()
+    {
+        $cortoHome = $this->getDoctrine()->getManager()->getConnection();
+
+        // prepare statement
+        // TODO: Agregar WHERE carousel = 1
+        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol as sinopsis, c.director, c.duracion, f.nombre as festival FROM corto c
+        JOIN festival f ON c.festivalFk = f.id;"; 
+
+        $sth = $cortoHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $result = $sth->fetchAll();    
+
+        $response = new Response(json_encode($result));
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+
+    }
+
     public function obtenerFestivalesAction()
     {
          // Voy a la base de datos y busco los festivales
