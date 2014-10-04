@@ -30,3 +30,7 @@ BloodWindowBWBundle_filtrar:
     path:     /buscar/corto
     defaults: { _controller: BloodWindowBWBundle:Default:obtenerCortos }
 
+BloodWindowBWBundle_carousel:
+    path:     /buscar/corto/carousel
+    defaults: { _controller: BloodWindowBWBundle:Default:obtenerCortosCarousel }
+
