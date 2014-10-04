@@ -238,7 +238,7 @@ class CortoController extends Controller
     {
 
         // outputdir: C:\wamp\www\bw\uploads\\temp\\
-        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "uploads/temp/";
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/";
         if(isset($_FILES["myfile"]))
         {
             $ret = array();
