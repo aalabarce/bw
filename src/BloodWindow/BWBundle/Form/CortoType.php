@@ -5,6 +5,8 @@ namespace BloodWindow\BWBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
+
 
 class CortoType extends AbstractType
 {
@@ -25,9 +27,11 @@ class CortoType extends AbstractType
             ->add('compania')
             ->add('telefono')
             ->add('sitioWeb')
-            ->add('sinopsisEspaniol')
-            ->add('sinopsisIngles')
-            ->add('nominado')
+            ->add('sinopsisEspaniol','textarea')
+            ->add('sinopsisIngles','textarea')
+            ->add('nominado', 'choice', array(
+  'choice_list' => new ChoiceList(array(1, 0), array('Si', 'No')
+)))
         ;
     }
     

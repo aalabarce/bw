@@ -163,7 +163,7 @@ class CortoController extends Controller
     public function updateAction(Request $request, $id)
     { 
         // Muevo del path 
-        move_uploaded_file($tmp_name, "$uploads_dir/$name");
+        //move_uploaded_file($tmp_name, "$uploads_dir/$name");
 
         $em = $this->getDoctrine()->getManager();
 
