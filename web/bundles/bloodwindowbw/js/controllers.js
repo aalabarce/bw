@@ -27,14 +27,14 @@ angular.module('bloodWindowControllers', [])
   $rootScope.currentUrl = $location.path();
 
   // ***** START API ***** Get Carousel Cortos
-  $scope.carouselCortos = "";
+  $scope.slides = "";
   $scope.getCarouselCortos = function() {
     $http({
     method: 'POST',
     url: $rootScope.serverURL + "/buscar/corto/carousel"
     })
     .success(function(data, status){
-        console.log(data, status);  //remove for production
+        $scope.slides = data;
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
@@ -58,7 +58,7 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.filterCortos = data;
-        alert($scope.filterCortos[0].id);
+        //alert($scope.filterCortos[0].id);
         console.log(data, status);  //remove for production
 
     })
@@ -87,37 +87,9 @@ angular.module('bloodWindowControllers', [])
   // ***** END OPEN MODAL CORTO DETAIL *****
 
   // ***** START CAROUSEL *****
+  $scope.getCarouselCortos();
   $scope.myInterval = 5000;
-  $scope.slides = [
-    {
-    'id' : '1',
-    'image': '/web/bundles/bloodwindowbw/theme/images/blue.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }, {
-    'id' : '2',
-    'image': '/web/bundles/bloodwindowbw/theme/images/purple.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }, {
-    'id' : '3',
-    'image': '/web/bundles/bloodwindowbw/theme/images/red.jpg',
-    'title' : 'American Horror Story',
-    'name' : 'American Horror Story\: Murder House',
-    'synopsis' : 'American Horror Story es una serie televisiva dramática y de terror creada y producida por Ryan Murphy y Brad Falchuk. Se ha descrito como una serie antológica, ya que cada temporada se ha concebido como una miniserie independiente, con un grupo de personajes y escenarios distintos, y una trama que tiene su propio comienzo, parte central y final.',
-    'director' : 'Ryan Murphy and Brad Falchuk',
-    'duration' : '45 mins',
-    'festival' : 'Cannes, Valparaiso'
-    }
-  ];
+
   // ***** END CAROUSEL *****
 
   // ***** START INPUT SEARCH RESULT *****
