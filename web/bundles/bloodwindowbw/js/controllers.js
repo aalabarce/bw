@@ -34,10 +34,11 @@ angular.module('bloodWindowControllers', [])
   //$scope.searchTitulo = "example titulo"; // Edit stored parameters
   //$scope.searchAno = "example anio"; // Edit stored parameters
   //$scope.searchDirector = "example director"; // Edit stored parameters
-  $scope.searchGenero = "1"; // Edit stored parameters
+
+  $scope.searchGenero = "12"; // Edit stored parameters
   $scope.searchFestival = "1"; // Edit stored parameters
 
-  $scope.inputBuscador = "example buscador"; // Edit stored parameters
+  $scope.inputBuscador = "test"; // Edit stored parameters
 
   //$scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
   $scope.sendToAPI = '{"inputBuscador": "' + $scope.inputBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'

@@ -67,10 +67,16 @@ class DefaultController extends Controller
         }
 
         $genero = $parametros['genero'];
-        $director = $parametros['director'];
-        $anio = $parametros['ano'];
-        $titulo = $parametros['titulo'];
+        $director = $parametros['inputBuscador'];
+        $anio = $parametros['inputBuscador'];
+        $titulo = $parametros['inputBuscador'];
         $festival = $parametros['festival'];
+
+        if (preg_match('/^[0-9]+$/', $anio)) {
+          $buscarAnio = true;
+        } else {
+          $buscarAnio = false;
+        }
       
         // set doctrine
 
@@ -82,9 +88,10 @@ class DefaultController extends Controller
         JOIN festival f ON c.festivalFk = f.id
         JOIN genero g ON c.generoFk = g.id
         WHERE 
-        (c.titulo LIKE CONCAT('%', " . $titulo . " ,'%')
-        OR c.director LIKE CONCAT('%', " . $director . " ,'%')
-        OR c.anio = " . $anio . ")";
+        (c.titulo LIKE CONCAT('%', '" . $titulo . "' ,'%')
+        OR c.director LIKE CONCAT('%', '" . $director . "' ,'%')";
+        $buscarAnio?$sql .= "OR c.anio = " . $anio:"";
+        $sql .= ")";
 
         empty($festival)?:$sql .= " AND f.id = " . $festival;
         empty($genero)?:$sql .= " AND g.id = " . $genero;
