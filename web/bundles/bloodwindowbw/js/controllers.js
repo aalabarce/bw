@@ -35,6 +35,7 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.slides = data;
+        console.log(data, status);  //remove for production
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
@@ -58,7 +59,6 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.filterCortos = data;
-        //alert($scope.filterCortos[0].id);
         console.log(data, status);  //remove for production
 
     })
@@ -67,6 +67,23 @@ angular.module('bloodWindowControllers', [])
     });
   }
   $scope.getFilterCortos();
+  // ***** END API *****
+
+  // ***** START API ***** Get all Festivals for filter
+  $scope.festivals = "";
+  $scope.getAllFestivals = function() {
+    $http({
+    method: 'POST',
+    url: $rootScope.serverURL + "/buscar/festival"
+    })
+    .success(function(data, status){
+        $scope.festivals = data;
+        console.log(data, status);  //remove for production
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
   // ***** END API *****
 
   // ***** START OPEN MODAL CORTO DETAIL *****
@@ -102,7 +119,8 @@ angular.module('bloodWindowControllers', [])
   // ***** END INPUT SEARCH RESULT *****
 
   // ***** START RESULT TABS *****
-  $scope.festivals = ['Todos', 'a', 'b', 'c'];
+  //$scope.festivals = ['Todos', 'a', 'b', 'c'];
+  $scope.getAllFestivals();
   $scope.currentFestival = "Todos";
   $scope.setCurrentFestival = function(value) {
     $scope.currentFestival = value;
