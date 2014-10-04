@@ -102,7 +102,18 @@ angular.module('bloodWindowControllers', [])
   // ***** END INPUT SEARCH RESULT *****
 
   // ***** START RESULT TABS *****
+  $scope.festivals = ['Todos', 'a', 'b', 'c'];
+  $scope.currentFestival = "Todos";
+  $scope.setCurrentFestival = function(value) {
+    $scope.currentFestival = value;
+  }
   // ***** END RESULT TABS *****
+
+  /* CONTINUE HERE:
+   * ACTUALIZE RESULT WHEN SEARCH CHANGES
+   * ACTUALIZE RESULT WHEN FESTIVAL CHANGES
+   * GET FESTIVALS FROM DB
+  */
 
 }])
 
@@ -155,6 +166,7 @@ angular.module('bloodWindowControllers', [])
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
   
   // ***** START API ***** Get corto detail
+  $scope.cortoResult = "";
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
@@ -162,6 +174,7 @@ angular.module('bloodWindowControllers', [])
       data: $scope.sendToAPI
   })
   .success(function(data, status){
+      $scope.cortoResult = data[0];
       console.log(data, status);  //remove for production
 
   })

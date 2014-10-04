@@ -30,30 +30,38 @@ class DefaultController extends Controller
         $jsonRequest = $this->get("request")->getContent();
         if (!empty($jsonRequest))
         {
-            $parametros = json_decode($jsonRequest, true);
+           $parametros = json_decode($jsonRequest, true);
         }
-        
+
         $id = $parametros['id'];
 
         // Voy a la base de datos y busco el corto
 
-        $cortoHome = $this->getDoctrine()->getRepository('BloodWindowBWBundle:Corto');
-        $corto = $cortoHome->find($id);
+        $cortoHome = $this->getDoctrine()->getManager()->getConnection();
+
+        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol as sinopsis, g.nombre as genero, f.nombre as festival,
+        c.director, c.duracion, c.url, c.compania, c.telefono, c.sitioWeb, c.nominado FROM corto c
+        JOIN festival f ON c.festivalFk = f.id 
+        JOIN genero g ON c.generoFk = g.id
+        WHERE c.id = " . $id . ";"; 
+
+        $sth = $cortoHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $result = $sth->fetchAll();
 
         // Transformo el objeto corto a JSON y lo devuelvo
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+        $serializer = new Serializer($normalizers, $encoders);
+         
+        $jsonContent = $serializer->serialize($result, 'json');
 
-    	$encoders = array(new JsonEncoder());
-		$normalizers = array(new GetSetMethodNormalizer());
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
 
-		$serializer = new Serializer($normalizers, $encoders);
-
-    	
-    	$jsonContent = $serializer->serialize($corto, 'json');
-
-    	$response = new Response($jsonContent);
-		$response->headers->set('Content-Type', 'application/json');
-
-		return $response;
+        return $response;
     }
 
     public function obtenerCortosAction()
@@ -84,7 +92,7 @@ class DefaultController extends Controller
 
         // prepare statement
 
-        $sql = "SELECT c.id, c.titulo, c.anio, f.id as festival, g.id as genero FROM corto c
+        $sql = "SELECT c.id, c.titulo, c.anio, c.director, f.id as festival, g.id as genero FROM corto c
         JOIN festival f ON c.festivalFk = f.id
         JOIN genero g ON c.generoFk = g.id
         WHERE 
