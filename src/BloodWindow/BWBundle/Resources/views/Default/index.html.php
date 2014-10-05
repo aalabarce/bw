@@ -50,7 +50,7 @@
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 menuHeader">
           <div class="hidden-xs buscador">
             <input type="search" class="form-control" placeholder="Buscar por género, director, año o título" ng-model="searchInput" ng-change="change()">
-            <a href="#" class="glyphicon glyphicon-search btn-lupa"></a>
+            <a class="glyphicon glyphicon-search btn-lupa"></a>
           </div>
           <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
             <span class="icon-bar"></span>
