@@ -1,13 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-
-    <h1>Corto list</h1>
+<div id="contenedor">
+    <h1>Listado de cortos</h1>
 
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Acciones</th>
                 <th>Titulo</th>
                 <th>Anio</th>
                 <th>Generofk</th>
@@ -21,36 +21,35 @@
                 <th>Sinopsisespaniol</th>
                 <th>Sinopsisingles</th>
                 <th>Nominado</th>
-                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('admin_corto_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('admin_corto_show', { 'id': entity.id }) }}">ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('admin_corto_edit', { 'id': entity.id }) }}">editar</a>
+                    </li>
+                </ul>
+                </td>
                 <td>{{ entity.titulo }}</td>
                 <td>{{ entity.anio }}</td>
                 <td>{{ entity.generoFk }}</td>
                 <td>{{ entity.festivalFk }}</td>
                 <td>{{ entity.url }}</td>
-                <td>{{ entity.duracion }}</td>
+                <td>{{ entity.duracion }} minutos</td>
                 <td>{{ entity.director }}</td>
                 <td>{{ entity.compania }}</td>
                 <td>{{ entity.telefono }}</td>
                 <td>{{ entity.sitioWeb }}</td>
-                <td>{{ entity.sinopsisEspaniol }}</td>
-                <td>{{ entity.sinopsisIngles }}</td>
+                <td><div style="width: 126px; overflow: hidden;">{{ entity.sinopsisEspaniol }}</div></td>
+                <td><div style="width: 126px; overflow: hidden;">{{ entity.sinopsisIngles }}</div></td>
                 <td>{{ entity.nominado }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_corto_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_corto_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
             </tr>
         {% endfor %}
         </tbody>
@@ -59,8 +58,9 @@
         <ul>
         <li>
             <a href="{{ path('admin_corto_new') }}">
-                Create a new entry
+                Crear nuevo
             </a>
         </li>
     </ul>
+ </div>   
     {% endblock %}

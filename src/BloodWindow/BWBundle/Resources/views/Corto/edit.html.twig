@@ -1,18 +1,37 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+	<script>
+    $(function(){
+
+    // Agrego el uploader al form
+   		$("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/{{entity.id}}.jpg" width="100"></span><br>');
+   	// Inicializo el uploader
+        $("#fileuploader").uploadFile({
+            url:"../upload",
+            fileName:"myfile",
+            onSuccess:function(files,data,xhr)
+            {
+                $("#nombreArchivo").val(files);
+                var imagen = '<img src="/uploads/temp/' + files + '" width="100">';
+                $("#imagen_subida").html(imagen);
+            }
+        });
+    // Corrijo el posicionamiento de los botones
+    	$("button").addClass("botones");
+
+
+    });
+    </script>
     <h1>Modificar un corto</h1>
 
 
         {{ form(edit_form) }}
 
+      
+        <button onclick="location.href='{{ path('admin_corto') }}'">Volver</button>
+        {{ form(delete_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_corto') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+<link href="/web/bundles/bloodwindowbw/css/uploadfile.min.css" rel="stylesheet">
+<script src="/web/bundles/bloodwindowbw/js/jquery/jquery.uploadfile.min.js"></script>
 {% endblock %}

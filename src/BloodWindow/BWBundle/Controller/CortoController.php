@@ -38,6 +38,9 @@ class CortoController extends Controller
      */
     public function createAction(Request $request)
     {
+        // Recibo el nombre de la imagen subida
+        $nombreArchivo = $request->request->get('nombreArchivo');
+        
         $entity = new Corto();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -46,7 +49,13 @@ class CortoController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-            
+
+            $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $entity->getId() . ".jpg";
+
+            // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+            rename($pathTemporal, $path);
+
             return $this->redirect($this->generateUrl('admin_corto_show', array('id' => $entity->getId())));
         }
 
@@ -162,8 +171,8 @@ class CortoController extends Controller
      */
     public function updateAction(Request $request, $id)
     { 
-        // Muevo del path 
-        //move_uploaded_file($tmp_name, "$uploads_dir/$name");
+        // Recibo el nombre de la imagen subida
+        $nombreArchivo = $request->request->get('nombreArchivo');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -179,6 +188,12 @@ class CortoController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+
+            $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
+            $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $id . ".jpg";
+
+            // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+            rename($pathTemporal, $path);
 
             return $this->redirect($this->generateUrl('admin_corto_edit', array('id' => $id)));
         }
