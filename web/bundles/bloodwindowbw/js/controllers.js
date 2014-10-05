@@ -12,11 +12,14 @@ angular.module('bloodWindowControllers', [])
   $scope.isCollapsed = true;
   $scope.content = ['home', 'industria', 'proyecto/1', 'work/1'];
 
+  $rootScope.searchInputText = ""; // Set var to emty string, because if not is 'undefined'
   $scope.change = function () {
-    if(typeof $scope.searchInput == "undefined") {
+    if (angular.isUndefined($scope.searchInput) || $scope.searchInput == null) {
       $rootScope.searchInputText = "";
     }
-    else $rootScope.searchInputText = $scope.searchInput;
+    else {
+      $rootScope.searchInputText = $scope.searchInput;
+    }
   }
   
 
@@ -35,6 +38,7 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.slides = data;
+        console.log(data, status);  //remove for production
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
@@ -46,10 +50,6 @@ angular.module('bloodWindowControllers', [])
   $scope.filterCortos = "";
   $scope.getFilterCortos = function() {
     $scope.searchGenero = ""; // Edit stored parameters
-    $scope.searchFestival = ""; // Edit stored parameters
-    $scope.searchBuscador = ""; // Edit stored parameters
-
-    //$scope.sendToAPI = '{"titulo": "' + $scope.searchTitulo + '", "anio": "' + $scope.searchAno + '", "director": "' + $scope.searchDirector + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}';
     $scope.sendToAPI = '{"inputBuscador": "' + $scope.searchBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
     $http({
         method: 'POST',
@@ -58,7 +58,6 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.filterCortos = data;
-        //alert($scope.filterCortos[0].id);
         console.log(data, status);  //remove for production
 
     })
@@ -66,7 +65,23 @@ angular.module('bloodWindowControllers', [])
         console.log(data, status); //remove for production
     });
   }
-  $scope.getFilterCortos();
+  // ***** END API *****
+
+  // ***** START API ***** Get all Festivals for filter
+  $scope.festivals = "";
+  $scope.getAllFestivals = function() {
+    $http({
+    method: 'POST',
+    url: $rootScope.serverURL + "/buscar/festival"
+    })
+    .success(function(data, status){
+        $scope.festivals = data;
+        console.log(data, status);  //remove for production
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
   // ***** END API *****
 
   // ***** START OPEN MODAL CORTO DETAIL *****
@@ -96,24 +111,25 @@ angular.module('bloodWindowControllers', [])
   // Get value from input search and get data from API
   $scope.showCarousel = true;
   $scope.$watch('searchInputText', function() {
+    window.scrollTo(0,0);
     if($rootScope.searchInputText) $scope.showCarousel = false;
     else $scope.showCarousel = true;
+    //$scope.searchFestival = ""; uncoment for reseting festivals to all
+    $scope.searchBuscador = $rootScope.searchInputText;
+    $scope.getFilterCortos(); // This function will be call when controller is called and when $rootScope.searchInputText changes.
+
   });
   // ***** END INPUT SEARCH RESULT *****
 
   // ***** START RESULT TABS *****
-  $scope.festivals = ['Todos', 'a', 'b', 'c'];
-  $scope.currentFestival = "Todos";
+  $scope.searchFestival = "";
+  $scope.searchBuscador = "";
+  $scope.getAllFestivals();
   $scope.setCurrentFestival = function(value) {
-    $scope.currentFestival = value;
+    $scope.searchFestival = value;
+    $scope.getFilterCortos();
   }
   // ***** END RESULT TABS *****
-
-  /* CONTINUE HERE:
-   * ACTUALIZE RESULT WHEN SEARCH CHANGES
-   * ACTUALIZE RESULT WHEN FESTIVAL CHANGES
-   * GET FESTIVALS FROM DB
-  */
 
 }])
 
