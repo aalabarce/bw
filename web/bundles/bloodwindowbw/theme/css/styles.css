@@ -530,9 +530,6 @@ p.copyright{
 	padding: 2em 0;
 }
 
-
-
-
 /* MEDIA QUERIES / MEDIA QUERIES / MEDIA QUERIES / MEDIA QUERIES */
 
 /* Extra Small - XS */
@@ -693,12 +690,3 @@ p.copyright{
 
 /* Large - LG */
 @media(min-width:1200px){}
-
-
-
-
-
-
-
-
-

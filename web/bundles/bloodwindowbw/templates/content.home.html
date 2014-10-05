@@ -26,16 +26,16 @@
 		</carousel>
 
 		<!-- Show when user is searching for something -->
-		<h1 ng-hide="showCarousel">{{searchInputText}}</h1>
+		<h1 ng-hide="showCarousel" id="idiomas">Resultados de: {{searchInputText}}</h1>
 
 	</section>
 </article>
 <section class="cat-movies">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-		<ul class="nav nav-tabs listado-tabs" role="tablist">
-			<li ng-class="{active: 'Todos' == currentFestival}" ng-click="setCurrentFestival(festival)"><a>Todos</a></li>
-			<li ng-repeat="festival in festivals" ng-class="{active: '{{festival}}' == currentFestival}" ng-click="setCurrentFestival(festival)"><a>{{festival}}</a></li>
+		<ul class="nav nav-tabs listado-tabs" role="tablist" style="cursor: pointer;">
+			<li ng-class="{active: '' == searchFestival}" ng-click="setCurrentFestival('')"><a>Todos</a></li>
+			<li ng-repeat="festival in festivals" ng-class="{active: '{{festival.id}}' == searchFestival}" ng-click="setCurrentFestival(festival.id)"><a>{{festival.nombre}}</a></li>
 		</ul>
 
 		<div class="tab-content">
