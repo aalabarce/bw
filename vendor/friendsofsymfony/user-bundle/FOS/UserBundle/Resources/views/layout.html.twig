@@ -1,7 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html class="login" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
+        <title>:: Blood Window ::</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- codigo adicional para RESPONSIVE DESIGN. Escala las cosas correctamente -->
         <meta charset="UTF-8" />
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/bootstrap.css" media="all" /> <!-- llamado al CSS de BOOTSTRAP -->
+        <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/fontello.css" media="all" /> <!-- llamado a FONTELLO -->
+        <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/styles.css" media="all" /> <!-- llamado a MIS STYLES -->
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'> <!-- GOOGLE FONT OSWALD -->
+        <!-- javascript --><!-- JQUERY -->
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script> <!-- llamado a jQuery -->
+        <script src="/web/bundles/bloodwindowbw/theme/js/bootstrap.min.js"></script> <!-- llamado a js de BOOTSTRAP que trabaja con Jquery es por eso que se pone debajo del jQuery.js -->
+        <!-- JQUERY -->
+        <script src="/web/bundles/bloodwindowbw/theme/js/respond.js"></script> <!-- llamado a RESPOND para hacer que IE viejos entienda la semantica de HTML5. ESTE VA ARRIBA -->
+        <script>
+          function toggleCodes(on) {
+            var obj = document.getElementById('icons');
+            
+            if (on) {
+              obj.className += ' codesOn';
+            } else {
+              obj.className = obj.className.replace(' codesOn', '');
+            }
+          }
+          $(document).ready(
+            function(){
+                $('#myTab a').click(function (e) {
+                  e.preventDefault()
+                  $(this).tab('show')
+                })
+            }
+          )
+        </script>
     </head>
     <body>
         <div>
@@ -11,7 +43,9 @@
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
             {% else %}
+            <!--
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            -->
             {% endif %}
         </div>
 

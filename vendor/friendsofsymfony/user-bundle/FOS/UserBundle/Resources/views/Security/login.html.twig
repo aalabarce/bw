@@ -3,13 +3,46 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-{% if error %}
-    <div>{{ error|trans }}</div>
-{% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<script>
 
+$(document).ready(function() {
+	
+	$(".btn-enviar-log").click(function() {
+      			$("#login-form").submit();	
+      		})
+
+});
+
+
+</script>
+<form id="login-form" action="{{ path("fos_user_security_check") }}" method="post">
+	<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	<div class="container-fluid"> <!-- contenedor principal -->
+  		<div class="row cont-log">
+  			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+			<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+				<h1>Blood Window</h1>
+				<h2>Latin American Fantastic Film Market</h2>
+				<section>
+					<p>ingresá</p>
+					<input type="text" id="username" name="_username" value="{{ last_username }}" required="required"  placeholder="Email..." />
+					<input type="password" id="password" name="_password" required="required" placeholder="Contraseña..." />
+					{% if error %}
+						<div class="errores">{{ error|trans }}</div>
+					{% endif %}
+					<a href="javascript: submit();" class="btn-enviar-log btn-block text-center">enviar</a>
+					<div class="cont-reg">
+						<a href="#" class="olvide pull-left">olvidé contraseña</a>
+						<a href="#" class="registrate pull-right">registrate</a>
+					</div>
+				</section>
+			</div>
+  			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+  		</div>
+	</div>
+    
+<!--
     <label for="username">{{ 'security.login.username'|trans }}</label>
     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
@@ -20,5 +53,6 @@
     <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+-->
 </form>
 {% endblock fos_user_content %}
