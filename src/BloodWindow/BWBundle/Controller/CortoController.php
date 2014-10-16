@@ -76,9 +76,56 @@ class CortoController extends Controller
      */
     private function createCreateForm(Corto $entity)
     {
-        $form = $this->createForm(new CortoType(), $entity, array(
+
+        $em = $this->getDoctrine()->getManager()->getConnection();
+
+        // Me genero el array para el combo de generos
+        $sth = $em->prepare("SELECT id, nombre FROM genero");
+        $sth->execute();
+        $generos = $sth->fetchAll();
+
+        $choiceGenero = array();
+        $idsGenero = array();
+        $nombresGenero = array();
+        
+        foreach ($generos as $genero)
+        {
+            array_push($idsGenero, $genero['id']);
+        }
+
+        foreach ($generos as $genero)
+        {
+            array_push($nombresGenero, $genero['nombre']);
+        }
+
+        array_push($choiceGenero, $idsGenero, $nombresGenero);
+
+        // Me genero el array para el combo de festivales
+
+        $sth = $em->prepare("SELECT id, nombre FROM festival");
+        $sth->execute();
+        $festivales = $sth->fetchAll();
+
+        $choiceFestival = array();
+        $idsFestival = array();
+        $nombresFestival = array();
+        
+        foreach ($festivales as $festival)
+        {
+            array_push($idsFestival, $festival['id']);
+        }
+
+        foreach ($festivales as $festival)
+        {
+            array_push($nombresFestival, $festival['nombre']);
+        }
+
+        array_push($choiceFestival, $idsFestival, $nombresFestival);
+
+
+        $form = $this->createForm(new CortoType($choiceGenero, $choiceFestival), $entity, array(
             'action' => $this->generateUrl('admin_corto_create'),
-            'method' => 'POST',
+            'method' => 'POST',            
         ));
 
         $form->add('submit', 'submit', array('label' => 'Create'));
@@ -156,7 +203,52 @@ class CortoController extends Controller
     */
     private function createEditForm(Corto $entity)
     {
-        $form = $this->createForm(new CortoType(), $entity, array(
+        $em = $this->getDoctrine()->getManager()->getConnection();
+
+        // Me genero el array para el combo de generos
+        $sth = $em->prepare("SELECT id, nombre FROM genero");
+        $sth->execute();
+        $generos = $sth->fetchAll();
+
+        $choiceGenero = array();
+        $idsGenero = array();
+        $nombresGenero = array();
+        
+        foreach ($generos as $genero)
+        {
+            array_push($idsGenero, $genero['id']);
+        }
+
+        foreach ($generos as $genero)
+        {
+            array_push($nombresGenero, $genero['nombre']);
+        }
+
+        array_push($choiceGenero, $idsGenero, $nombresGenero);
+
+        // Me genero el array para el combo de festivales
+
+        $sth = $em->prepare("SELECT id, nombre FROM festival");
+        $sth->execute();
+        $festivales = $sth->fetchAll();
+
+        $choiceFestival = array();
+        $idsFestival = array();
+        $nombresFestival = array();
+        
+        foreach ($festivales as $festival)
+        {
+            array_push($idsFestival, $festival['id']);
+        }
+
+        foreach ($festivales as $festival)
+        {
+            array_push($nombresFestival, $festival['nombre']);
+        }
+
+        array_push($choiceFestival, $idsFestival, $nombresFestival);
+
+        $form = $this->createForm(new CortoType($choiceGenero, $choiceFestival), $entity, array(
             'action' => $this->generateUrl('admin_corto_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));

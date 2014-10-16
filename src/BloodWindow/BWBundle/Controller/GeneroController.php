@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BloodWindow\BWBundle\Entity\Genero;
 use BloodWindow\BWBundle\Form\GeneroType;
-
 /**
  * Genero controller.
  *
@@ -221,4 +220,5 @@ class GeneroController extends Controller
             ->getForm()
         ;
     }
+
 }

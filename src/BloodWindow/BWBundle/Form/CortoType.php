@@ -6,21 +6,36 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
-
+use BloodWindow\BWBundle\Controller\DefaultController;
 
 class CortoType extends AbstractType
 {
-        /**
+
+    private $generos;
+    private $festivales;
+
+    public function __construct($generos, $festivales)
+    {
+        $this->generos = $generos;
+        $this->festivales = $festivales;
+    }
+
+     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
+
+            $builder
             ->add('anio')
             ->add('titulo')
-            ->add('generoFk')
-            ->add('festivalFk')
+            ->add('generoFk', 'choice', array(
+              'choice_list' => new ChoiceList($this->generos[0], $this->generos[1]
+            )))
+            ->add('festivalFk', 'choice', array(
+              'choice_list' => new ChoiceList($this->festivales[0], $this->festivales[1]
+            )))
             ->add('url')
             ->add('duracion')
             ->add('director')
@@ -29,7 +44,7 @@ class CortoType extends AbstractType
             ->add('sitioWeb')
             ->add('sinopsisEspaniol','textarea')
             ->add('sinopsisIngles','textarea')
-            ->add('nominado', 'choice', array(
+            ->add('carousel', 'choice', array(
   'choice_list' => new ChoiceList(array(1, 0), array('Si', 'No')
 )))
         ;
@@ -52,4 +67,6 @@ class CortoType extends AbstractType
     {
         return 'bloodwindow_bwbundle_corto';
     }
+
 }
+  

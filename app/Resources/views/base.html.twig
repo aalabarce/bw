@@ -17,7 +17,9 @@
         .botones {
           float: left;
           margin-left: 50px;
+          margin-top: 12px;
         }
+
         </style>
     </head>
     <body><nav class="navbar navbar-default" role="navigation">
@@ -66,7 +68,13 @@
             $("table").addClass("table table-striped table-bordered table-condensed table-hover");
             $("textarea").addClass("form-control");
             $("select").addClass("form-control");
-
+            $("input").width(300);
+            $("textarea").width(300);
+            $("select").width(300);
+            $("input").css("margin","10px");
+            $("textarea").css("margin","10px");
+            $("select").css("margin","10px");
+            $(".required").css("margin-left", "10px");
         })
         </script>
         {% endblock %}

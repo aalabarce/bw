@@ -38,7 +38,7 @@ BloodWindow\BWBundle\Entity\Corto:
         sinopsisIngles:
             type: string
             length: '4000'
-        nominado:
+        carousel:
             type: integer
         titulo:
             type: string

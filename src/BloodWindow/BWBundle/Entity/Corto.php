@@ -77,7 +77,7 @@ class Corto
     /**
      * @var integer
      */
-    private $nominado;
+    private $carousel;
 
 
     /**
@@ -367,25 +367,25 @@ class Corto
     }
 
     /**
-     * Set nominado
+     * Set carousel
      *
-     * @param integer $nominado
+     * @param integer $carousel
      * @return Corto
      */
-    public function setNominado($nominado)
+    public function setCarousel($carousel)
     {
-        $this->nominado = $nominado;
+        $this->carousel = $carousel;
     
         return $this;
     }
 
     /**
-     * Get nominado
+     * Get carousel
      *
      * @return integer 
      */
-    public function getNominado()
+    public function getCarousel()
     {
-        return $this->nominado;
+        return $this->carousel;
     }
 }

@@ -4,7 +4,7 @@
 {% block body -%}
     <script>
     $(function(){
-        $("form").append('<input type="hidden" id="nombreArchivo" name="nombreArchivo" />');
+        $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: </div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/{{entity.id}}.jpg" width="0"></span><br>');
         $("#fileuploader").uploadFile({
             url:"upload",
             fileName:"myfile",
@@ -20,11 +20,11 @@
     <h1>Corto creation</h1>
 
     {{ form(form, { 'attr': {'class': 'form-horizontal', 'role': 'form'} }) }}
-    <div id="fileuploader">Subir imagen</div><span id="imagen_subida"></span>
+    <div id="fileuploader"></div><span id="imagen_subida"></span>
         <ul class="record_actions">
     <li>
         <a href="{{ path('admin_corto') }}">
-            Back to the list
+            Volver al listado
         </a>
     </li>
 </ul>
