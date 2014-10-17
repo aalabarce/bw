@@ -1,19 +1,26 @@
 {
-  "menu": 
-  [{
-    "title" : "Home",
-    "url" : "home"
-  },
+  "header":
   {
-    "title" : "Proyectos Ingles",
-    "url" : "proyectos"
+    "inputSearch" : "Search by genre, director, year, or title",
+    "menu" : [
+      {
+        "title" : "Home",
+        "url" : "home"
+      },
+      {
+        "title" : "Proyectos Ingles",
+        "url" : "proyectos"
+      },
+      {
+        "title" : "Works Ingles",
+        "url" : "works"
+      }
+    ]
   },
-  {
-    "title" : "Works Ingles",
-    "url" : "works"
-  }],
   "home":
   {
+    "resultsText" : "Results for",
+    "noResultsText" : "No results found for",
     "director" : "Director",
     "duration" : "Duration",
     "festival" : "Festival",

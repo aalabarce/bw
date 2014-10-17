@@ -1,19 +1,26 @@
 {
-  "menu": 
-  [{
-    "title" : "Inicio",
-    "url" : "home"
-  },
+  "header":
   {
-    "title" : "Proyectos",
-    "url" : "proyectos"
+    "inputSearch" : "Buscar por género, director, año o título",
+    "menu" : [
+      {
+        "title" : "Inicio",
+        "url" : "home"
+      },
+      {
+        "title" : "Proyectos",
+        "url" : "proyectos"
+      },
+      {
+        "title" : "Works",
+        "url" : "works"
+      }
+    ]
   },
-  {
-    "title" : "Works",
-    "url" : "works"
-  }],
   "home":
   {
+    "resultsText" : "Resultados de",
+    "noResultsText" : "No se encontraron resultados para",
     "director" : "Director",
     "duration" : "Duración",
     "festival" : "Festival",

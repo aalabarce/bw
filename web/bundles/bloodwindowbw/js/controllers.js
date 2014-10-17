@@ -9,7 +9,7 @@ angular.module('bloodWindowControllers', [])
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
   $scope.isCollapsed = true; // Bootstrap header setting
- 
+   
   $rootScope.searchInputText = ""; // Set var to emty string, because if not is 'undefined'
   $scope.change = function () {
     if (angular.isUndefined($scope.searchInput) || $scope.searchInput == null) {
@@ -34,7 +34,7 @@ angular.module('bloodWindowControllers', [])
     url: "/web/bundles/bloodwindowbw/languages/" + thisLanguage + ".json"
     })
     .success(function(data, status){
-        $rootScope.languageMenu = data.menu; // All tags used in SidebarCtrl
+        $rootScope.languageHeader = data.header; // All tags used in SidebarCtrl
         $rootScope.languageHome = data.home; // All tags used in HomeCtrl
         $rootScope.languageCortoDetail = data.cortoDetail; // All tags used in CortoDetailCtrl
         $rootScope.languageProyectos = data.proyectos; // All tags used in ProyectosCtrl

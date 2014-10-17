@@ -50,7 +50,7 @@
         </div>
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 menuHeader">
           <div class="hidden-xs buscador" ng-class="'/home' != currentUrl && 'vis-hidden'">
-            <input type="search" class="form-control" placeholder="Buscar por género, director, año o título" ng-model="searchInput" ng-change="change()">
+            <input type="search" class="form-control" placeholder="{{languageHeader.inputSearch}}" ng-model="searchInput" ng-change="change()">
             <a class="glyphicon glyphicon-search btn-lupa"></a>
           </div>
           <button type="button" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
@@ -61,7 +61,7 @@
           <div class="clearfix"></div>
           <div class="navbar-collapse collapse menuAl" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
-              <li ng-repeat="page in languageMenu" ng-class="{active: '/{{page.url}}' == currentUrl}"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
+              <li ng-repeat="page in languageHeader.menu" ng-class="{active: '/{{page.url}}' == currentUrl}"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
               <!--
               <li class="active"><a href="#" alt="Todos">Todos</a></li>
               <li><a href="#" alt="Horror">Horror</a></li>
@@ -132,7 +132,7 @@
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">&nbsp;</div>
       <nav class="menufut col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <ul class="list-inline text-center">
-          <li ng-repeat="page in languageMenu" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
+          <li ng-repeat="page in languageHeader.menu" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
           <!--
           <li class="active text-center"><a href="#" alt="Todos">Todos</a></li>
           <li class="text-center"><a href="#" alt="Horror">Horror</a></li>
