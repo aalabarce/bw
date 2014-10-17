@@ -1,0 +1,24 @@
+{
+  "menu": 
+  {
+    "id" : "0",
+    "latitude" : "-34.587944",
+    "longitude" : "-58.4115922",
+    "name" : "Buller",
+    "location" : "Palermo",
+    "score" : 4.3,
+    "description" : "this is a sample bar",
+    "beersAmount" : 3
+  },
+  "home":
+  {
+    "id" : "0",
+    "latitude" : "-34.587944",
+    "longitude" : "-58.4115922",
+    "name" : "home yes",
+    "location" : "Palermo",
+    "score" : 4.3,
+    "description" : "this is a sample bar",
+    "beersAmount" : 3
+  }
+}

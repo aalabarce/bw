@@ -19,6 +19,7 @@
   <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/bootstrap.css" media="all" /> <!-- llamado al CSS de BOOTSTRAP -->
   <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/fontello.css" media="all" /> <!-- llamado a FONTELLO -->
   <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/styles.css" media="all" /> <!-- llamado a MIS STYLES -->
+  <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/css/martin-styles.css" media="all" /> <!-- llamado a MARTIN STYLES -->
   <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'> <!-- GOOGLE FONT OSWALD -->
   <!-- JQUERY -->
   <script src="/web/bundles/bloodwindowbw/theme/js/respond.js"></script> <!-- llamado a RESPOND para hacer que IE viejos entienda la semantica de HTML5. ESTE VA ARRIBA -->
@@ -48,7 +49,7 @@
           </a>
         </div>
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 menuHeader">
-          <div class="hidden-xs buscador">
+          <div class="hidden-xs buscador" ng-class="'/home' != currentUrl && 'vis-hidden'">
             <input type="search" class="form-control" placeholder="Buscar por género, director, año o título" ng-model="searchInput" ng-change="change()">
             <a class="glyphicon glyphicon-search btn-lupa"></a>
           </div>
@@ -60,7 +61,7 @@
           <div class="clearfix"></div>
           <div class="navbar-collapse collapse menuAl" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
-              <li ng-repeat="page in content" ng-class="{active: '/{{page}}' == currentUrl}"><a href="#{{page}}" alt="{{page}}">{{page}}</a></li>
+              <li ng-repeat="page in content" ng-class="{active: '/{{page.url}}' == currentUrl}"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
               <!--
               <li class="active"><a href="#" alt="Todos">Todos</a></li>
               <li><a href="#" alt="Horror">Horror</a></li>
@@ -120,7 +121,7 @@
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">&nbsp;</div>
       <nav class="menufut col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <ul class="list-inline text-center">
-          <li ng-repeat="page in content" class="text-center"><a href="#{{page}}" alt="{{page}}">{{page}}</a></li>
+          <li ng-repeat="page in content" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
           <!--
           <li class="active text-center"><a href="#" alt="Todos">Todos</a></li>
           <li class="text-center"><a href="#" alt="Horror">Horror</a></li>

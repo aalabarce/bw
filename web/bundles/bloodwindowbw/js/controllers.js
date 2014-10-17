@@ -4,13 +4,14 @@
 
 angular.module('bloodWindowControllers', [])
 
-.controller('SidebarCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
+.controller('SidebarCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
   
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
 
   $scope.isCollapsed = true;
-  $scope.content = ['home', 'proyectos', 'works', 'proyecto/1', 'work/1'];
+  //$scope.content = ['home', 'proyectos', 'works'];
+  $scope.content = [{title:"Home", url:"home"}, {title:"Proyectos", url:"proyectos"}, {title:"Works", url:"works"}];
 
   $rootScope.searchInputText = ""; // Set var to emty string, because if not is 'undefined'
   $scope.change = function () {
@@ -21,6 +22,25 @@ angular.module('bloodWindowControllers', [])
       $rootScope.searchInputText = $scope.searchInput;
     }
   }
+
+  // ***** START API ***** Get Languague
+  $scope.language = "";
+  $scope.setLanguage = function() {
+    $http({
+    method: 'GET',
+    url: "/web/bundles/bloodwindowbw/languages/es.json"
+    })
+    .success(function(data, status){
+        $scope.language = data;
+        alert($scope.language.menu.name);
+        console.log(data, status);  //remove for production
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
+  $scope.setLanguage();
+  // ***** END API *****
   
 
 }])
@@ -136,7 +156,8 @@ angular.module('bloodWindowControllers', [])
 .controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, cortoId) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
-  
+  $scope.cortoResult = true; // Set to true for showing label titles in pop up
+
   // ***** START API ***** Get corto detail
   $scope.cortoResult = "";
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
@@ -151,6 +172,7 @@ angular.module('bloodWindowControllers', [])
 
   })
   .error(function(data, status){
+      $scope.cortoResult = false; // Set to false for showing error pop up
       console.log(data, status); //remove for production
   });
   // ***** END API *****
@@ -194,7 +216,8 @@ angular.module('bloodWindowControllers', [])
 .controller('ProyectoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
 
   // Set the value to variable for updating class active in header menu
-  $rootScope.currentUrl = $location.path();
+  // In this case harcode the URL for showing active PROYECTOS in menu
+  $rootScope.currentUrl = "/proyectos";
 
   $scope.id = $routeParams.proyectoId;
 
@@ -242,7 +265,8 @@ angular.module('bloodWindowControllers', [])
 .controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
 
   // Set the value to variable for updating class active in header menu
-  $rootScope.currentUrl = $location.path();
+  // In this case harcode the URL for showing active WORKS in menu
+  $rootScope.currentUrl = "/works";
 
   $scope.id = $routeParams.workId;
 
