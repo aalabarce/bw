@@ -12,13 +12,17 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
           templateUrl: '/web/bundles/bloodwindowbw/templates/content.home.html',
           controller: 'HomeCtrl'
         }).
-        when('/industria', {
-          templateUrl: '/web/bundles/bloodwindowbw/templates/content.industria.html',
-          controller: 'IndustriaCtrl'
+        when('/proyectos', {
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.proyectos.html',
+          controller: 'ProyectosCtrl'
         }).
         when('/proyecto/:proyectoId', {
           templateUrl: '/web/bundles/bloodwindowbw/templates/content.proyecto.detail.html',
           controller: 'ProyectoDetailCtrl'
+        }).
+        when('/works', {
+          templateUrl: '/web/bundles/bloodwindowbw/templates/content.works.html',
+          controller: 'WorksCtrl'
         }).
         when('/work/:workId', {
           templateUrl: '/web/bundles/bloodwindowbw/templates/content.work.detail.html',

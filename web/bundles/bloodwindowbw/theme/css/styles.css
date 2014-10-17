@@ -30,9 +30,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 .pb0{
 	padding-bottom: 0 !important;
 }
-.mt0{
-	margin-top: 5em;
-}
 .btn-blood{
 	background: #ff5353;
 	border: 1px solid #ff5353;
@@ -48,13 +45,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 	border: 1px solid #622929;
 }
 /* LOGIN */
-
-.errores {
-	color: #FFF;
-	text-transform: uppercase;
-	font-size: 1.5em;
-	text-decoration: none;
-}
 .cont-log{
 	margin: 15em 0 0;
 }

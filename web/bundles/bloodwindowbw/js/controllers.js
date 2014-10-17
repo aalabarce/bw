@@ -10,7 +10,7 @@ angular.module('bloodWindowControllers', [])
   $rootScope.currentUrl = $location.path();
 
   $scope.isCollapsed = true;
-  $scope.content = ['home', 'industria', 'proyecto/1', 'work/1'];
+  $scope.content = ['home', 'proyectos', 'works', 'proyecto/1', 'work/1'];
 
   $rootScope.searchInputText = ""; // Set var to emty string, because if not is 'undefined'
   $scope.change = function () {
@@ -133,50 +133,6 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('IndustriaCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
-  
-  // Set the value to variable for updating class active in header menu
-  $rootScope.currentUrl = $location.path();
-
-  // ***** START API ***** Get All Proyectos with filters
-  $scope.orderBy = "anio"; // Edit stored parameters
-  $scope.orderBy = "financiacion"; // Edit stored parameters
-
-  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
-  $http({
-      method: 'POST',
-      url: $rootScope.serverURL + "/industria/proyectos",
-      data: $scope.sendToAPI
-  })
-  .success(function(data, status){
-      console.log(data, status);  //remove for production
-
-  })
-  .error(function(data, status){
-      console.log(data, status); //remove for production
-  });
-  // ***** END API *****
-
-  // ***** START API ***** Get All Works with filters
-  $scope.orderBy = ""; // Edit stored parameters
-
-  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
-  $http({
-      method: 'POST',
-      url: $rootScope.serverURL + "/industria/works",
-      data: $scope.sendToAPI
-  })
-  .success(function(data, status){
-      console.log(data, status);  //remove for production
-
-  })
-  .error(function(data, status){
-      console.log(data, status); //remove for production
-  });
-  // ***** END API *****
-
-}])
-
 .controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, cortoId) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
@@ -211,6 +167,30 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
+.controller('ProyectosCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
+  // ***** START API ***** Get All Proyectos with filters
+  $scope.orderBy = "anio"; // Edit stored parameters
+  $scope.orderBy = "financiacion"; // Edit stored parameters
+
+  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
+  $http({
+      method: 'POST',
+      url: $rootScope.serverURL + "/industria/proyectos",
+      data: $scope.sendToAPI
+  })
+  .success(function(data, status){
+      console.log(data, status);  //remove for production
+
+  })
+  .error(function(data, status){
+      console.log(data, status); //remove for production
+  });
+  // ***** END API *****
+}])
+
 .controller('ProyectoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
 
   // Set the value to variable for updating class active in header menu
@@ -234,6 +214,29 @@ angular.module('bloodWindowControllers', [])
   });
   // ***** END API *****
 
+}])
+
+.controller('WorksCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
+  // Set the value to variable for updating class active in header menu
+  $rootScope.currentUrl = $location.path();
+
+  // ***** START API ***** Get All Works with filters
+  $scope.orderBy = ""; // Edit stored parameters
+
+  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
+  $http({
+      method: 'POST',
+      url: $rootScope.serverURL + "/industria/works",
+      data: $scope.sendToAPI
+  })
+  .success(function(data, status){
+      console.log(data, status);  //remove for production
+
+  })
+  .error(function(data, status){
+      console.log(data, status); //remove for production
+  });
+  // ***** END API *****
 }])
 
 .controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {

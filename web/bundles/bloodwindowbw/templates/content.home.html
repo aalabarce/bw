@@ -6,9 +6,11 @@
 <!--slider -->
 <article class="slide">
 	<section class="block">
-
-		<carousel interval="myInterval" ng-show="showCarousel">
-		  <slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
+		<!--
+		ERROR: EDIT "section.main-cont .carousel-control.right" AND "section.main-cont .carousel-control.left" IN "styles.css"
+		-->
+		<carousel interval="myInterval" ng-show="showCarousel" class="carousel slide">
+		  	<slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
             	<div class="desc-item col-lg-6 col-md-6 hidden-sm hidden-xs" style="text-align: left;">
             		<h1>{{slide.titulo}}</h1>
             		<div class="info-item">
@@ -21,13 +23,12 @@
 						</div>
             		</div>
             	</div>
-                <img src="/web/bundles/bloodwindowbw/theme/images/carousel{{slide.id}}.jpg" alt="Slide{{slide.id}}" />
-		  </slide>
+                <!-- <img src="/web/bundles/bloodwindowbw/theme/images/carousel{{slide.id}}.jpg" alt="Slide{{slide.id}}" /> DELETE BELOW IMAGE AND UNCOMENT THIS ONE-->
+                <img src="/web/bundles/bloodwindowbw/theme/images/carousel1.jpg" alt="Slide{{slide.id}}" />
+		  	</slide>
 		</carousel>
-
 		<!-- Show when user is searching for something -->
 		<h1 ng-hide="showCarousel" id="idiomas">Resultados de: {{searchInputText}}</h1>
-
 	</section>
 </article>
 <section class="cat-movies">
