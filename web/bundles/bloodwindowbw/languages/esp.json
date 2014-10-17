@@ -1,0 +1,83 @@
+{
+  "menu": 
+  [{
+    "title" : "Inicio",
+    "url" : "home"
+  },
+  {
+    "title" : "Proyectos",
+    "url" : "proyectos"
+  },
+  {
+    "title" : "Works",
+    "url" : "works"
+  }],
+  "home":
+  {
+    "director" : "Director",
+    "duration" : "Duración",
+    "festival" : "Festival",
+    "gender" : "Género",
+    "year" : "Año"
+  },
+  "cortoDetail":
+  {
+    "director" : "Director",
+    "duration" : "Duración",
+    "festival" : "Festival",
+    "gender" : "Género",
+    "year" : "Año",
+    "cast" : "Reparto",
+    "company" : "Compañia",
+    "phone" : "Teléfono",
+    "error" : "No se encontro el corto, vuelva a intentarlo mas tarde..."
+  },
+  "proyectos":
+  {
+    "title" : "Proyectos en desarrollo",
+    "director" : "Director",
+    "country" : "País",
+    "year" : "Año"
+  },
+  "proyectoDetail":
+  {
+    "projectTitle" : "Título proyecto",
+    "countryMajorityProducer" : "País productor mayoritario",
+    "duration" : "Duración",
+    "synopsis" : "Sinopsis",
+    "budget" : "Presupuesto",
+    "budgetAcquired" : "Presupuesto adquirido",
+    "financing" : "Financiación",
+    "company" : "Compañía",
+    "mail" : "E-Mail",
+    "phone" : "Teléfono",
+    "website" : "Website",
+    "objective" : "Objetivo",
+    "projectStatus" : "Estado del proyecto",
+    "directorsVision" : "Visión del director",
+    "directorsName" : "Nombre director",
+    "directorsCV" : "Curriculum del director",
+    "producersName" : "Nombre del productor",
+    "producersCV" : "Curriculum del productor"
+  },
+  "works":
+  {
+    "title" : "Works in progress",
+    "director" : "Director",
+    "country" : "País",
+    "year" : "Año"
+  },
+  "workDetail":
+  {
+    "workTitle" : "Título (película)",
+    "director" : "Director",
+    "duration" : "Duración (película)",
+    "countriesInvolved" : "Países involucrados (película)",
+    "position" : "Cargo (persona)",
+    "synopsis" : "Sinopsis",
+    "producerCompanies" : "Compañías Productoras",
+    "company" : "Nombre de la Compañía",
+    "mail" : "E-Mail",
+    "producer" : "Productora"
+  }
+}

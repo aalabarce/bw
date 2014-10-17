@@ -61,7 +61,7 @@
           <div class="clearfix"></div>
           <div class="navbar-collapse collapse menuAl" ng-class="{collapse: isCollapsed}">
             <ul class="nav navbar-nav navbar-right">
-              <li ng-repeat="page in content" ng-class="{active: '/{{page.url}}' == currentUrl}"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
+              <li ng-repeat="page in languageMenu" ng-class="{active: '/{{page.url}}' == currentUrl}"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
               <!--
               <li class="active"><a href="#" alt="Todos">Todos</a></li>
               <li><a href="#" alt="Horror">Horror</a></li>
@@ -79,7 +79,18 @@
     
     <div class="clearfix"></div>
     
-    <section class="main-cont" ng-view >
+    <section class="main-cont">
+      <!--idioma -->
+      <div ng-controller="languageCtrl" class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+        <a class="ico-en pull-right" ng-click="setLanguage('eng')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
+        <a class="ico-es pull-right" ng-click="setLanguage('esp')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
+      </div>
+      <div class="clearfix"></div>
+
+      <!-- Here is where the HTML is load depending on the URL -->
+      <div ng-view >
+      </div>
+
     </section>
 
     <div class="clearfix"></div>
@@ -121,7 +132,7 @@
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">&nbsp;</div>
       <nav class="menufut col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <ul class="list-inline text-center">
-          <li ng-repeat="page in content" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
+          <li ng-repeat="page in languageMenu" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
           <!--
           <li class="active text-center"><a href="#" alt="Todos">Todos</a></li>
           <li class="text-center"><a href="#" alt="Horror">Horror</a></li>

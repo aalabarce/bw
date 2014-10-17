@@ -1,9 +1,3 @@
-<!--idioma -->
-<div class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-	<a class="ico-en pull-right" href="#"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
-	<a class="ico-es pull-right" href="#"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
-</div>
-<div class="clearfix"></div>
 <!--slider -->
 <article class="slide">
 	<section class="block">
@@ -18,9 +12,9 @@
             			<!--<h2>{{slide.name}}</h2>-->
             			<p>{{slide.sinopsis}}</p>
 						<div class="detail-info-item">
-							<p class="director">Director: <b>{{slide.director}}</b> </p>
-							<p class="duracion">Duración: <b>{{slide.duracion}}</b></p>
-							<p class="festival">Festival: <b>{{slide.festival}}</b></p>
+							<p class="director">{{languageHome.director}}: <b>{{slide.director}}</b> </p>
+							<p class="duracion">{{languageHome.duration}}: <b>{{slide.duracion}}</b></p>
+							<p class="festival">{{languageHome.festival}}: <b>{{slide.festival}}</b></p>
 						</div>
             		</div>
             	</div>
@@ -47,10 +41,10 @@
 	        		<a ng-click="openCortoDetail(corto.id)">
 	        			<div class="desc-item-listado">
 	        				<h3>{{corto.titulo}}</h3>
-	        				<p>Genero: <span>{{corto.genero}}</span></p>
-	        				<p>Año: <span>{{corto.anio}}</span></p>
-	        				<p>Director: <span>{{corto.director}}</span></p>
-	        				<p>Festival: <span>{{corto.festival}}</span></p>
+	        				<p>{{languageHome.gender}}: <span>{{corto.genero}}</span></p>
+	        				<p>{{languageHome.year}}: <span>{{corto.anio}}</span></p>
+	        				<p>{{languageHome.director}}: <span>{{corto.director}}</span></p>
+	        				<p>{{languageHome.festival}}: <span>{{corto.festival}}</span></p>
 	        			</div>
 	        			<img src="/web/bundles/bloodwindowbw/theme/images/img-cat-{{corto.id}}.jpg" class="img-responsive">
 	        		</a>

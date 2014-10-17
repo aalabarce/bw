@@ -8,11 +8,8 @@ angular.module('bloodWindowControllers', [])
   
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
-
-  $scope.isCollapsed = true;
-  //$scope.content = ['home', 'proyectos', 'works'];
-  $scope.content = [{title:"Home", url:"home"}, {title:"Proyectos", url:"proyectos"}, {title:"Works", url:"works"}];
-
+  $scope.isCollapsed = true; // Bootstrap header setting
+ 
   $rootScope.searchInputText = ""; // Set var to emty string, because if not is 'undefined'
   $scope.change = function () {
     if (angular.isUndefined($scope.searchInput) || $scope.searchInput == null) {
@@ -23,24 +20,37 @@ angular.module('bloodWindowControllers', [])
     }
   }
 
-  // ***** START API ***** Get Languague
-  $scope.language = "";
-  $scope.setLanguage = function() {
+}])
+
+.controller('languageCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+  
+  $rootScope.language = "esp"; // Set default language to Spanish
+
+  // ***** SET LENGUAGUE *****
+  $scope.setLanguage = function(thisLanguage) {
+    $rootScope.language = thisLanguage;
     $http({
     method: 'GET',
-    url: "/web/bundles/bloodwindowbw/languages/es.json"
+    url: "/web/bundles/bloodwindowbw/languages/" + thisLanguage + ".json"
     })
     .success(function(data, status){
-        $scope.language = data;
-        alert($scope.language.menu.name);
+        $rootScope.languageMenu = data.menu; // All tags used in SidebarCtrl
+        $rootScope.languageHome = data.home; // All tags used in HomeCtrl
+        $rootScope.languageCortoDetail = data.cortoDetail; // All tags used in CortoDetailCtrl
+        $rootScope.languageProyectos = data.proyectos; // All tags used in ProyectosCtrl
+        $rootScope.languageProyectoDetail = data.proyectoDetail; // All tags used in ProyectoDetailCtrl
+        $rootScope.languageWorks = data.works; // All tags used in WorksCtrl
+        $rootScope.languageWorkDetail = data.workDetail; // All tags used in WorkDetailCtrl
+
         console.log(data, status);  //remove for production
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
     });
   }
-  $scope.setLanguage();
-  // ***** END API *****
+  // ***** END SET LENGUAGUE *****
+
+   $scope.setLanguage("esp"); // Set default language to Spanish
   
 
 }])

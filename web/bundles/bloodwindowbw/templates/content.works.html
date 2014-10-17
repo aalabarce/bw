@@ -1,13 +1,6 @@
-<!--idioma -->
-<div class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-	<a class="ico-en pull-right" href="#"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
-	<a class="ico-es pull-right" href="#"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
-</div>
-<div class="clearfix"></div>
-
 <!--WORKS IN PROGRESS -->
 <article class="cont-detalles pb0 mt0">
-	<h1 class="pull-left">Work in progress</h1>
+	<h1 class="pull-left">{{languageWorks.title}}</h1>
 	<div class="clearfix"></div>
 	<div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
 	<div class="cont-work-des col-lg-10 col-md-10 col-sm-12 col-xs-12">
@@ -16,12 +9,13 @@
                 <!-- Carousel items -->
                 <slide>
                     <div class="row">
+                    	<!-- EL IDIOMA SOLO CAMBIA EN ESTE EJEMPLO -->
                         <div class="col-sm-3 col-xs-6">
                         	<a href="#/work/1" class="thumbnail">
                         		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
+                        			<p>{{languageWorks.year}}: <b>2013</b></p>
+									<p>{{languageWorks.director}}: <b>George A. Romero</b></p>
+									<p>{{languageWorks.country}}: <b>Argentina</b></p>
                         		</div>
                         		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-01.jpg" alt="Image" class="img-responsive">
                         		

@@ -29,15 +29,15 @@
     		</div>
     		<div class="clearfix"></div>
 			<div class="item-modal-datos">
-    			<p><b>Año:</b> {{cortoResult.anio}}</p>
-    			<p><b>Género:</b> {{cortoResult.genero}}</p>
-    			<p><b>Duración:</b> {{cortoResult.duracion}}</p>
+    			<p><b>{{languageCortoDetail.year}}:</b> {{cortoResult.anio}}</p>
+    			<p><b>{{languageCortoDetail.gender}}:</b> {{cortoResult.genero}}</p>
+    			<p><b>{{languageCortoDetail.duration}}:</b> {{cortoResult.duracion}}</p>
     			<br />
-    			<p><b>Festival:</b> {{cortoResult.festival}}</p>
-    			<p><b>Director:</b> {{cortoResult.director}}</p>
+    			<p><b>{{languageCortoDetail.festival}}:</b> {{cortoResult.festival}}</p>
+    			<p><b>{{languageCortoDetail.director}}:</b> {{cortoResult.director}}</p>
     			<!-- <p><b>Reparto:</b> {{cortoResult.reparto}}</p> -->
-    			<p><b>Compañia:</b> {{cortoResult.compania}}</p>
-    			<p><b>Teléfono:</b> {{cortoResult.telefono}}</p>
+    			<p><b>{{languageCortoDetail.company}}:</b> {{cortoResult.compania}}</p>
+    			<p><b>{{languageCortoDetail.phone}}:</b> {{cortoResult.telefono}}</p>
     		</div>
     		<div class="clearfix"></div>
     		<div class="item-modal-festival">
@@ -50,7 +50,7 @@
     	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<div class="clearfix"></div>
 			<div class="item-modal-sinopsis">
-				<b>Error:</b> no se encontro el corto, vuelva a intenar mas tarde!
+				<b>Oops!</b> {{languageCortoDetail.error}}
 			</div>
 			<div class="clearfix"></div>
     	</div>

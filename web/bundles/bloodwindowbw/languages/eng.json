@@ -1,0 +1,83 @@
+{
+  "menu": 
+  [{
+    "title" : "Home",
+    "url" : "home"
+  },
+  {
+    "title" : "Proyectos Ingles",
+    "url" : "proyectos"
+  },
+  {
+    "title" : "Works Ingles",
+    "url" : "works"
+  }],
+  "home":
+  {
+    "director" : "Director",
+    "duration" : "Duration",
+    "festival" : "Festival",
+    "gender" : "Gender",
+    "year" : "Year"
+  },
+  "cortoDetail":
+  {
+    "director" : "Director",
+    "duration" : "Duration",
+    "festival" : "Festival",
+    "gender" : "Gender",
+    "year" : "Year",
+    "cast" : "Cast",
+    "company" : "Company",
+    "phone" : "Phone",
+    "error" : "No movie found, try again later..."
+  },
+  "proyectos":
+  {
+    "title" : "Proyectos en desarrollo Ingles",
+    "director" : "Director",
+    "country" : "Country",
+    "year" : "Year"
+  },
+  "proyectoDetail":
+  {
+    "projectTitle" : "Project title",
+    "countryMajorityProducer" : "Country Majority Producer",
+    "duration" : "Duration",
+    "synopsis" : "Synopsis",
+    "budget" : "Budget",
+    "budgetAcquired" : "Budget acquired",
+    "financing" : "Financing",
+    "company" : "Company",
+    "mail" : "E-Mail",
+    "phone" : "Phone",
+    "website" : "Website",
+    "objective" : "Objective",
+    "projectStatus" : "Project status",
+    "directorsVision" : "Director's vision",
+    "directorsName" : "Director's name",
+    "directorsCV" : "CDirector's CV",
+    "producersName" : "Producer's name",
+    "producersCV" : "Producer's CV"
+  },
+  "works":
+  {
+    "title" : "Works in progress Inlges",
+    "director" : "Director",
+    "country" : "Country",
+    "year" : "Year"
+  },
+  "workDetail":
+  {
+    "workTitle" : "Title (film)",
+    "director" : "Director",
+    "duration" : "Duration (film)",
+    "countriesInvolved" : "Countries involved (film)",
+    "position" : "Position (person)",
+    "synopsis" : "Synopsis",
+    "producerCompanies" : "Producer companies",
+    "company" : "Company",
+    "mail" : "E-Mail",
+    "producer" : "Film Production"
+  }
+}
