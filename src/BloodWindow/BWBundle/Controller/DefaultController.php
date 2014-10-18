@@ -40,7 +40,7 @@ class DefaultController extends Controller
         $cortoHome = $this->getDoctrine()->getManager()->getConnection();
 
         $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol as sinopsis, g.nombre as genero, f.nombre as festival,
-        c.director, c.duracion, c.url, c.compania, c.telefono, c.sitioWeb, c.nominado FROM corto c
+        c.director, c.duracion, c.url, c.compania, c.telefono, c.sitioWeb, c.carousel FROM corto c
         JOIN festival f ON c.festivalFk = f.id 
         JOIN genero g ON c.generoFk = g.id
         WHERE c.id = " . $id . ";"; 
