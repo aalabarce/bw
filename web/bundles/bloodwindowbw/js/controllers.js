@@ -77,7 +77,7 @@ angular.module('bloodWindowControllers', [])
   // ***** END API *****
 
   // ***** START API ***** Get All Cortos with filters
-  $scope.filterCortos = "";
+  $scope.filterCortos = true; // Set var to true for not showing error message
   $scope.getFilterCortos = function() {
     $scope.searchGenero = ""; // Edit stored parameters
     $scope.sendToAPI = '{"inputBuscador": "' + $scope.searchBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
@@ -92,6 +92,7 @@ angular.module('bloodWindowControllers', [])
 
     })
     .error(function(data, status){
+        $scope.filterCortos = ""; // Set var to lenght cero for showing error message
         console.log(data, status); //remove for production
     });
   }
@@ -166,10 +167,9 @@ angular.module('bloodWindowControllers', [])
 .controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, cortoId) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
-  $scope.cortoResult = true; // Set to true for showing label titles in pop up
-
+ 
   // ***** START API ***** Get corto detail
-  $scope.cortoResult = "";
+  $scope.cortoResult = true; // Set to true for showing label titles in pop up
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
@@ -179,7 +179,6 @@ angular.module('bloodWindowControllers', [])
   .success(function(data, status){
       $scope.cortoResult = data[0];
       console.log(data, status);  //remove for production
-
   })
   .error(function(data, status){
       $scope.cortoResult = false; // Set to false for showing error pop up

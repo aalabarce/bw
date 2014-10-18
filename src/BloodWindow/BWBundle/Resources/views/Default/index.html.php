@@ -6,7 +6,7 @@
   <title>:: Home   |   Blood Window ::</title>
 
 	<!-- AngularJS -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.2/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
 
 	<!-- Angular Modules -->
   <script src="/web/bundles/bloodwindowbw/js/app.js"></script>
@@ -14,6 +14,8 @@
 	<script src="/web/bundles/bloodwindowbw/js/services.js"></script>
 	<script src="/web/bundles/bloodwindowbw/js/angular-route.js"></script>
 	<script src="/web/bundles/bloodwindowbw/js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+  <!--   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular-animate.js"></script> -->
+  
 
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="/web/bundles/bloodwindowbw/theme/css/bootstrap.css" media="all" /> <!-- llamado al CSS de BOOTSTRAP -->
@@ -44,7 +46,7 @@
     <header class="navbar navbar-default navbar-fixed-top headerMain" ng-controller="SidebarCtrl">
       <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 logoHeader">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="#/home">
             <img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/logo.png" alt="" />
           </a>
         </div>
@@ -88,7 +90,7 @@
       <div class="clearfix"></div>
 
       <!-- Here is where the HTML is load depending on the URL -->
-      <div ng-view >
+      <div ng-view class="fade-in">
       </div>
 
     </section>

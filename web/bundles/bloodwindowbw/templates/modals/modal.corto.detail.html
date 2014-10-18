@@ -1,6 +1,6 @@
 <div class="modal-header">
 <button class="close icon-cancel-circled2 btn-modal-close" ng-click="ok()"></button>
-<h4 class="modal-title" id="myModalLabel">{{cortoResult.titulo}}</h4>
+<h4 class="modal-title" id="myModalLabel">{{cortoResult.titulo}}&nbsp;</h4>
 </div>
 <div class="modal-body">
     <div class="row" ng-show="cortoResult">
@@ -45,7 +45,7 @@
     		</div>
     	</div>
     </div>
-    <!-- Show when error -->
+    <!-- Show when error when connecting to server or when corto not found in DB -->
     <div class="row" ng-hide="cortoResult">
     	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 			<div class="clearfix"></div>
