@@ -5,6 +5,14 @@
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title>:: Home   |   Blood Window ::</title>
 
+  <!-- Social media tags -->
+  <meta name="Title" content="Blood WIndow aplicacion oficial" />
+  <meta name="og:title" content="Blood WIndow aplicacion oficial" />
+  <meta name="description" content="Mira todos los cortos que quieras!" />
+  <meta name="og:description" content="Mira todos los cortos que quieras!" />
+  <meta name="og:image" content="http://www.bloodwindow.com/wp-content/uploads/2014/07/OPEN-CALL.jpg" />
+  <link rel="image_src" href="http://www.bloodwindow.com/wp-content/uploads/2014/07/OPEN-CALL.jpg" />
+
 	<!-- AngularJS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.min.js"></script>
 
@@ -98,30 +106,35 @@
     <div class="clearfix"></div>
     
     <footer class="navbar navbar-default redes" ng-controller="SidebarCtrl">
+
+      <!-- <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/&amp;p[images][0]=http://www.bloodwindow.com/wp-content/uploads/2014/07/cropped-final.jpg&amp;p[title]=La aplicacion oficial de BloodWindow&amp;p[summary]=Mira todos los cortos y peliculas de genero fantastico!">Share</a> -->
+
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;</div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
-        <a href="#">
-          <div class="item-red">
+        <a>
+          <div class="item-red" onclick='window.open ("http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/",
+"mywindow","toolbar=0,status=0,width=626,height=436");return false;'>
             <i class="icon-facebook text-center" href="#" alt="Facebook"></i>
           </div>
         </a>
       </div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
-        <a href="#">
-          <div class="item-red">
-            <i class="icon-twitter text-center" href="#" alt="Facebook"></i>
+        <a>
+          <div class="item-red" onclick='window.open ("https://twitter.com/intent/tweet?url=http://bloodwindow.com/&amp;text=Aplicacion oficial de Blood Window&amp;via=bloodWindow",
+"mywindow","toolbar=0,status=0,width=626,height=436");return false;'>
+            <i class="icon-twitter text-center" href="#" alt="Twitter"></i>
           </div>
         </a>
       </div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
-        <a href="#">
+        <a href="http://instagram.com/bloodwindow" target="_blank">
           <div class="item-red">
-            <i class="icon-instagram text-center" href="#" alt="Facebook"></i>
+            <i class="icon-instagram text-center" href="#" alt="Instagram"></i>
           </div>
         </a>
       </div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
-        <a href="#">        
+        <a>        
           <div class="item-red">
             <i class="icon-youtube text-center" href="#" alt="Facebook"></i>
           </div>
