@@ -221,4 +221,90 @@ class WorkController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+    * Recibe un JSON de request.
+    * Devuelve un JSON con el detalle del work
+    * in progress
+    * Route: /works
+    */
+    public function obtenerDetalleWorkAction()
+    {
+        // Recibo el JSON con el filtro
+        $parametros = array();
+        $jsonRequest = $this->get("request")->getContent();
+        if (!empty($jsonRequest))
+        {
+           $parametros = json_decode($jsonRequest, true);
+        }
+
+        $id = $parametros['id'];
+
+        // Voy a la base de datos y busco el corto
+
+        $workHome = $this->getDoctrine()->getManager()->getConnection();
+
+        $sql = "SELECT w.id, w.titulo, w.anio, w.compania, w.director, w.estado, w.pais, w.duracion, w.cargo, w.sinopsisEspaniol, 
+        w.sinopsisIngles, w.metas, w.email, w.telefono FROM wip w
+                WHERE w.id = " . $id . ";"; 
+
+        $sth = $workHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $work = $sth->fetchAll();
+
+        // Transformo el objeto corto a JSON y lo devuelvo
+
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        
+        $jsonContent = $serializer->serialize($work, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
+    /**
+    * Recibe un JSON de requst.
+    * Devuelve un JSON con todos los works
+    * in progress.
+    * Route: /industria/work
+    */
+    public function obtenerWorksAction()
+    {
+        // Voy a la base de datos y busco el work
+
+        $workHome = $this->getDoctrine()->getManager()->getConnection();
+
+        $sql = "SELECT w.id, w.titulo, w.anio, w.compania, w.director, w.estado, w.pais, w.duracion, w.cargo, w.sinopsisEspaniol, 
+        w.sinopsisIngles, w.metas, w.email, w.telefono FROM wip w;"; 
+
+        $sth = $workHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $works = $sth->fetchAll();
+
+        // Transformo el objeto work a JSON y lo devuelvo
+
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        
+        $jsonContent = $serializer->serialize($works, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
 }

@@ -21,6 +21,13 @@ class WorkType extends AbstractType
             ->add('pais')
             ->add('compania')
             ->add('estado')
+            ->add('duracion')
+            ->add('cargo')
+            ->add('sinopsisEspaniol')
+            ->add('sinopsisIngles')
+            ->add('metas')
+            ->add('email')
+            ->add('telefono')
         ;
     }
     

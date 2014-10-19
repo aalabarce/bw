@@ -41,3 +41,19 @@ BloodWindowBWBundle_obtener_festivales:
 BloodWindowBWBundle_obtener_generos:
     path:     /buscar/genero
     defaults: { _controller: BloodWindowBWBundle:Default:obtenerGeneros }
+
+BloodWindowBWBundle_detalle_work:
+    path:     /industria/work
+    defaults: { _controller: BloodWindowBWBundle:Work:obtenerDetalleWorkAction }
+
+BloodWindowBWBundle_obtener_works:
+    path:     /works
+    defaults: { _controller: BloodWindowBWBundle:Work:obtenerWorks }
+
+BloodWindowBWBundle_detalle_proyecto:
+    path:     /industria/proyecto
+    defaults: { _controller: BloodWindowBWBundle:Work:obtenerDetalleWorkAction }
+
+BloodWindowBWBundle_obtener_proyectos:
+    path:     /proyectos
+    defaults: { _controller: BloodWindowBWBundle:Work:obtenerProyectos }

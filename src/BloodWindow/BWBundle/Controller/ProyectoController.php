@@ -221,4 +221,92 @@ class ProyectoController extends Controller
             ->getForm()
         ;
     }
+
+    /**
+    * Recibe un JSON de request.
+    * Devuelve un JSON con el detalle del proyecto
+    * en desarrollo
+    * Route: /industria/proyecto
+    */
+    public function obtenerDetalleProyectoAction()
+    {
+        // Recibo el JSON con el filtro
+        $parametros = array();
+        $jsonRequest = $this->get("request")->getContent();
+        if (!empty($jsonRequest))
+        {
+           $parametros = json_decode($jsonRequest, true);
+        }
+
+        $id = $parametros['id'];
+
+        // Voy a la base de datos y busco el proyecto
+
+        $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
+
+        $sql = "SELECT p.id, p.titulo, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
+                p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
+                p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p
+                WHERE p.id = " . $id . ";"; 
+
+        $sth = $proyectoHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $proyecto = $sth->fetchAll();
+
+        // Transformo el objeto corto a JSON y lo devuelvo
+
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        
+        $jsonContent = $serializer->serialize($proyecto, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
+
+    /**
+    * Recibe un JSON de requst.
+    * Devuelve un JSON con todos los proyectos
+    * en desarrollo.
+    * Route: /industria/proyectos
+    */
+    public function obtenerProyectosAction()
+    {
+        // Voy a la base de datos y busco el proyecto
+
+        $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
+
+        $sql = "SELECT p.id, p.titulo, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
+                p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
+                p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p;"; 
+
+        $sth = $proyectoHome->prepare($sql);
+
+        // execute and fetch
+        $sth->execute();
+        $proyectos = $sth->fetchAll();
+
+
+        // Transformo el objeto corto a JSON y lo devuelvo
+
+        $encoders = array(new JsonEncoder());
+        $normalizers = array(new GetSetMethodNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        
+        $jsonContent = $serializer->serialize($proyectos, 'json');
+
+        $response = new Response($jsonContent);
+        $response->headers->set('Content-Type', 'application/json');
+
+        return $response;
+    }
 }

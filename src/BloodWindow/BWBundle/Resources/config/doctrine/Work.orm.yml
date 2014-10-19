@@ -25,4 +25,23 @@ BloodWindow\BWBundle\Entity\Work:
             length: '100'
         estado:
             type: integer
+        duracion:
+            type: integer
+        cargo:
+            type: string
+            length: '4000'
+        sinopsisEspaniol:
+            type: string
+            length: '4000'
+        sinopsisIngles:
+            type: string
+            length: '4000'
+        metas:
+            type: string
+            length: '4000'
+        email:
+            type: string
+            length: '4000'
+        telefono:
+            type: integer
     lifecycleCallbacks: {  }
