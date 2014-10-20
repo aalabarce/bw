@@ -172,7 +172,7 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, cortoId) {
+.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', '$location', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, $location, cortoId) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
  
@@ -197,6 +197,7 @@ angular.module('bloodWindowControllers', [])
   // ***** START MODAL CLOSE FUNCTIONS *****
   $scope.ok = function () {
     $modalInstance.close();
+    $location.path("/home").replace(); // Change URL to HOME for deleting crotId parameter (if exists)
   };
 
   $scope.cancel = function () {
