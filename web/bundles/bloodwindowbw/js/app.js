@@ -8,7 +8,7 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
 
     .config(['$routeProvider', function($routeProvider) {
       $routeProvider.
-        when('/home', {
+        when('/home/:cortoId?', { // The cortoID is optional, if the URL hast a cortoId the detail of the corto will be shown
           templateUrl: '/web/bundles/bloodwindowbw/templates/content.home.html',
           controller: 'HomeCtrl'
         }).

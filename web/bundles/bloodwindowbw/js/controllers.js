@@ -55,7 +55,7 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', '$location', function($scope, $http, $rootScope, $modal, $location) {
+.controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', '$location', '$routeParams', function($scope, $http, $rootScope, $modal, $location, $routeParams) {
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
 
@@ -161,6 +161,13 @@ angular.module('bloodWindowControllers', [])
     $scope.getFilterCortos();
   }
   // ***** END RESULT TABS *****
+
+  // ***** START SHOW PARAMETER CORTO ID DETAIL *****
+  $scope.id = $routeParams.cortoId;
+  if($scope.id) {
+    $scope.openCortoDetail($scope.id);
+  }
+  // ***** END SHOW PARAMETER CORTO ID DETAIL *****
 
 }])
 
