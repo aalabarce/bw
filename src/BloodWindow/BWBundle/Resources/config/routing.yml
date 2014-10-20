@@ -44,16 +44,16 @@ BloodWindowBWBundle_obtener_generos:
 
 BloodWindowBWBundle_detalle_work:
     path:     /industria/work
-    defaults: { _controller: BloodWindowBWBundle:Work:obtenerDetalleWorkAction }
+    defaults: { _controller: BloodWindowBWBundle:Work:obtenerDetalleWork }
 
 BloodWindowBWBundle_obtener_works:
-    path:     /works
+    path:     /industria/works
     defaults: { _controller: BloodWindowBWBundle:Work:obtenerWorks }
 
 BloodWindowBWBundle_detalle_proyecto:
     path:     /industria/proyecto
-    defaults: { _controller: BloodWindowBWBundle:Work:obtenerDetalleWorkAction }
+    defaults: { _controller: BloodWindowBWBundle:Proyecto:obtenerDetalleProyecto }
 
 BloodWindowBWBundle_obtener_proyectos:
-    path:     /proyectos
-    defaults: { _controller: BloodWindowBWBundle:Work:obtenerProyectos }
+    path:     /industria/proyectos
+    defaults: { _controller: BloodWindowBWBundle:Proyecto:obtenerProyectos }

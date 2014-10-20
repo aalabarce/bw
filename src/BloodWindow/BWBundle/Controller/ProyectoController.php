@@ -8,6 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use BloodWindow\BWBundle\Entity\Proyecto;
 use BloodWindow\BWBundle\Form\ProyectoType;
 
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Proyecto controller.
  *
@@ -244,7 +249,7 @@ class ProyectoController extends Controller
 
         $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
 
-        $sql = "SELECT p.id, p.titulo, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
+        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
                 p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
                 p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p
                 WHERE p.id = " . $id . ";"; 
@@ -283,7 +288,7 @@ class ProyectoController extends Controller
 
         $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
 
-        $sql = "SELECT p.id, p.titulo, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
+        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
                 p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
                 p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p;"; 
 
