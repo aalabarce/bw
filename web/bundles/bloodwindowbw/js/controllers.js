@@ -57,7 +57,8 @@ angular.module('bloodWindowControllers', [])
 
 .controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', '$location', '$routeParams', function($scope, $http, $rootScope, $modal, $location, $routeParams) {
   // Set the value to variable for updating class active in header menu
-  $rootScope.currentUrl = $location.path();
+  // In this case harcode the URL for showing active HOME in menu, besides the cortoID (if any)
+  $rootScope.currentUrl = "/home";
 
   // ***** START API ***** Get Carousel Cortos
   $scope.slides = "";
@@ -241,7 +242,7 @@ angular.module('bloodWindowControllers', [])
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
-      url: $rootScope.serverURL + "/proyecto",
+      url: $rootScope.serverURL + "/industria/proyecto",
       data: $scope.sendToAPI
   })
   .success(function(data, status){
@@ -290,7 +291,7 @@ angular.module('bloodWindowControllers', [])
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
-      url: $rootScope.serverURL + "/work",
+      url: $rootScope.serverURL + "/industria/work",
       data: $scope.sendToAPI
   })
   .success(function(data, status){
