@@ -1,63 +1,53 @@
 <!--CONTENIDO DETALLE WORK IN PROGRESS -->
 <article class="cont-detalles">
-	<h1 class="pull-left">Artemio Arteaga y la Santa Hermandad {{id}}</h1>
+	<h1 class="pull-left">{{proyectoResult.tituloEspaniol}}</h1>
 	<div class="clearfix"></div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="cont-detalle-work col-lg-8 col-md-8 col-sm-12 col-xs-12">
-		<div class="work-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div ng-show="proyectoResult" class="work-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<p>
 					<b>{{languageProyectoDetail.projectTitle}}: </b> <br />
-					Artemio Arteaga y la Santa Hermandad
+					{{proyectoResult.tituloEspaniol}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.countryMajorityProducer}}: </b> <br />
-					México
+					{{proyectoResult.pais}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.duration}}: </b> <br />
-					110 min
+					{{proyectoResult.duracion}} min
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.synopsis}}: </b> <br />
-					Dicen que en Oaxaca las brujas se quitan las piernas para 
-					volar y se transforman en animales para robarse a los niños. 
-					En 1910, días antes de estallar la Revolución Mexicana, 
-					Artemio Arteaga, joven escritor, viajó por órdenes de 
-					Porfirio Díaz para recabar ésa leyenda la cual se convirtió 
-					en una aventura espectacular.
+					{{proyectoResult.sinopsisEspaniol}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.budget}}: </b> <br />
-					4,075,320.42 - USD 
+					{{proyectoResult.presupuesto}} - USD 
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.budgetAcquired}}: </b> <br />					
-					26%
+					<b>{{languageProyectoDetail.budgetAcquired}}: </b> <br />
+					{{proyectoResult.presupuesto}} % <!-- CHANGE -->
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.financing}}: </b> <br />					
-					Acuerdos de coproducción:
-					Canada: Lenz Entertainment $400,000 USD
-					USA: Hammerhead $500,000 USD
-					Guatemala: Studio C $100,000 USD
-					Interés firmado por Paramount Pictures para su distribución.
+					<b>{{languageProyectoDetail.financing}}: </b> <br />
+					{{proyectoResult.financiacionEspaniol}}
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.company}}: </b> <br />					
-					Tres Piedras Producciones
+					<b>{{languageProyectoDetail.company}}: </b> <br />{{proyectoResult.compania}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.mail}}: </b> <br />					
-					<a href="mailto:someone@example.com?Subject=Hello%20from%20BloodWindow%20App" target="_top">juancarlos@trespiedras.com.mx</a> 
+					<a href="mailto:{{proyectoResult.email}}?Subject=Hello%20from%20BloodWindow%20App" target="_top">{{proyectoResult.email}}</a> 
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.phone}}: </b> <br />					
-					<a href="callto:5255-8995-5331">5255-8995-5331</a>
+					<b>{{languageProyectoDetail.phone}}: </b> <br />
+					<a href="callto:{{proyectoResult.telefono}}">{{proyectoResult.telefono}}</a>
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.website}}: </b> <br />					
-					<a href="http://www.aro-producciones.com" target="_blank">http://www.aro-producciones.com/</a>
+					<b>{{languageProyectoDetail.website}}: </b> <br />				
+					<a href="http://{{proyectoResult.website}}" target="_blank">{{proyectoResult.website}}</a>
 				</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -66,40 +56,34 @@
 				</div>
 				<p>
 					<b>{{languageProyectoDetail.objective}}: </b> <br />
-					Conseguir coproductores y/o inversionistas por la cantidad de $3,000,000 USD.
+					{{proyectoResult.objetivoEspaniol}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.projectStatus}}: </b> <br />
-					Preproduccion
+					{{proyectoResult.estadoEspaniol}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.directorsVision}}: </b> <br />
-					“Artemio Arteaga y la Santa Hermandad" es un proyecto 
-					con una gran historia que aunado al talento de nuestros coproductores, puede lograr la calidad necesaria para abrir exitosamente en mercados internacionales. 
+					{{proyectoResult.visionEspaniol}}
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.directorsName}}: </b> <br />						
-					Rodrigo Rosas Robles
+					<b>{{languageProyectoDetail.directorsName}}: </b> <br />	{{proyectoResult.director}}
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.directorsCV}}: </b> <br />						
-					Rodrigo Rosas (Mexico 1973) Director y guionista egresado 
-					de la Universidad Iberoamericana. Más de una década de 
-					experiencia como Director, ha realizado más de 400 spots 
-					comerciales y ha escrito 6 guiones de largometraje. 
-					Actualmente prepara su ópera prima.
+					<b>{{languageProyectoDetail.directorsCV}}: </b> <br />	{{proyectoResult.cvDirEspaniol}}
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.producersName}}: </b> <br />						
-					Juan Carlos Carrasco
+					<b>{{languageProyectoDetail.producersName}}: </b> <br />{{proyectoResult.productor}}
 				</p>
 				<p>
-					<b>{{languageProyectoDetail.producersCV}}: </b> <br />						
-					Juan Carlos Carrasco (México, 1970) Director y Productor.
-					Egresado del CUEC. En 1997 ganó el Ariel a Mejor Corto-metraje Documental por José Barrientos". Director y productor de 3 largometrajes: Santos Peregrinos (2004), Martín al Amanecer (2010) y De Arriba para Abajo (2014).
+					<b>{{languageProyectoDetail.producersCV}}: </b> <br />{{proyectoResult.cvProdEspaniol}}
 				</p>
 			</div>
 			<div class="clearfix"></div>
+		</div>
+		<!-- Show when error when connecting to server or when corto not found in DB -->
+		<div ng-hide="proyectoResult" class="proyecto-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<p><b>Oops!</b> {{languageProyectoDetail.error}}</p>
 		</div>
 	</div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>

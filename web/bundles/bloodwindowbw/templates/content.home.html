@@ -14,7 +14,7 @@
 						<div class="detail-info-item">
 							<p class="director">{{languageHome.director}}: <b>{{slide.director}}</b> </p>
 							<p class="duracion">{{languageHome.duration}}: <b>{{slide.duracion}}</b></p>
-							<p class="festival">{{languageHome.festival}}: <b>{{slide.festival}}</b></p>
+							<p class="festival" ng-show="slide.festival">{{languageHome.festival}}: <b>{{slide.festival}}</b></p>
 						</div>
             		</div>
             	</div>
@@ -44,7 +44,7 @@
 	        				<p>{{languageHome.gender}}: <span>{{corto.genero}}</span></p>
 	        				<p>{{languageHome.year}}: <span>{{corto.anio}}</span></p>
 	        				<p>{{languageHome.director}}: <span>{{corto.director}}</span></p>
-	        				<p>{{languageHome.festival}}: <span>{{corto.festival}}</span></p>
+	        				<p ng-show="corto.festival">{{languageHome.festival}}: <span>{{corto.festival}}</span></p>
 	        			</div>
 	        			<img src="/web/bundles/bloodwindowbw/theme/images/img-cat-{{corto.id}}.jpg" class="img-responsive">
 	        		</a>

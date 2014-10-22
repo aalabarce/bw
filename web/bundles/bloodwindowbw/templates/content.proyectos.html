@@ -7,152 +7,19 @@
 		<div class="well-none">
             <carousel class="carousel slide">
                 <!-- Carousel items -->
-                <slide>
+                <slide  ng-repeat="t in proyectos"> <!-- Create a slide every 4 proyectos -->
                     <div class="row">
-                    	<!-- EL IDIOMA SOLO CAMBIA EN ESTE EJEMPLO -->
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#/proyecto/1" class="thumbnail">
+                        <div class="col-sm-3 col-xs-6" ng-repeat="proyecto in proyectos[$index]">
+                        	<a href="#/proyecto/{{proyecto.id}}" class="thumbnail">
                         		<div class="info-hover">
-                        			<p>{{languageProyectos.year}}: <b>2013</b></p>
-									<p>{{languageProyectos.director}}: <b>George A. Romero</b></p>
-									<p>{{languageProyectos.country}}: <b>Argentina</b></p>
+                        			<p>{{languageProyectos.year}}: <b>{{proyecto.duracion}}</b></p> <!-- CHANGE -->
+									<p>{{languageProyectos.director}}: <b>{{proyecto.director}}</b></p>
+									<p>{{languageProyectos.country}}: <b>{{proyecto.pais}}</b></p>
                         		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-01.jpg" alt="Image" class="img-responsive">
+                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-0{{$index+1}}.jpg" alt="Image" class="img-responsive">
                         		
                         	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#/proyecto/2" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-02.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#/proyecto/3" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-03.jpg" alt="Image" class="img-responsive">
-								
-                        	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#/proyecto/4" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-04.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        </div>
-                    </div>
-                    <!--/row-->
-                </slide>
-                <!--/item-->
-                <slide>
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-01.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-02.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-03.jpg" alt="Image" class="img-responsive">
-								
-                        	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-04.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        </div>
-                    </div>
-                    <!--/row-->
-                </slide>
-                <!--/item-->
-                <slide>
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-01.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-02.jpg" alt="Image" class="img-responsive">
-                        		
-                        	</a>
-                        	<h3 class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
-                        </div>
-                        <div class="col-sm-3 col-xs-6">
-                        	<a href="#" class="thumbnail">
-                        		<div class="info-hover">
-                        			<p>Año: <b>2013</b></p>
-									<p>Director: <b>George A. Romero</b></p>
-									<p>Pais: <b>Argentina</b></p>
-                        		</div>
-                        		<img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-03.jpg" alt="Image" class="img-responsive">
-								
-                        	</a>
-                        	<h3 class="text-center">Nombre del Proyecto</h3>
+                        	<h3 class="text-center">{{proyecto.tituloEspaniol}}</h3>
                         </div>
                     </div>
                     <!--/row-->

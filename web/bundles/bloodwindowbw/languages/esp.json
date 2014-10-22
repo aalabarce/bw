@@ -65,7 +65,8 @@
     "directorsName" : "Nombre director",
     "directorsCV" : "Curriculum del director",
     "producersName" : "Nombre del productor",
-    "producersCV" : "Curriculum del productor"
+    "producersCV" : "Curriculum del productor",
+    "error" : "No se encontro el proyecto en desarrollo, vuelva a intentarlo mas tarde..."
   },
   "works":
   {
@@ -82,9 +83,11 @@
     "countriesInvolved" : "Países involucrados (película)",
     "position" : "Cargo (persona)",
     "synopsis" : "Sinopsis",
-    "producerCompanies" : "Compañías Productoras",
-    "company" : "Nombre de la Compañía",
+    "goals" : "Metas",
+    "projectStatus" : "Estado del proyecto",
+    "company" : "Compañía",
     "mail" : "E-Mail",
-    "producer" : "Productora"
+    "phone" : "Teléfono",
+    "error" : "No se encontro el work in progress, vuelva a intentarlo mas tarde..."
   }
 }

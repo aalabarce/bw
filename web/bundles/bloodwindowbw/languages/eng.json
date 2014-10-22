@@ -65,7 +65,8 @@
     "directorsName" : "Director's name",
     "directorsCV" : "CDirector's CV",
     "producersName" : "Producer's name",
-    "producersCV" : "Producer's CV"
+    "producersCV" : "Producer's CV",
+    "error" : "No proyecto en desarrollo found, try again later..."
   },
   "works":
   {
@@ -82,9 +83,11 @@
     "countriesInvolved" : "Countries involved (film)",
     "position" : "Position (person)",
     "synopsis" : "Synopsis",
-    "producerCompanies" : "Producer companies",
+    "goals" : "Goals",
+    "projectStatus" : "Project status",
     "company" : "Company",
     "mail" : "E-Mail",
-    "producer" : "Film Production"
+    "phone" : "Phone",
+    "error" : "No work in progress found, try again later..."
   }
 }

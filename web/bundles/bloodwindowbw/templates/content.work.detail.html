@@ -1,64 +1,71 @@
 <!--CONTENIDO DETALLE PROYECTO -->
-<article class="cont-detalles">
-	<h1 class="pull-left">Demented {{id}}</h1>
+<article class="cont-detalles pb0 mt0">
+	<h1 class="pull-left">{{workResult.titulo}}</h1>
 	<div class="clearfix"></div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="cont-detalle-proyecto col-lg-8 col-md-8 col-sm-12 col-xs-12">
-		<div class="proyecto-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div ng-show="workResult" class="proyecto-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<img src="/web/bundles/bloodwindowbw/theme/images/imgVideo-detalle-proyecto.jpg" class="img-responsive" alt="" />
 		</div>
-		<div class="clearfix"></div>
-		<div class="proyecto-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div ng-show="workResult" class="clearfix"></div>
+		<div ng-show="workResult" class="proyecto-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<p>
 					<b>{{languageWorkDetail.workTitle}}: </b> <br />
-					Demented
+					{{workResult.titulo}}
 				</p>
 				<p>
 					<b>{{languageWorkDetail.director}}: </b> <br />
-					Andrés Ramírez
+					{{workResult.director}}
 				</p>
 				<p>
 					<b>{{languageWorkDetail.duration}}:  </b> <br />
-					97 min
+					{{workResult.duracion}} min
 				</p>
 				<p>
 					<b>{{languageWorkDetail.countriesInvolved}}: </b> <br />
-					Puerto Rico
+					{{workResult.pais}}
 				</p>
 				<p>
 					<b>{{languageWorkDetail.position}}: </b> <br />
-					Productor/a 
+					{{workResult.cargo}}
 				</p>
 				<p>
-					<b>{{languageWorkDetail.synopsis}}: </b> <br />					
-					Nathan Stone es un fotógrafo de lo morboso muy reconocido y 
-					exitoso. Cuando comienza a desmayarse cada ciertas horas 
-					misteriosamente su vida empieza a parecerse a las fotos que 
-					toma, debe confrontar su pasado oscuro para determinar si 
-					es él el asesino o alguien allegado a él. 
+					<b>{{languageWorkDetail.synopsis}}: </b> <br />
+					{{workResult.sinopsisEspaniol}}
 				</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<p>
-					<b>{{languageWorkDetail.producerCompanies}}: </b> <br />
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+					<b>{{languageWorkDetail.company}}: </b> <br />
+					{{workResult.compania}}
 				</p>
 				<p>
-					<b>{{languageWorkDetail.company}}: </b> <br />
-					Non-Studios
+					<b>{{languageWorkDetail.goals}}: </b> <br />
+					{{workResult.metas}}
+				</p>
+				<p>
+					<b>{{languageWorkDetail.projectStatus}}: </b> <br />
+					{{workResult.estado}}
 				</p>
 				<p>
 					<b>{{languageWorkDetail.mail}}: </b> <br />
-					<a href="mailto:someone@example.com?Subject=Hello%20from%20BloodWindow%20App" target="_top">mullena2003@yahoo.com</a>
+					<a href="mailto:{{workResult.email}}?Subject=Hello%20from%20BloodWindow%20App" target="_top">{{workResult.email}}</a>
 				</p>
 				<p>
-					<b>{{languageWorkDetail.producer}}: </b> <br />						
-					Annabelle Mullen
+					<b>{{languageWorkDetail.phone}}: </b> <br />					
+					<a href="callto:{{workResult.telefono}}">{{workResult.telefono}}</a>
 				</p>
 			</div>
 			<div class="clearfix"></div>
 		</div>
+
+		<!-- Show when error when connecting to server or when corto not found in DB -->
+		<div ng-hide="workResult" class="proyecto-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<p><b>Oops!</b> {{languageWorkDetail.error}}</p>
+			<div class="clearfix"></div>
+		</div>
+
 	</div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="clearfix"></div>

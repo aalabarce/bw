@@ -175,7 +175,9 @@ angular.module('bloodWindowControllers', [])
 .controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', '$location', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, $location, cortoId) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
- 
+  
+  //$location.path("/home/" + $scope.id).replace(); // Change URL to HOME for deleting crotId parameter (if exists) 
+  
   // ***** START API ***** Get corto detail
   $scope.cortoResult = true; // Set to true for showing label titles in pop up
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
@@ -215,20 +217,29 @@ angular.module('bloodWindowControllers', [])
   $scope.orderBy = "anio"; // Edit stored parameters
   $scope.orderBy = "financiacion"; // Edit stored parameters
 
-  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
-  $http({
-      method: 'POST',
-      url: $rootScope.serverURL + "/industria/proyectos",
-      data: $scope.sendToAPI
-  })
-  .success(function(data, status){
-      console.log(data, status);  //remove for production
+  $scope.getAllProyectos = function() {
+    $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
+    $http({
+        method: 'POST',
+        url: $rootScope.serverURL + "/industria/proyectos",
+        data: $scope.sendToAPI
+    })
+    .success(function(data, status){
 
-  })
-  .error(function(data, status){
-      console.log(data, status); //remove for production
-  });
+        console.log(data, status);  //remove for production
+        
+        // Split the results in arrays of 4 elements
+        $scope.proyectos = [];
+        while (data.length > 0)
+        $scope.proyectos.push(data.splice(0, 4));
+        
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
   // ***** END API *****
+  $scope.getAllProyectos();
 }])
 
 .controller('ProyectoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
@@ -240,6 +251,7 @@ angular.module('bloodWindowControllers', [])
   $scope.id = $routeParams.proyectoId;
 
   // ***** START API ***** Get proyecto detail
+  $scope.proyectoResult = true; // Set to true for showing label titles
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
@@ -247,10 +259,12 @@ angular.module('bloodWindowControllers', [])
       data: $scope.sendToAPI
   })
   .success(function(data, status){
+      $scope.proyectoResult = data[0];
       console.log(data, status);  //remove for production
 
   })
   .error(function(data, status){
+      $scope.proyectoResult = false; // Set to false for showing error pop up
       console.log(data, status); //remove for production
   });
   // ***** END API *****
@@ -264,20 +278,30 @@ angular.module('bloodWindowControllers', [])
   // ***** START API ***** Get All Works with filters
   $scope.orderBy = ""; // Edit stored parameters
 
-  $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
-  $http({
-      method: 'POST',
-      url: $rootScope.serverURL + "/industria/works",
-      data: $scope.sendToAPI
-  })
-  .success(function(data, status){
-      console.log(data, status);  //remove for production
+  $scope.getAllWorks = function() {
+    $scope.sendToAPI = '{"orderBy": "' + $scope.orderBy + '"}';
+    $http({
+        method: 'POST',
+        url: $rootScope.serverURL + "/industria/works",
+        data: $scope.sendToAPI
+    })
+    .success(function(data, status){
 
-  })
-  .error(function(data, status){
-      console.log(data, status); //remove for production
-  });
+        console.log(data, status);  //remove for production
+
+        // Split the results in arrays of 4 elements
+        $scope.works = [];
+        while (data.length > 0)
+        $scope.works.push(data.splice(0, 4));
+
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
   // ***** END API *****
+  $scope.getAllWorks();
+
 }])
 
 .controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
@@ -289,6 +313,7 @@ angular.module('bloodWindowControllers', [])
   $scope.id = $routeParams.workId;
 
   // ***** START API ***** Get work detail
+  $scope.workResult = true; // Set to true for showing label titles
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
       method: 'POST',
@@ -296,10 +321,12 @@ angular.module('bloodWindowControllers', [])
       data: $scope.sendToAPI
   })
   .success(function(data, status){
+      $scope.workResult = data[0];
       console.log(data, status);  //remove for production
 
   })
   .error(function(data, status){
+      $scope.workResult = false; // Set to false for showing error pop up
       console.log(data, status); //remove for production
   });
   // ***** END API *****
