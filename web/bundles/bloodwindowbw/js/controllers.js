@@ -59,6 +59,7 @@ angular.module('bloodWindowControllers', [])
   // Set the value to variable for updating class active in header menu
   // In this case harcode the URL for showing active HOME in menu, besides the cortoID (if any)
   $rootScope.currentUrl = "/home";
+  window.scrollTo(0,0);
 
   // ***** START API ***** Get Carousel Cortos
   $scope.slides = "";
@@ -212,6 +213,7 @@ angular.module('bloodWindowControllers', [])
 .controller('ProyectosCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
+  window.scrollTo(0,0);
 
   // ***** START API ***** Get All Proyectos with filters
   $scope.orderBy = "anio"; // Edit stored parameters
@@ -247,6 +249,7 @@ angular.module('bloodWindowControllers', [])
   // Set the value to variable for updating class active in header menu
   // In this case harcode the URL for showing active PROYECTOS in menu
   $rootScope.currentUrl = "/proyectos";
+  window.scrollTo(0,0);
 
   $scope.id = $routeParams.proyectoId;
 
@@ -274,6 +277,7 @@ angular.module('bloodWindowControllers', [])
 .controller('WorksCtrl', ['$scope', '$http', '$rootScope', '$location', function($scope, $http, $rootScope, $location) {
   // Set the value to variable for updating class active in header menu
   $rootScope.currentUrl = $location.path();
+  window.scrollTo(0,0);
 
   // ***** START API ***** Get All Works with filters
   $scope.orderBy = ""; // Edit stored parameters
@@ -309,6 +313,7 @@ angular.module('bloodWindowControllers', [])
   // Set the value to variable for updating class active in header menu
   // In this case harcode the URL for showing active WORKS in menu
   $rootScope.currentUrl = "/works";
+  window.scrollTo(0,0);
 
   $scope.id = $routeParams.workId;
 
