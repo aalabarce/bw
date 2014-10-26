@@ -207,7 +207,7 @@ class Work
     /**
      * Set estado
      *
-     * @param integer $estado
+     * @param string $estado
      * @return Work
      */
     public function setEstado($estado)
@@ -220,7 +220,7 @@ class Work
     /**
      * Get estado
      *
-     * @return integer 
+     * @return string 
      */
     public function getEstado()
     {

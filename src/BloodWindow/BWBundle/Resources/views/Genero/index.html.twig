@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Nombre Ingles</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
             <tr>
                 <td><a href="{{ path('admin_genero_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nombre }}</td>
+                <td>{{ entity.nombreIngles }}</td>
                 <td>
                 <ul>
                     <li>

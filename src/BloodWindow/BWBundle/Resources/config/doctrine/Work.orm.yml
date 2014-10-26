@@ -24,7 +24,8 @@ BloodWindow\BWBundle\Entity\Work:
             type: string
             length: '100'
         estado:
-            type: integer
+            type: string
+            length: '50'
         duracion:
             type: integer
         cargo:
@@ -44,4 +45,7 @@ BloodWindow\BWBundle\Entity\Work:
             length: '4000'
         telefono:
             type: integer
+        urlVideo:
+            type: string
+            length: '4000'    
     lifecycleCallbacks: {  }

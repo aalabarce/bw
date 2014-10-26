@@ -139,6 +139,16 @@ class Proyecto
      */
     private $website;
 
+    /**
+     * @var integer
+     */
+    private $presupuestoAdquirido;
+
+    /**
+     * @var integer
+     */
+    private $anio;
+
 
     /**
      * Get id
@@ -723,5 +733,51 @@ class Proyecto
     public function getWebsite()
     {
         return $this->website;
+    }
+
+    /**
+     * Set presupuestoAdquirido
+     *
+     * @param integer $presupuestoAdquirido
+     * @return Proyecto
+     */
+    public function setPresupuestoAdquirido($presupuestoAdquirido)
+    {
+        $this->presupuestoAdquirido = $presupuestoAdquirido;
+    
+        return $this;
+    }
+
+    /**
+     * Get presupuestoAdquirido
+     *
+     * @return integer 
+     */
+    public function getPresupuestoAdquirido()
+    {
+        return $this->presupuestoAdquirido;
+    }
+
+    /**
+     * Set anio
+     *
+     * @param integer $anio
+     * @return Proyecto
+     */
+    public function setAnio($anio)
+    {
+        $this->anio = $anio;
+    
+        return $anio;
+    }
+
+    /**
+     * Get anio
+     *
+     * @return integer 
+     */
+    public function getAnio()
+    {
+        return $this->anio;
     }
 }

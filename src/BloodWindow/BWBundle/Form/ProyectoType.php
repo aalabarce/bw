@@ -40,6 +40,8 @@ class ProyectoType extends AbstractType
             ->add('email')
             ->add('telefono')
             ->add('website')
+            ->add('presupuestoAdquirido')
+            ->add('anio')
         ;
     }
     

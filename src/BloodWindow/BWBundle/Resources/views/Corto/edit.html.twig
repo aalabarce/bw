@@ -18,7 +18,7 @@
             }
         });
 
-    // Si es para la portada, permito editar la imagen del carousel
+    // Si es para el slider, permito editar la imagen del carousel
           if ({{entity.carousel}} == 1)
           {
                $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivoCarousel" name="nombreArchivoCarousel" /><div class="required" style="margin-left:10px; font-weight:bold;">Imagen carousel: </div><br><div id="fileuploader_carousel">Subir imagen</div><span id="imagen_subida_carousel"><img src="/uploads/carousel/{{entity.id}}.jpg" width="100"></span><br>');

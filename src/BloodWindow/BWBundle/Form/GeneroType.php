@@ -16,6 +16,7 @@ class GeneroType extends AbstractType
     {
         $builder
             ->add('nombre')
+            ->add('nombreIngles')
         ;
     }
     

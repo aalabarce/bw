@@ -17,7 +17,8 @@ class CortoType extends AbstractType
     public function __construct($generos, $festivales)
     {
         $this->generos = $generos;
-        $this->festivales = $festivales;
+        //var_dump($festivales);
+        $this->festivales = $festivales;   
     }
 
      /**
@@ -31,11 +32,11 @@ class CortoType extends AbstractType
             ->add('anio')
             ->add('titulo')
             ->add('generoFk', 'choice', array(
-              'choice_list' => new ChoiceList($this->generos[0], $this->generos[1]
-            )))
+    'choices' => $this->generos
+))
             ->add('festivalFk', 'choice', array(
-              'choice_list' => new ChoiceList($this->festivales[0], $this->festivales[1]
-            )))
+    'choices' => $this->festivales
+))
             ->add('url')
             ->add('duracion')
             ->add('director')
@@ -45,9 +46,8 @@ class CortoType extends AbstractType
             ->add('sinopsisEspaniol','textarea')
             ->add('sinopsisIngles','textarea')
             ->add('carousel', 'choice', array(
-  'choice_list' => new ChoiceList(array(1, 0), array('Si', 'No')
-)))
-        ;
+    'choices' => array('0' => 'No', '1' => 'Si')
+));
     }
     
     /**

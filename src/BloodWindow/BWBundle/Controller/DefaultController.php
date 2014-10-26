@@ -39,8 +39,10 @@ class DefaultController extends Controller
 
         $cortoHome = $this->getDoctrine()->getManager()->getConnection();
 
-        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol as sinopsis, g.nombre as genero, f.nombre as festival,
-        c.director, c.duracion, c.url, c.compania, c.telefono, c.sitioWeb, c.carousel FROM corto c
+        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol, c.sinopsisIngles, g.nombre as generoEspaniol,
+        g.nombreIngles as generoIngles, f.nombre as festival, c.director, c.duracion, c.url, c.compania, c.telefono,
+        c.sitioWeb, c.carousel 
+        FROM corto c
         JOIN festival f ON c.festivalFk = f.id 
         JOIN genero g ON c.generoFk = g.id
         WHERE c.id = " . $id . ";"; 
@@ -128,7 +130,7 @@ class DefaultController extends Controller
 
         // prepare statement
         // TODO: Agregar WHERE carousel = 1
-        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol as sinopsis, c.director, c.duracion, f.nombre as festival FROM corto c
+        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol, c.sinopsisIngles, c.director, c.duracion, f.nombre as festival FROM corto c
         JOIN festival f ON c.festivalFk = f.id;"; 
 
         $sth = $cortoHome->prepare($sql);

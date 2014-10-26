@@ -12,4 +12,7 @@ BloodWindow\BWBundle\Entity\Genero:
         nombre:
             type: string
             length: '100'
+        nombreIngles:
+            type: string
+            length: '100'    
     lifecycleCallbacks: {  }

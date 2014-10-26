@@ -19,6 +19,11 @@ class Genero
      */
     private $nombre;
 
+    /**
+     * @var string
+     */
+    private $nombreIngles;
+
 
     /**
      * Get id
@@ -51,5 +56,28 @@ class Genero
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Set nombreIngles
+     *
+     * @param string $nombreIngles
+     * @return Genero
+     */
+    public function setNombreIngles($nombreIngles)
+    {
+        $this->nombreIngles = $nombreIngles;
+    
+        return $this;
+    }
+
+    /**
+     * Get nombreIngles
+     *
+     * @return string 
+     */
+    public function getNombreIngles()
+    {
+        return $this->nombreIngles;
     }
 }

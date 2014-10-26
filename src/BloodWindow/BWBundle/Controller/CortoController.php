@@ -38,8 +38,10 @@ class CortoController extends Controller
      */
     public function createAction(Request $request)
     {
-        // Recibo el nombre de la imagen subida
+        // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCarousel = $request->request->get('nombreArchivoCarousel');
+
         
         $entity = new Corto();
         $form = $this->createCreateForm($entity);
@@ -50,11 +52,23 @@ class CortoController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
-            $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $entity->getId() . ".jpg";
+            if (!empty($nombreArchivo))
+            {
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $entity->getId() . ".jpg";
 
-            // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
-            rename($pathTemporal, $path);
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if(!empty($nombreArchivoCarousel))
+            {
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/carousel/temp/" . $nombreArchivoCarousel;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/carousel/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
 
             return $this->redirect($this->generateUrl('admin_corto_show', array('id' => $entity->getId())));
         }
@@ -85,20 +99,11 @@ class CortoController extends Controller
         $generos = $sth->fetchAll();
 
         $choiceGenero = array();
-        $idsGenero = array();
-        $nombresGenero = array();
-        
-        foreach ($generos as $genero)
-        {
-            array_push($idsGenero, $genero['id']);
-        }
 
         foreach ($generos as $genero)
         {
-            array_push($nombresGenero, $genero['nombre']);
+            $choiceGenero[$genero['id']] = $genero['nombre'];
         }
-
-        array_push($choiceGenero, $idsGenero, $nombresGenero);
 
         // Me genero el array para el combo de festivales
 
@@ -107,22 +112,14 @@ class CortoController extends Controller
         $festivales = $sth->fetchAll();
 
         $choiceFestival = array();
-        $idsFestival = array();
-        $nombresFestival = array();
+        // Le agrego la opcion de ningun festival (con valor 0) al array de festivales disponibles
+        $choiceFestival[0] = "Ningun festival";
         
         foreach ($festivales as $festival)
         {
-            array_push($idsFestival, $festival['id']);
+             $choiceFestival[$festival['id']] = $festival['nombre'];
         }
-
-        foreach ($festivales as $festival)
-        {
-            array_push($nombresFestival, $festival['nombre']);
-        }
-
-        array_push($choiceFestival, $idsFestival, $nombresFestival);
-
-
+        
         $form = $this->createForm(new CortoType($choiceGenero, $choiceFestival), $entity, array(
             'action' => $this->generateUrl('admin_corto_create'),
             'method' => 'POST',            
@@ -211,20 +208,11 @@ class CortoController extends Controller
         $generos = $sth->fetchAll();
 
         $choiceGenero = array();
-        $idsGenero = array();
-        $nombresGenero = array();
-        
-        foreach ($generos as $genero)
-        {
-            array_push($idsGenero, $genero['id']);
-        }
 
         foreach ($generos as $genero)
         {
-            array_push($nombresGenero, $genero['nombre']);
+            $choiceGenero[$genero['id']] = $genero['nombre'];
         }
-
-        array_push($choiceGenero, $idsGenero, $nombresGenero);
 
         // Me genero el array para el combo de festivales
 
@@ -233,20 +221,13 @@ class CortoController extends Controller
         $festivales = $sth->fetchAll();
 
         $choiceFestival = array();
-        $idsFestival = array();
-        $nombresFestival = array();
+        // Le agrego la opcion de ningun festival (con valor 0) al array de festivales disponibles
+        $choiceFestival[0] = "Ningun festival";
         
         foreach ($festivales as $festival)
         {
-            array_push($idsFestival, $festival['id']);
+             $choiceFestival[$festival['id']] = $festival['nombre'];
         }
-
-        foreach ($festivales as $festival)
-        {
-            array_push($nombresFestival, $festival['nombre']);
-        }
-
-        array_push($choiceFestival, $idsFestival, $nombresFestival);
 
         $form = $this->createForm(new CortoType($choiceGenero, $choiceFestival), $entity, array(
             'action' => $this->generateUrl('admin_corto_update', array('id' => $entity->getId())),
@@ -263,8 +244,9 @@ class CortoController extends Controller
      */
     public function updateAction(Request $request, $id)
     { 
-        // Recibo el nombre de la imagen subida
+        // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCarousel = $request->request->get('nombreArchivoCarousel');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -280,12 +262,25 @@ class CortoController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            if (!empty($nombreArchivo))
+            {
 
-            $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
-            $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $id . ".jpg";
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/" . $id . ".jpg";
 
-            // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
-            rename($pathTemporal, $path);
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if(!empty($nombreArchivoCarousel))
+            {
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/carousel/temp/" . $nombreArchivoCarousel;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/carousel/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
 
             return $this->redirect($this->generateUrl('admin_corto_edit', array('id' => $id)));
         }
@@ -346,6 +341,46 @@ class CortoController extends Controller
 
         // outputdir: C:\wamp\www\bw\uploads\\temp\\
         $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/temp/";
+        if(isset($_FILES["myfile"]))
+        {
+            $ret = array();
+
+            $error =$_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if(!is_array($_FILES["myfile"]["name"])) //single file
+            {
+                $fileName = $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                $ret[]= $fileName;
+            }
+            else  //Multiple files, file[]
+            {
+              $fileCount = count($_FILES["myfile"]["name"]);
+              for($i=0; $i < $fileCount; $i++)
+              {
+                $fileName = $_FILES["myfile"]["name"][$i];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$output_dir.$fileName);
+                $ret[]= $fileName;
+              }
+            
+            }
+            $response = new Response(json_encode($ret));
+            $response->headers->set('Content-Type', 'application/json'); 
+
+            return $response;
+         }
+    }
+
+    /**
+    *   Sube una imagen de un corto a la carpeta temporal, para despues cuando es confirmado el cambio
+    *   es movida a la ruta definitiva
+    **/
+    public function subirImagenCarouselAction()
+    {
+
+        // outputdir: C:\wamp\www\bw\uploads\\temp\\
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/carousel/temp/";
         if(isset($_FILES["myfile"]))
         {
             $ret = array();

@@ -81,4 +81,8 @@ BloodWindow\BWBundle\Entity\Proyecto:
         website:
             type: string
             length: '1000'
+        presupuestoAdquirido:
+            type: integer
+        anio:
+            type: integer        
     lifecycleCallbacks: {  }

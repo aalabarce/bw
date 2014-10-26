@@ -249,9 +249,12 @@ class ProyectoController extends Controller
 
         $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
 
-        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
-                p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
-                p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p
+        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvDirIngles, p.cvProdEspaniol, p.cvProdIngles, p.director, 
+                p.duracion, p.email, p.estadoEspaniol, p.estadoIngles p.financiacionEspaniol, p.financiacionIngles, 
+                p.objetivoEspaniol, p.objetivoIngles, p.pais, p.presupuesto, p.productor, p.sinopsisEspaniol, 
+                p.sinopsisIngles, p.telefono, p.tituloEspaniol, p.tituloIngles, p.visionEspaniol, p.visionIngles, 
+                p.website, p.anio, p.presupuestoAdquirido
+                FROM proy_en_desa p
                 WHERE p.id = " . $id . ";"; 
 
         $sth = $proyectoHome->prepare($sql);
@@ -288,9 +291,12 @@ class ProyectoController extends Controller
 
         $proyectoHome = $this->getDoctrine()->getManager()->getConnection();
 
-        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvProdEspaniol, p.director, p.duracion, p.email,
-                p.estadoEspaniol, p.financiacionEspaniol, p.objetivoEspaniol, p.pais, p.presupuesto, p.productor,
-                p.sinopsisEspaniol, p.telefono, p.tituloEspaniol, p.visionEspaniol, p.website FROM proy_en_desa p;"; 
+        $sql = "SELECT p.id, p.compania, p.cvDirEspaniol, p.cvDirIngles, p.cvProdEspaniol, p.cvProdIngles, p.director, 
+                p.duracion, p.email, p.estadoEspaniol, p.estadoIngles p.financiacionEspaniol, p.financiacionIngles, 
+                p.objetivoEspaniol, p.objetivoIngles, p.pais, p.presupuesto, p.productor, p.sinopsisEspaniol, 
+                p.sinopsisIngles, p.telefono, p.tituloEspaniol, p.tituloIngles, p.visionEspaniol, p.visionIngles, 
+                p.website, p.anio, p.presupuestoAdquirido
+                FROM proy_en_desa p;"; 
 
         $sth = $proyectoHome->prepare($sql);
 
