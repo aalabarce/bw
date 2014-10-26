@@ -9,6 +9,7 @@ html.login{
 	background-image: url(../images/img-login.jpg);
     height: 100%;
     width: 100%;
+    background-color: #000;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,6 +74,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 	border: 0.3em solid #ff5353;
 	background: rgba(255, 255, 255, 0.25);
 	padding: 3% 15%;
+	margin: 0 0 2em 0;
 }
 .cont-log section p{
 	text-transform: uppercase;
@@ -88,7 +90,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 	font-size: 1.5em;
 	padding: 0.3em 0.3em 0.3em 0.6em;
 }
-.cont-log section a.btn-enviar-log{
+.cont-log section a.btn-enviar-log,
+.cont-log section a.btn-reg-log{
 	background: #ff5353;
 	border: 1px solid #FFF;
 	text-transform: uppercase;
@@ -103,7 +106,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     -ms-transition:all .2s linear; 
     transition:all .2s linear;
 }
-.cont-log section a.btn-enviar-log:hover{
+.cont-log section a.btn-enviar-log:hover,
+.cont-log section a.btn-reg-log:hover{
 	background: #622929;
 }
 .cont-log section .cont-reg{
@@ -255,6 +259,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
 /* FIN HEADER */
 
 /* MAIN CONT */
+section .resu{}
+section .resu p{
+	font-size: 2em;
+	color: #fff;
+	font-family: Arial, sans-serif;
+}
+section .oppsError{
+	color: #fff;
+	font-size: 2em;
+	padding: 3em;
+	border: 1px solid #ff5353;
+	-webkit-border-radius: 10px;
+   -moz-border-radius: 10px;
+   border-radius: 10px;
+}
 section.main-cont{
 	padding: 15em 0 0;
 }
@@ -274,6 +293,35 @@ section.main-cont .idioma a{
     background-position: center center;
     background-repeat: no-repeat;
 }
+section.main-cont .idioma .cerrar-login{} 
+section.main-cont .idioma .cerrar-login p{
+	font-size: 1.5em;
+    font-weight: normal;
+    margin: 1em 0 0;
+} 
+section.main-cont .idioma .cerrar-login p a{
+	color: #c7c7c7;
+    font-size: 0.8em;
+    margin: 0 0 0 3em;
+    padding: 0.2em 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid #c7c7c7;
+    -webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+    -webkit-transition:all .2s linear; 
+    -o-transition:all .2s linear; 
+    -moz-transition:all .2s linear; 
+    -ms-transition:all .2s linear; 
+    transition:all .2s linear;
+} 
+section.main-cont .idioma .cerrar-login p a:hover{
+	background: #FFF;
+	color: #ff5353;
+}
+
 
 /* MAINSLIDER HOME */
 
@@ -697,11 +745,11 @@ section.main-cont .carousel-control i{
 }
 section.main-cont .carousel-control.left {
 	background-image: none;
-	left: -3em;
+	left: 1em;
 }
 section.main-cont .carousel-control.right {
   left: auto;
-  right: -3em;
+  right: 2em;
   background-image: none;
 }
 
@@ -782,6 +830,13 @@ footer.navbar-default{
 	border-radius: 0;
 }
 footer.redes{}
+footer.redes .ventana-sur a img{
+	display: inherit !important;
+}
+footer.redes .ventana-sur{
+	margin: 0 0 3em;
+}
+
 footer.redes .item-red{
     background: #717171;
     border-radius: 150px;
@@ -808,7 +863,7 @@ footer.redes .item-red i{
 	color: #FFF;
 	font-size: 5em;
 	font-weight: normal;
-	line-height: auto;
+	line-height: 1em;
 	text-decoration: none;
 	margin: inherit;
 	width: inherit;
@@ -928,8 +983,13 @@ p.copyright{
 	footer.redes nav ul li a{
 	}
 	footer.redes .item-red{
-		width: 60px;
-		height: 60px;
+		width: 50px;
+		height: 50px;
+		background: inherit;
+		text-shadow: inherit;
+	}
+	footer.redes .item-red:hover{
+		background: inherit;
 	}
 	footer.redes .item-red i{
 		font-size: 2em;
@@ -966,13 +1026,23 @@ p.copyright{
 		margin: 3em 0;
 	}
 	section.main-cont .carousel-control.right{
-		right: 0em;
+		right: 2em;
 	}
 	section.main-cont .carousel-control.left{
-		left: 0em;
+		left: 1em;
 	}
 	section.main-cont .carousel-control{
 		padding-top: 30%;
+	}
+	.cont-log h1{
+		font-size: 4em;
+	}
+	.cont-log h2{
+		font-size: 2em;
+	}
+	.cont-log section a.btn-enviar-log,
+	.cont-log section a.btn-reg-log{
+		font-size: 2em;
 	}
 }
 
@@ -1039,10 +1109,10 @@ p.copyright{
 		margin: 3.5em 0 0;
 	}
 	section.main-cont .carousel-control.right{
-		right: 0em;
+		right: 2em;
 	}
 	section.main-cont .carousel-control.left{
-		left: 0em;
+		left: 1em;
 	}
 	section.main-cont .thumbnail{
 		margin-bottom: 10px;

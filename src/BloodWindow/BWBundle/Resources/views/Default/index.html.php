@@ -92,6 +92,11 @@
     <section class="main-cont">
       <!--idioma -->
       <div ng-controller="languageCtrl" class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+        <div class="cerrar-login pull-left">
+          <p>Agustin Alabarce
+            <a href="#">cerrar</a>
+          </p>
+        </div>
         <a class="ico-en pull-right" ng-click="setLanguage('eng')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
         <a class="ico-es pull-right" ng-click="setLanguage('esp')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
       </div>
@@ -108,8 +113,15 @@
     <footer class="navbar navbar-default redes" ng-controller="SidebarCtrl">
 
       <!-- <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/&amp;p[images][0]=http://www.bloodwindow.com/wp-content/uploads/2014/07/cropped-final.jpg&amp;p[title]=La aplicacion oficial de BloodWindow&amp;p[summary]=Mira todos los cortos y peliculas de genero fantastico!">Share</a> -->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ventana-sur">
+        <a href="#">
+          <img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/logo-ventana-sur.png" alt="" />
+        </a>
+      </div>
 
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;</div>
+      <div class="clearfix"></div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">&nbsp;</div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
         <a>
           <div class="item-red" onclick='window.open ("http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/",
@@ -133,14 +145,9 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
-        <a>        
-          <div class="item-red">
-            <i class="icon-youtube text-center" href="#" alt="Facebook"></i>
-          </div>
-        </a>
-      </div>
-      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">&nbsp;</div>
+
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">&nbsp;</div>
 
       <div class="clearfix"></div>
 
@@ -148,18 +155,10 @@
       <nav class="menufut col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <ul class="list-inline text-center">
           <li ng-repeat="page in languageHeader.menu" class="text-center"><a href="#{{page.url}}" alt="{{page.title}}">{{page.title}}</a></li>
-          <!--
-          <li class="active text-center"><a href="#" alt="Todos">Todos</a></li>
-          <li class="text-center"><a href="#" alt="Horror">Horror</a></li>
-          <li class="text-center"><a href="#" alt="Gore">Gore</a></li>
-          <li class="text-center"><a href="#" alt="Sci-fi">Sci-fi</a></li>
-          <li class="text-center"><a href="#" alt="Thrillers">Thrillers</a></li>
-          <li class="text-center"><a href="#" alt="Comedias negras">Comedias negras</a></li>
-          <li class="text-center"><a href="#" alt="Industria">Industria</a></li>
-          -->
         </ul> 
       </nav>
       <div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">&nbsp;</div>
+      
     </footer>
     <div class="clearfix"></div>
     <p class="copyright text-center">
