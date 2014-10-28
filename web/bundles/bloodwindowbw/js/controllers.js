@@ -81,6 +81,7 @@ angular.module('bloodWindowControllers', [])
   // ***** START API ***** Get All Cortos with filters
   $scope.filterCortos = true; // Set var to true for not showing error message
   $scope.getFilterCortos = function() {
+    $scope.showPreloader = true; // Show preloader gif
     $scope.searchGenero = ""; // Edit stored parameters
     $scope.sendToAPI = '{"inputBuscador": "' + $scope.searchBuscador + '", "genero": "' + $scope.searchGenero + '", "festival": "' + $scope.searchFestival + '"}'; // inputBuscador take the value of 'titulo', 'anio' and 'director'
     $http({
@@ -90,11 +91,12 @@ angular.module('bloodWindowControllers', [])
     })
     .success(function(data, status){
         $scope.filterCortos = data;
+        $scope.showPreloader = false; // Hide preloader gif
         console.log(data, status);  //remove for production
-
     })
     .error(function(data, status){
         $scope.filterCortos = ""; // Set var to lenght cero for showing error message
+        $scope.showPreloader = false; // Hide preloader gif
         console.log(data, status); //remove for production
     });
   }
@@ -180,6 +182,7 @@ angular.module('bloodWindowControllers', [])
   //$location.path("/home/" + $scope.id).replace(); // Change URL to HOME for deleting crotId parameter (if exists) 
   
   // ***** START API ***** Get corto detail
+  $scope.showPreloader = true; // Show preloader gif
   $scope.cortoResult = true; // Set to true for showing label titles in pop up
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
@@ -189,10 +192,12 @@ angular.module('bloodWindowControllers', [])
   })
   .success(function(data, status){
       $scope.cortoResult = data[0];
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status);  //remove for production
   })
   .error(function(data, status){
       $scope.cortoResult = false; // Set to false for showing error pop up
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status); //remove for production
   });
   // ***** END API *****
@@ -254,6 +259,7 @@ angular.module('bloodWindowControllers', [])
   $scope.id = $routeParams.proyectoId;
 
   // ***** START API ***** Get proyecto detail
+  $scope.showPreloader = true; // Show preloader gif
   $scope.proyectoResult = true; // Set to true for showing label titles
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
@@ -263,11 +269,13 @@ angular.module('bloodWindowControllers', [])
   })
   .success(function(data, status){
       $scope.proyectoResult = data[0];
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status);  //remove for production
 
   })
   .error(function(data, status){
       $scope.proyectoResult = false; // Set to false for showing error pop up
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status); //remove for production
   });
   // ***** END API *****
@@ -318,6 +326,7 @@ angular.module('bloodWindowControllers', [])
   $scope.id = $routeParams.workId;
 
   // ***** START API ***** Get work detail
+  $scope.showPreloader = true; // Show preloader gif
   $scope.workResult = true; // Set to true for showing label titles
   $scope.sendToAPI = '{"id": "' + $scope.id + '" }';
   $http({
@@ -327,11 +336,13 @@ angular.module('bloodWindowControllers', [])
   })
   .success(function(data, status){
       $scope.workResult = data[0];
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status);  //remove for production
 
   })
   .error(function(data, status){
       $scope.workResult = false; // Set to false for showing error pop up
+      $scope.showPreloader = false; // Hide preloader gif
       console.log(data, status); //remove for production
   });
   // ***** END API *****

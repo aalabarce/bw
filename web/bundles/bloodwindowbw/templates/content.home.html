@@ -1,16 +1,21 @@
 <!--slider -->
 <article class="slide">
 	<section class="block">
-		<!--
-		ERROR: EDIT "section.main-cont .carousel-control.right" AND "section.main-cont .carousel-control.left" IN "styles.css"
-		-->
 		<carousel interval="myInterval" ng-show="showCarousel" class="carousel slide fade-in">
+	        <!-- Preloader -->
+	        <div class="preloader" ng-hide="slides">
+	            <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
+	        </div>
+	        <!-- /Preloader -->
 		  	<slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
             	<div class="desc-item col-lg-6 col-md-6 hidden-sm hidden-xs" style="text-align: left;">
             		<h1>{{slide.titulo}}</h1>
             		<div class="info-item">
             			<!--<h2>{{slide.name}}</h2>-->
-            			<p>{{slide.sinopsis}}</p>
+            			<!-- Show for Spanish -->
+            			<p ng-show="language == 'esp'">{{slide.sinopsisEspaniol}}</p>
+            			<!-- Show for English -->
+            			<p ng-show="language == 'eng'">{{slide.sinopsisIngles}}</p>
 						<div class="detail-info-item">
 							<p class="director">{{languageHome.director}}: <b>{{slide.director}}</b> </p>
 							<p class="duracion">{{languageHome.duration}}: <b>{{slide.duracion}}</b></p>
@@ -39,6 +44,14 @@
 	      <div class="tab-pane fade active in">
 	        <div class="item-listado-tab">
 	        	<h1 ng-show="filterCortos.length == 0">{{languageHome.noResultsText}}</h1>
+		        <!-- Preloader -->
+		        <div class="preloader" ng-show="showPreloader">
+		        	<br />
+		            <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
+		            <br />
+		            <br />
+		        </div>
+		        <!-- /Preloader -->
 	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb fade-in result{{$index}}" ng-repeat="corto in filterCortos">
 	        		<a ng-click="openCortoDetail(corto.id)">
 	        			<div class="desc-item-listado">

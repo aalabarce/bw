@@ -1,6 +1,11 @@
 <!--CONTENIDO DETALLE PROYECTO -->
 <article class="cont-detalles pb0 mt0">
-	<h1 class="pull-left">{{workResult.titulo}}</h1>
+	<h1 class="pull-left" ng-hide="showPreloader">{{workResult.titulo}}</h1>
+	<!-- Preloader -->
+	<h1 class="pull-left" ng-show="showPreloader">
+	    <img src="/web/bundles/bloodwindowbw/theme/images/loader-white.GIF" width="24px" height="24px">
+	</h1>
+	<!-- /Preloader -->
 	<div class="clearfix"></div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="cont-detalle-proyecto col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -30,9 +35,15 @@
 					<b>{{languageWorkDetail.position}}: </b> <br />
 					{{workResult.cargo}}
 				</p>
-				<p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageWorkDetail.synopsis}}: </b> <br />
 					{{workResult.sinopsisEspaniol}}
+				</p>
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageWorkDetail.synopsis}}: </b> <br />
+					{{workResult.sinopsisIngles}}
 				</p>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -48,6 +59,16 @@
 					<b>{{languageWorkDetail.projectStatus}}: </b> <br />
 					{{workResult.estado}}
 				</p>
+				<!-- Show for Spanish 
+    			<p ng-show="language == 'esp'">
+					<b>{{languageWorkDetail.projectStatus}}: </b> <br />
+					{{workResult.estadoEspaniol}}
+				</p> -->
+				<!-- Show for English
+    			<p ng-show="language == 'eng'">
+					<b>{{languageWorkDetail.projectStatus}}: </b> <br />
+					{{workResult.estadoIngles}}
+				</p> -->
 				<p>
 					<b>{{languageWorkDetail.mail}}: </b> <br />
 					<a href="mailto:{{workResult.email}}?Subject=Hello%20from%20BloodWindow%20App" target="_top">{{workResult.email}}</a>

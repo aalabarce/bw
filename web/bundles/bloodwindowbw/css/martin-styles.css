@@ -26,6 +26,15 @@
 	height: 100%;
 }
 
+.preloader {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+.preloader img{
+	height: 24px;
+	width: 24px;
+}
 /***** ANIMATIONS *****/
 
 /* make keyframes that tell the start state and the end state of our object */

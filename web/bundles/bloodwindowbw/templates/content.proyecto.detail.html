@@ -1,26 +1,50 @@
 <!--CONTENIDO DETALLE WORK IN PROGRESS -->
 <article class="cont-detalles">
-	<h1 class="pull-left">{{proyectoResult.tituloEspaniol}}</h1>
+	<!-- Show for Spanish -->
+	<h1 class="pull-left" ng-show="language == 'esp' && !showPreloader">{{proyectoResult.tituloEspaniol}}</h1>
+	<!-- Show for English -->
+	<h1 class="pull-left" ng-show="language == 'eng' && !showPreloader">{{proyectoResult.tituloIngles}}</h1>
+	<!-- Preloader -->
+	<h1 class="pull-left" ng-show="showPreloader">
+	    <img src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
+	</h1>
+	<!-- /Preloader -->
 	<div class="clearfix"></div>
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="cont-detalle-work col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<div ng-show="proyectoResult" class="work-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-				<p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.projectTitle}}: </b> <br />
 					{{proyectoResult.tituloEspaniol}}
+				</p>
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.projectTitle}}: </b> <br />
+					{{proyectoResult.tituloIngles}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.countryMajorityProducer}}: </b> <br />
 					{{proyectoResult.pais}}
 				</p>
 				<p>
+					<b>{{languageProyectoDetail.year}}: </b> <br />
+					{{proyectoResult.anio}}
+				</p>
+				<p>
 					<b>{{languageProyectoDetail.duration}}: </b> <br />
 					{{proyectoResult.duracion}} min
 				</p>
-				<p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.synopsis}}: </b> <br />
 					{{proyectoResult.sinopsisEspaniol}}
+				</p>
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.synopsis}}: </b> <br />
+					{{proyectoResult.sinopsisIngles}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.budget}}: </b> <br />
@@ -28,11 +52,17 @@
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.budgetAcquired}}: </b> <br />
-					{{proyectoResult.presupuesto}} % <!-- CHANGE -->
+					{{proyectoResult.presupuestoAdquirido}} %
 				</p>
-				<p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.financing}}: </b> <br />
 					{{proyectoResult.financiacionEspaniol}}
+				</p>
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.financing}}: </b> <br />
+					{{proyectoResult.financiacionIngles}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.company}}: </b> <br />{{proyectoResult.compania}}
@@ -54,29 +84,55 @@
 				<div class="work-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<img src="/web/bundles/bloodwindowbw/theme/images/img-detalle-work.jpg" class="img-responsive" alt="" />
 				</div>
-				<p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.objective}}: </b> <br />
 					{{proyectoResult.objetivoEspaniol}}
 				</p>
-				<p>
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.objective}}: </b> <br />
+					{{proyectoResult.objetivoIngles}}
+				</p>
+				<!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.projectStatus}}: </b> <br />
 					{{proyectoResult.estadoEspaniol}}
 				</p>
-				<p>
-					<b>{{languageProyectoDetail.directorsVision}}: </b> <br />
-					{{proyectoResult.visionEspaniol}}
+				<!-- Show for English -->
+    			<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.projectStatus}}: </b> <br />
+					{{proyectoResult.estadoIngles}}
+				</p>
+				<!-- Show for Spanish -->
+				<p ng-show="language == 'esp'">
+					<b>{{languageProyectoDetail.directorsVision}}: </b> <br />	{{proyectoResult.visionEspaniol}}
+				</p>
+				<!-- Show for English -->
+				<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.directorsVision}}: </b> <br />	{{proyectoResult.visionIngles}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.directorsName}}: </b> <br />	{{proyectoResult.director}}
 				</p>
-				<p>
+				<!-- Show for Spanish -->
+				<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.directorsCV}}: </b> <br />	{{proyectoResult.cvDirEspaniol}}
+				</p>
+				<!-- Show for English -->
+				<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.directorsCV}}: </b> <br />	{{proyectoResult.cvDirIngles}}
 				</p>
 				<p>
 					<b>{{languageProyectoDetail.producersName}}: </b> <br />{{proyectoResult.productor}}
 				</p>
-				<p>
+				<!-- Show for Spanish -->
+				<p ng-show="language == 'esp'">
 					<b>{{languageProyectoDetail.producersCV}}: </b> <br />{{proyectoResult.cvProdEspaniol}}
+				</p>
+				<!-- Show for English -->
+				<p ng-show="language == 'eng'">
+					<b>{{languageProyectoDetail.producersCV}}: </b> <br />{{proyectoResult.cvProdIngles}}
 				</p>
 			</div>
 			<div class="clearfix"></div>

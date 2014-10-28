@@ -1,17 +1,36 @@
 <div class="modal-header">
 <button class="close icon-cancel-circled2 btn-modal-close" ng-click="ok()"></button>
-<h4 class="modal-title" id="myModalLabel">{{cortoResult.titulo}}&nbsp;</h4>
+<h4 class="modal-title" id="myModalLabel" ng-hide="showPreloader">
+    {{cortoResult.titulo}}&nbsp;
+</h4>
+<!-- Preloader -->
+<h4 class="modal-title" ng-show="showPreloader">
+    <img src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
+</h4>
+<!-- /Preloader -->
 </div>
 <div class="modal-body">
     <div class="row" ng-show="cortoResult">
     	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
     		<div class="embed-container">
-    			<!-- <iframe src="//player.vimeo.com/video/106839392" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+                <!-- Preloader -->
+                <div class="preloader" ng-show="showPreloader">
+                    <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
+                </div>
+                <!-- /Preloader -->		
                 <iframe src="//player.vimeo.com/video/109976075" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
 			<div class="clearfix"></div>
 			<div class="item-modal-sinopsis">
-				<b>{{cortoResult.titulo}}:</b> {{cortoResult.sinopsis}}
+                <!-- Preloader -->
+                <div class="preloader" ng-show="showPreloader">
+                    <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
+                </div>
+                <!-- /Preloader -->
+			    <!-- Show for Spanish -->
+                <p ng-show="language == 'esp'"><b>{{cortoResult.titulo}}:</b> {{cortoResult.sinopsisEspaniol}}</p>
+                <!-- Show for English -->
+                <p ng-show="language == 'eng'"><b>{{cortoResult.titulo}}:</b> {{cortoResult.sinopsisIngles}}</p>
 			</div>
 			<div class="item-modal-redes">
 				<a href="#" class="icon-facebook"></a>
@@ -30,9 +49,12 @@
     		</div>
     		<div class="clearfix"></div>
 			<div class="item-modal-datos">
-    			<p><b>{{languageCortoDetail.year}}:</b> {{cortoResult.anio}}</p>
-    			<p><b>{{languageCortoDetail.gender}}:</b> {{cortoResult.genero}}</p>
-    			<p><b>{{languageCortoDetail.duration}}:</b> {{cortoResult.duracion}}</p>
+     			<p><b>{{languageCortoDetail.year}}:</b> {{cortoResult.anio}}</p>
+                <!-- Show for Spanish -->
+    			<p ng-show="language == 'esp'"><b>{{languageCortoDetail.gender}}:</b> {{cortoResult.generoEspaniol}}</p>
+                <!-- Show for English -->
+                <p ng-show="language == 'eng'"><b>{{languageCortoDetail.gender}}:</b> {{cortoResult.generoIngles}}</p>
+    			<p><b>{{languageCortoDetail.duration}}:</b> {{cortoResult.duracion}} min</p>
     			<br />
     			<p ng-show="cortoResult.festival"><b>{{languageCortoDetail.festival}}:</b> {{cortoResult.festival}}</p>
     			<p><b>{{languageCortoDetail.director}}:</b> {{cortoResult.director}}</p>

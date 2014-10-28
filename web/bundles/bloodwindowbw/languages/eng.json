@@ -50,6 +50,7 @@
   {
     "projectTitle" : "Project title",
     "countryMajorityProducer" : "Country Majority Producer",
+    "year" : "Year",
     "duration" : "Duration",
     "synopsis" : "Synopsis",
     "budget" : "Budget",
@@ -63,7 +64,7 @@
     "projectStatus" : "Project status",
     "directorsVision" : "Director's vision",
     "directorsName" : "Director's name",
-    "directorsCV" : "CDirector's CV",
+    "directorsCV" : "Director's CV",
     "producersName" : "Producer's name",
     "producersCV" : "Producer's CV",
     "error" : "No proyecto en desarrollo found, try again later..."
