@@ -175,7 +175,7 @@ angular.module('bloodWindowControllers', [])
 
 }])
 
-.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', '$location', 'cortoId', function($scope, $routeParams, $http, $rootScope, $modalInstance, $location, cortoId) {
+.controller('CortoDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$modalInstance', '$location', 'cortoId', '$sce', function($scope, $routeParams, $http, $rootScope, $modalInstance, $location, cortoId, $sce) {
 
   $scope.id = cortoId; // cortoId value is set in the function 'openCortoDetail' located in 'HomeCtrl'
   
@@ -212,6 +212,12 @@ angular.module('bloodWindowControllers', [])
     $modalInstance.dismiss('cancel');
   };
   // ***** END MODAL CLOSE FUNCTIONS *****
+
+  // ***** START VIMEP VALIDATION URL *****
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl("//player.vimeo.com/video/" + src);
+  }
+  // ***** END VIMEP VALIDATION URL *****
 
 }])
 
@@ -312,11 +318,12 @@ angular.module('bloodWindowControllers', [])
     });
   }
   // ***** END API *****
+  
   $scope.getAllWorks();
 
 }])
 
-.controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', function($scope, $routeParams, $http, $rootScope, $location) {
+.controller('WorkDetailCtrl', ['$scope', '$routeParams', '$http', '$rootScope', '$location', '$sce', function($scope, $routeParams, $http, $rootScope, $location, $sce) {
 
   // Set the value to variable for updating class active in header menu
   // In this case harcode the URL for showing active WORKS in menu
@@ -346,5 +353,11 @@ angular.module('bloodWindowControllers', [])
       console.log(data, status); //remove for production
   });
   // ***** END API *****
+
+  // ***** START VIMEP VALIDATION URL *****
+  $scope.trustSrc = function(src) {
+    return $sce.trustAsResourceUrl("//player.vimeo.com/video/" + src);
+  }
+  // ***** END VIMEP VALIDATION URL *****
 
 }]);

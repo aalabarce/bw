@@ -10,7 +10,9 @@
 	<div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
 	<div class="cont-detalle-proyecto col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<div ng-show="workResult" class="proyecto-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<img src="/web/bundles/bloodwindowbw/theme/images/imgVideo-detalle-proyecto.jpg" class="img-responsive" alt="" />
+			<div class="embed-container">
+				<iframe ng-src="{{trustSrc('109976075')}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <!-- CHANGE FOR  workResult.urlVideo -->
+			</div>
 		</div>
 		<div ng-show="workResult" class="clearfix"></div>
 		<div ng-show="workResult" class="proyecto-info col-lg-12 col-md-12 col-sm-12 col-xs-12">
