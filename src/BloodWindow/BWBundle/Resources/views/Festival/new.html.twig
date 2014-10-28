@@ -1,6 +1,22 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+	<script>
+    $(function(){
+        $("#bloodwindow_bwbundle_festival_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: </div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/festival/{{entity.id}}.jpg" width="0"></span><br>');
+        $("#fileuploader").uploadFile({
+            url:"upload",
+            fileName:"myfile",
+            onSuccess:function(files,data,xhr)
+            {
+                $("#nombreArchivo").val(files);
+                var imagen = '<img src="/uploads/festival/temp/' + files + '" width="100">';
+                $("#imagen_subida").html(imagen);
+            }
+        });
+    });
+    </script>
+
     <h1>Festival creation</h1>
 
     {{ form(form) }}
@@ -12,4 +28,8 @@
         </a>
     </li>
 </ul>
+
+<link href="/web/bundles/bloodwindowbw/css/uploadfile.min.css" rel="stylesheet">
+<script src="/web/bundles/bloodwindowbw/js/jquery/jquery.uploadfile.min.js"></script>
+
 {% endblock %}

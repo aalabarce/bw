@@ -28,3 +28,8 @@ admin_festival_delete:
     path:     /{id}/delete
     defaults: { _controller: "BloodWindowBWBundle:Festival:delete" }
     requirements: { _method: post|delete }
+
+admin_festival_upload_pic:
+    path:     /upload
+    defaults: { _controller: "BloodWindowBWBundle:Festival:subirImagen" }
+    requirements: { _method: post }

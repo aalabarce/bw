@@ -3,6 +3,8 @@
 namespace BloodWindow\BWBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BloodWindow\BWBundle\Entity\Festival;
@@ -35,6 +37,9 @@ class FestivalController extends Controller
      */
     public function createAction(Request $request)
     {
+        // Recibo el nombre de las imagenes subidas
+        $nombreArchivo = $request->request->get('nombreArchivo');
+
         $entity = new Festival();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -43,6 +48,16 @@ class FestivalController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+
+            if (!empty($nombreArchivo))
+            {
+
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/festival/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/festival/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
 
             return $this->redirect($this->generateUrl('admin_festival_show', array('id' => $entity->getId())));
         }
@@ -157,6 +172,9 @@ class FestivalController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        // Recibo el nombre de las imagenes subidas
+        $nombreArchivo = $request->request->get('nombreArchivo');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('BloodWindowBWBundle:Festival')->find($id);
@@ -171,6 +189,16 @@ class FestivalController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+
+            if (!empty($nombreArchivo))
+            {
+
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/festival/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/festival/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
 
             return $this->redirect($this->generateUrl('admin_festival_edit', array('id' => $id)));
         }
@@ -220,5 +248,43 @@ class FestivalController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+
+    /**
+    *   Sube una imagen de un corto a la carpeta temporal, para despues cuando es confirmado el cambio
+    *   es movida a la ruta definitiva
+    **/
+    public function subirImagenAction()
+    {
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/festival/temp/";
+        if(isset($_FILES["myfile"]))
+        {
+            $ret = array();
+
+            $error =$_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if(!is_array($_FILES["myfile"]["name"])) //single file
+            {
+                $fileName = $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                $ret[]= $fileName;
+            }
+            else  //Multiple files, file[]
+            {
+              $fileCount = count($_FILES["myfile"]["name"]);
+              for($i=0; $i < $fileCount; $i++)
+              {
+                $fileName = $_FILES["myfile"]["name"][$i];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$output_dir.$fileName);
+                $ret[]= $fileName;
+              }
+            
+            }
+            $response = new Response(json_encode($ret));
+            $response->headers->set('Content-Type', 'application/json'); 
+
+            return $response;
+         }
     }
 }
