@@ -120,7 +120,7 @@ class DefaultController extends Controller
         return $response;
     }
 
-    /**
+    /** 
     *   Obtiene la info de los cortos que van en el carousel
     *   de la landing
     */
