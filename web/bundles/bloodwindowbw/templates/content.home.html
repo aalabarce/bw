@@ -56,7 +56,10 @@
 	        		<a ng-click="openCortoDetail(corto.id)">
 	        			<div class="desc-item-listado">
 	        				<h3>{{corto.titulo}}</h3>
-	        				<p>{{languageHome.gender}}: <span>{{corto.genero}}</span></p>
+			                <!-- Show for Spanish -->
+			    			<p ng-show="language == 'esp'">{{languageHome.gender}}: <span>{{corto.nombreEspaniol}}</span></p>
+			                <!-- Show for English -->
+			                <p ng-show="language == 'eng'">{{languageHome.gender}}: <span>{{corto.nombreIngles}}</span></p>
 	        				<p>{{languageHome.year}}: <span>{{corto.anio}}</span></p>
 	        				<p>{{languageHome.director}}: <span>{{corto.director}}</span></p>
 	        				<p ng-show="corto.festival">{{languageHome.festival}}: <span>{{corto.festival}}</span></p>
