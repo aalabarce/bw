@@ -43,7 +43,7 @@ class DefaultController extends Controller
         g.nombreIngles as generoIngles, f.nombre as festival, c.director, c.duracion, c.url, c.compania, c.telefono,
         c.sitioWeb, c.carousel 
         FROM corto c
-        JOIN festival f ON c.festivalFk = f.id 
+        LEFT JOIN festival f ON c.festivalFk = f.id 
         JOIN genero g ON c.generoFk = g.id
         WHERE c.id = " . $id . ";"; 
 
@@ -94,8 +94,9 @@ class DefaultController extends Controller
 
         // prepare statement
 
-        $sql = "SELECT c.id, c.titulo, c.anio, c.director, f.id as festival, g.id as genero FROM corto c
-        JOIN festival f ON c.festivalFk = f.id
+        $sql = "SELECT c.id, c.titulo, c.anio, c.director, f.nombre as festival, g.nombreEspaniol, g.nombreIngles
+        FROM corto c
+        LEFT JOIN festival f ON c.festivalFk = f.id
         JOIN genero g ON c.generoFk = g.id
         WHERE 
         (c.titulo LIKE CONCAT('%', '" . $titulo . "' ,'%')
