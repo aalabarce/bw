@@ -28,6 +28,7 @@ class WorkType extends AbstractType
             ->add('metas')
             ->add('email')
             ->add('telefono')
+            ->add('urlVideo')
         ;
     }
     

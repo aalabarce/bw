@@ -5,12 +5,14 @@
 {% block fos_user_content %}
 
 <script>
+	
+function enviar() 
+{
+   	$("#login-form").submit();	
+}
+
 
 $(document).ready(function() {
-	
-	$(".btn-enviar-log").click(function() {
-      	$("#login-form").submit();	
-    })
 
      $("form input").keypress(function (e) {
         if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
@@ -40,28 +42,25 @@ $(document).ready(function() {
 					{% if error %}
 						<div class="errores">{{ error|trans }}</div>
 					{% endif %}
-					<a href="javascript: submit();" class="btn-enviar-log btn-block text-center">enviar</a>
+					<a href="javascript: enviar();" class="btn-enviar-log btn-block text-center">enviar</a>
 					<div class="cont-reg">
-						<a href="#" class="olvide pull-left">olvidé contraseña</a>
-						<a href="#" class="registrate pull-right">registrate</a>
+						<!-- <a href="#" class="olvide pull-left">olvidé contraseña</a> -->
+						<a href="/web/register" class="registrate pull-right">registrate</a>
 					</div>
 				</section>
 			</div>
   			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
   		</div>
 	</div>
-    
-<!--
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
--->
 </form>
+
+<style>
+.errores {
+	font-size: 14px;
+	margin-bottom: 6px;
+	text-transform: uppercase;
+	text-align: center;
+}
+</style>
+
 {% endblock fos_user_content %}

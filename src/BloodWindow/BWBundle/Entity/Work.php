@@ -80,6 +80,13 @@ class Work
     private $telefono;
 
     /**
+     * @var string
+     */
+    private $urlVideo;
+
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -388,5 +395,26 @@ class Work
         return $this->telefono;
     }
 
+    /**
+     * Set urlVideo
+     *
+     * @param string $urlVideo
+     * @return Work
+     */
+    public function setUrlVideo($urlVideo)
+    {
+        $this->urlVideo = $urlVideo;
+    
+        return $this;
+    }
 
+    /**
+     * Get urlVideo
+     *
+     * @return string 
+     */
+    public function getUrlVideo()
+    {
+        return $this->urlVideo;
+    }
 }

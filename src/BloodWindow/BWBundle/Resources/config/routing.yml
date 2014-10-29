@@ -57,3 +57,8 @@ BloodWindowBWBundle_detalle_proyecto:
 BloodWindowBWBundle_obtener_proyectos:
     path:     /industria/proyectos
     defaults: { _controller: BloodWindowBWBundle:Proyecto:obtenerProyectos }
+
+admin_corto_upload_carousel_pic:
+    path:     /buscar/usuario
+    defaults: { _controller: "BloodWindowBWBundle:Default:obtenerUsuario" }
+    requirements: { _method: post }

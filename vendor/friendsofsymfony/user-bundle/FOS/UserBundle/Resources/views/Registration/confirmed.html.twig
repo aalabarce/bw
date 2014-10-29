@@ -3,9 +3,23 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if app.session is not empty %}
-        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
-        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
-    {% endif %}
+<div class="container-fluid"> <!-- contenedor principal -->
+  		<div class="row cont-log">
+  			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+			<div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">
+				<h1>Blood Window</h1>
+				<h2>Latin American Fantastic Film Market</h2>
+				<section>
+				    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}<br>
+				    {% if app.session is not empty %}
+				        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+				        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+				    {% endif %}
+				    Haz <a href="/web" style="color: #FF5353">click aqu&iacute;</a> para ingresar al sitio.</p>
+				</section>
+			</div>
+  			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
+  		</div>
+</div>    
+
 {% endblock fos_user_content %}

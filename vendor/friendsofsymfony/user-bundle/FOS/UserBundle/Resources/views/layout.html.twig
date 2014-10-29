@@ -38,10 +38,12 @@
     <body>
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+              <div style="position:absolute; right: 0; top: 0; font-size: 14px; border-left: 2px solid #FF5353; padding: 3px; border-bottom: 2px solid #FF5353">
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
+              </div>  
             {% else %}
             <!--
                 <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>

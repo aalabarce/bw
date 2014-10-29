@@ -90,10 +90,10 @@ layout:
 # Form field labels
 form:
     group_name: "Nombre de grupo:"
-    username: "Nombre de usuario:"
-    email: "Email:"
+    username: " "
+    email: " "
     current_password: "Contraseña actual:"
-    password: "Contraseña:"
-    password_confirmation: "Repita la contraseña:"
+    password: " "
+    password_confirmation: " "
     new_password: "Nueva contraseña:"
     new_password_confirmation: "Repita la contraseña:"

@@ -192,4 +192,13 @@ class DefaultController extends Controller
 
         return $response;   
     }
+
+    public function obtenerUsuarioAction()
+    {
+        $user= $this->get('security.context')->getToken()->getUser();
+        $usuario = $user->getUsername();
+
+        $response->headers->set('Content-Type', 'application/json');
+        return "{'usuario': '" . $usuario . "'}";
+    }
 }
