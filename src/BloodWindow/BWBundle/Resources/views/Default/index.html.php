@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en" ng-app="bloodWindow">
+<html lang="es-ES" ng-app="bloodWindow">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <title>:: Home   |   Blood Window ::</title>
+  <link rel="shortcut icon" href="/web/bundles/bloodwindowbw/theme/images/favicon-blanco.ico">
+  <title>:: Blood Window TV ::</title>
 
-  <!-- Social media tags -->
+  <!-- Social media tags  UPDATE -->
   <meta name="Title" content="Blood WIndow aplicacion oficial" />
   <meta name="og:title" content="Blood WIndow aplicacion oficial" />
   <meta name="description" content="Mira todos los cortos que quieras!" />
@@ -113,7 +114,7 @@
       <!--idioma -->
       <div ng-controller="languageCtrl" class="idioma col-lg-12 col-md-12 col-sm-12 col-xs-12 hidden-sm hidden-xs">
         <div class="cerrar-login pull-left">
-          <p>Agustin Alabarce
+          <p>{{userName}}
             <a href="{{serverURL}}/logout">cerrar</a>
           </p>
         </div>
@@ -144,7 +145,7 @@
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">&nbsp;</div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
         <a>
-          <div class="item-red" onclick='window.open ("http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/",
+          <div class="item-red" onclick='window.open ("http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.tv/",
 "mywindow","toolbar=0,status=0,width=626,height=436");return false;'>
             <i class="icon-facebook text-center" href="#" alt="Facebook"></i>
           </div>
@@ -152,7 +153,7 @@
       </div>
       <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center">
         <a>
-          <div class="item-red" onclick='window.open ("https://twitter.com/intent/tweet?url=http://bloodwindow.com/&amp;text=Aplicacion oficial de Blood Window&amp;via=bloodWindow",
+          <div class="item-red" onclick='window.open ("https://twitter.com/intent/tweet?url=http://bloodwindow.tv/&amp;text=Aplicacion oficial de Blood Window&amp;via=bloodWindow",
 "mywindow","toolbar=0,status=0,width=626,height=436");return false;'>
             <i class="icon-twitter text-center" href="#" alt="Twitter"></i>
           </div>

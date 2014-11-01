@@ -42,7 +42,7 @@ angular.module('bloodWindowControllers', [])
         $rootScope.languageWorks = data.works; // All tags used in WorksCtrl
         $rootScope.languageWorkDetail = data.workDetail; // All tags used in WorkDetailCtrl
 
-        console.log("Resultado de consulta por nombre de usuario: " + data);  //remove for production
+        console.log(data, status);  //remove for production
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
@@ -57,11 +57,12 @@ angular.module('bloodWindowControllers', [])
     url: $rootScope.serverURL + "/buscar/usuario"
     })
     .success(function(data, status){
-        //$scope.slides = data;
-        console.log(data, status);  //remove for production
+        console.log("Resultado de consulta por nombre de usuario: " + data);  //remove for production
+        $scope.userName = data.usuario;
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
+        $scope.userName = "Error";
     });
   }
   // ***** END API *****
