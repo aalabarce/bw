@@ -33,6 +33,11 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
         });
     }])
 
-    .run(['$rootScope', function($rootScope) {
-       $rootScope.serverURL = "/web/app_dev.php"; // Change URL
+    .run(['$rootScope', '$location', function($rootScope, $location) {
+      //if($location.path())
+      if($location.host() == "bloodwindow.tv") {
+        $rootScope.serverURL = "/web"; // URL for real app
+      } else {
+        $rootScope.serverURL = "/web/app_dev.php"; // URL for working local
+      }
     }]);

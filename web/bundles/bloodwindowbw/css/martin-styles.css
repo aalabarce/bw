@@ -64,37 +64,37 @@ animation-delay: 0s;
 }
 
 .fade-in.result1 {
+-webkit-animation-delay: 0.1s;
+-moz-animation-delay: 0.1s;
+animation-delay: 0.1s;
+}
+
+.fade-in.result2 {
+-webkit-animation-delay: 0.2s;
+-moz-animation-delay: 0.2s;
+animation-delay: 0.2s;
+}
+
+.fade-in.result3 {
 -webkit-animation-delay: 0.3s;
 -moz-animation-delay: 0.3s;
 animation-delay: 0.3s;
 }
 
-.fade-in.result2 {
--webkit-animation-delay: 0.6s;
--moz-animation-delay: 0.6s;
-animation-delay: 0.6s;
-}
-
-.fade-in.result3 {
--webkit-animation-delay: 0.9s;
--moz-animation-delay: 0.9s;
-animation-delay: 0.9s;
-}
-
 .fade-in.result4 {
--webkit-animation-delay: 1.2s;
--moz-animation-delay: 1.2s;
-animation-delay: 1.2s;
+-webkit-animation-delay: 0.4s;
+-moz-animation-delay: 0.4s;
+animation-delay: 0.4s;
 }
 
 .fade-in.result5 {
--webkit-animation-delay: 1.5s;
--moz-animation-delay: 1.5s;
-animation-delay: 1.5s;
+-webkit-animation-delay: 0.5s;
+-moz-animation-delay: 0.5s;
+animation-delay: 0.5s;
 }
 
 .fade-in.result6 {
--webkit-animation-delay: 1.8s;
--moz-animation-delay: 1.8s;
-animation-delay: 1.8s;
+-webkit-animation-delay: 0.6s;
+-moz-animation-delay: 0.6s;
+animation-delay: 0.6s;
 }

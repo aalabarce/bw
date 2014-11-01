@@ -42,7 +42,7 @@ angular.module('bloodWindowControllers', [])
         $rootScope.languageWorks = data.works; // All tags used in WorksCtrl
         $rootScope.languageWorkDetail = data.workDetail; // All tags used in WorkDetailCtrl
 
-        console.log(data, status);  //remove for production
+        console.log("Resultado de consulta por nombre de usuario: " + data);  //remove for production
     })
     .error(function(data, status){
         console.log(data, status); //remove for production
@@ -50,9 +50,25 @@ angular.module('bloodWindowControllers', [])
   }
   // ***** END SET LENGUAGUE *****
 
-   $scope.setLanguage("esp"); // Set default language to Spanish
-  
+  // ***** START API ***** Get curren user name
+  $scope.getUserName = function() {
+    $http({
+    method: 'POST',
+    url: $rootScope.serverURL + "/buscar/usuario"
+    })
+    .success(function(data, status){
+        //$scope.slides = data;
+        console.log(data, status);  //remove for production
+    })
+    .error(function(data, status){
+        console.log(data, status); //remove for production
+    });
+  }
+  // ***** END API *****
 
+  $scope.setLanguage("esp"); // Set default language to Spanish
+  $scope.getUserName(); // Get current user name
+  
 }])
 
 .controller('HomeCtrl', ['$scope', '$http', '$rootScope', '$modal', '$location', '$routeParams', function($scope, $http, $rootScope, $modal, $location, $routeParams) {
