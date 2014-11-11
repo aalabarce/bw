@@ -7,7 +7,7 @@
 	            <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
 	        </div>
 	        <!-- /Preloader -->
-		  	<slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
+		  	<slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)" class="pointerCursor">
             	<div class="desc-item col-lg-6 col-md-6 hidden-sm hidden-xs" style="text-align: left;">
             		<h1>{{slide.titulo}}</h1>
             		<div class="info-item">
@@ -53,7 +53,7 @@
 		        <!-- /Preloader -->
 	        	<div class="col-xs-12 col-sm-6 col-lg-4 thumb fade-in result{{$index}}" ng-repeat="corto in filterCortos">
 	        		<a ng-click="openCortoDetail(corto.id)">
-	        			<div class="desc-item-listado">
+	        			<div class="desc-item-listado pointerCursor">
 	        				<h3>{{corto.titulo}}</h3>
 			                <!-- Show for Spanish -->
 			    			<p ng-show="language == 'esp'">{{languageHome.gender}}: <span>{{corto.nombreEspaniol}}</span></p>

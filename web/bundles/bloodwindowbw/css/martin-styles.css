@@ -8,6 +8,17 @@
 	margin-top: 0;
 }
 
+.whiteLink{
+	color: white;
+}
+.whiteLink:hover{ 
+    color: #FF5353;
+}
+
+.pointerCursor{
+	cursor: pointer;
+}
+
 /***** VIEMO EMBED *****/
 
 .embed-container { 
