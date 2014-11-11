@@ -12,11 +12,11 @@
                         <div class="col-sm-3 col-xs-6" ng-repeat="work in works[$index]">
                             <a href="#/work/{{work.id}}" class="thumbnail">
                                 <div class="info-hover">
-                                    <p>{{languageProyectos.year}}: <b>{{work.anio}}</b></p>
-                                    <p>{{languageProyectos.director}}: <b>{{work.director}}</b></p>
-                                    <p>{{languageProyectos.country}}: <b>{{work.pais}}</b></p>
+                                    <p>{{languageWorks.year}}: <b>{{work.anio}}</b></p>
+                                    <p>{{languageWorks.director}}: <b>{{work.director}}</b></p>
+                                    <p>{{languageWorks.country}}: <b>{{work.pais}}</b></p>
                                 </div>
-                                <img src="/web/bundles/bloodwindowbw/theme/images/img-proyectos-0{{$index+1}}.jpg" alt="Image" class="img-responsive">
+                                <img ng-src="{{imagesSrc}}/wip/caratula/{{work.id}}.jpg" alt="Image" class="img-responsive">
                                 
                             </a>
                             <h3 class="text-center">{{work.titulo}}</h3>
@@ -30,7 +30,7 @@
         <!--/well-->
         <!-- Preloader -->
         <div class="preloader" ng-hide="works">
-            <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
+            <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
         </div>
         <!-- /Preloader -->
 	</div>

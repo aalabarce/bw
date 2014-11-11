@@ -4,7 +4,7 @@
 		<carousel interval="myInterval" ng-show="showCarousel" class="carousel slide fade-in">
 	        <!-- Preloader -->
 	        <div class="preloader" ng-hide="slides">
-	            <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
+	            <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
 	        </div>
 	        <!-- /Preloader -->
 		  	<slide ng-repeat="slide in slides" active="slide.active" ng-click="openCortoDetail(slide.id)">
@@ -23,8 +23,7 @@
 						</div>
             		</div>
             	</div>
-                <!-- <img src="/web/bundles/bloodwindowbw/theme/images/carousel{{slide.id}}.jpg" alt="Slide{{slide.id}}" /> DELETE BELOW IMAGE AND UNCOMENT THIS ONE-->
-                <img src="/web/bundles/bloodwindowbw/theme/images/carousel1.jpg" alt="Slide{{slide.id}}" />
+                <img ng-src="{{imagesSrc}}/carousel/{{slide.id}}.jpg" alt="Slide{{slide.id}}" />
 		  	</slide>
 		</carousel>
 		<!-- Show when user is searching for something -->
@@ -47,7 +46,7 @@
 		        <!-- Preloader -->
 		        <div class="preloader" ng-show="showPreloader">
 		        	<br />
-		            <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
+		            <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF" width="24px" height="24px">
 		            <br />
 		            <br />
 		        </div>
@@ -64,7 +63,7 @@
 	        				<p>{{languageHome.director}}: <span>{{corto.director}}</span></p>
 	        				<p ng-show="corto.festival">{{languageHome.festival}}: <span>{{corto.festival}}</span></p>
 	        			</div>
-	        			<img ng-src="/web/bundles/bloodwindowbw/theme/images/img-cat-{{corto.id}}.jpg" class="img-responsive">
+	        			<img ng-src="{{imagesSrc}}/{{corto.id}}.jpg" class="img-responsive">
 	        		</a>
 	        	</div>
 	        </div>

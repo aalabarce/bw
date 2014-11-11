@@ -5,7 +5,7 @@
 </h4>
 <!-- Preloader -->
 <h4 class="modal-title" ng-show="showPreloader">
-    <img src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
+    <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
 </h4>
 <!-- /Preloader -->
 </div>
@@ -15,7 +15,7 @@
     		<div class="embed-container">
                 <!-- Preloader -->
                 <div class="preloader" ng-show="showPreloader">
-                    <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
+                    <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
                 </div>
                 <!-- /Preloader -->		
                 <iframe ng-src="{{trustSrc(cortoResult.url)}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -24,7 +24,7 @@
 			<div class="item-modal-sinopsis">
                 <!-- Preloader -->
                 <div class="preloader" ng-show="showPreloader">
-                    <img src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
+                    <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader.GIF">
                 </div>
                 <!-- /Preloader -->
 			    <!-- Show for Spanish -->
@@ -68,7 +68,7 @@
     		</div>
     		<div class="clearfix"></div>
     		<div class="item-modal-festival" ng-show="cortoResult.festival">
-    			<img src="/web/bundles/bloodwindowbw/theme/images/icon-festival-01.png" class="img-responsive" alt="" />
+    			<img ng-src="{{imagesSrc}}/festival/{{cortoResult.festivalFk}}.jpg" class="img-responsive" alt="" />
     		</div>
     	</div>
     </div>

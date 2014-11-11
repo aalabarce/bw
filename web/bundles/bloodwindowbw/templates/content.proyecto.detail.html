@@ -6,7 +6,7 @@
 	<h1 class="pull-left" ng-show="language == 'eng' && !showPreloader">{{proyectoResult.tituloIngles}}</h1>
 	<!-- Preloader -->
 	<h1 class="pull-left" ng-show="showPreloader">
-	    <img src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
+	    <img ng-src="/web/bundles/bloodwindowbw/theme/images/loader-red.GIF" width="24px" height="24px">
 	</h1>
 	<!-- /Preloader -->
 	<div class="clearfix"></div>
@@ -82,7 +82,7 @@
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 				<div class="work-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<img src="/web/bundles/bloodwindowbw/theme/images/img-detalle-work.jpg" class="img-responsive" alt="" />
+					<img ng-src="{{imagesSrc}}/proyecto/{{id}}.jpg" class="img-responsive" alt="" />
 				</div>
 				<!-- Show for Spanish -->
     			<p ng-show="language == 'esp'">

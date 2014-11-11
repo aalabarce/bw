@@ -35,9 +35,11 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
 
     .run(['$rootScope', '$location', function($rootScope, $location) {
       //if($location.path())
-      if($location.host() == "bloodwindow.tv") {
+      if($location.host() == "bloodwindow.tv") { // For production
         $rootScope.serverURL = "/web"; // URL for real app
-      } else {
+        $rootScope.imagesSrc = "/uploads";
+      } else { // For development
         $rootScope.serverURL = "/web/app_dev.php"; // URL for working local
+        $rootScope.imagesSrc = "/web/bundles/bloodwindowbw/theme/images";
       }
     }]);

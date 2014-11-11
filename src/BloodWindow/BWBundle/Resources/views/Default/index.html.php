@@ -76,7 +76,7 @@
       <div class="row">
         <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 logoHeader">
           <a class="navbar-brand" href="http://www.bloodwindow.com/">
-            <img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/logo.png" alt="" />
+            <img class="img-responsive" ng-src="/web/bundles/bloodwindowbw/theme/images/logo.png" alt="" />
           </a>
         </div>
         <div class="col-lg-8 col-md-9 col-sm-9 col-xs-12 menuHeader">
@@ -118,8 +118,8 @@
             <a href="{{serverURL}}/logout">cerrar</a>
           </p>
         </div>
-        <a class="ico-en pull-right" ng-click="setLanguage('eng')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
-        <a class="ico-es pull-right" ng-click="setLanguage('esp')"><img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
+        <a class="ico-en pull-right" ng-click="setLanguage('eng')"><img class="img-responsive" ng-src="/web/bundles/bloodwindowbw/theme/images/ico-eng.png" alt="" /></a>
+        <a class="ico-es pull-right" ng-click="setLanguage('esp')"><img class="img-responsive" ng-src="/web/bundles/bloodwindowbw/theme/images/ico-esp.png" alt="" /></a>
       </div>
       <div class="clearfix"></div>
 
@@ -136,7 +136,7 @@
       <!-- <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http://www.bloodwindow.com/&amp;p[images][0]=http://www.bloodwindow.com/wp-content/uploads/2014/07/cropped-final.jpg&amp;p[title]=La aplicacion oficial de BloodWindow&amp;p[summary]=Mira todos los cortos y peliculas de genero fantastico!">Share</a> -->
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center ventana-sur">
         <a href="http://www.ventanasur.gov.ar/">
-          <img class="img-responsive" src="/web/bundles/bloodwindowbw/theme/images/logo-ventana-sur.png" alt="" />
+          <img class="img-responsive" ng-src="/web/bundles/bloodwindowbw/theme/images/logo-ventana-sur.png" alt="" />
         </a>
       </div>
 
