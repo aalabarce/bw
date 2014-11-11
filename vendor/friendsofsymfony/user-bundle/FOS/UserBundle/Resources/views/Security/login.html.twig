@@ -37,12 +37,12 @@ $(document).ready(function() {
 				<h2>Latin American Fantastic Film Market</h2>
 				<section>
 					<p>ingresá</p>
-					<input type="text" id="username" name="_username" value="{{ last_username }}" required="required"  placeholder="Email..." />
+					<input type="text" id="username" name="_username" value="{{ last_username }}" required="required"  placeholder="Usuario..." />
 					<input type="password" id="password" name="_password" required="required" placeholder="Contraseña..." />
 					{% if error %}
 						<div class="errores">{{ error|trans }}</div>
 					{% endif %}
-					<a href="javascript: enviar();" class="btn-enviar-log btn-block text-center">enviar</a>
+					<a href="javascript: enviar();" class="btn-enviar-log btn-block text-center">Ingresar</a>
 					<div class="cont-reg">
 						<!-- <a href="#" class="olvide pull-left">olvidé contraseña</a> -->
 						<a href="/web/register" class="registrate pull-right">registrate</a>

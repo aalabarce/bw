@@ -198,7 +198,12 @@ class DefaultController extends Controller
         $user= $this->get('security.context')->getToken()->getUser();
         $usuario = $user->getUsername();
 
+        $jsonContent = "{\"usuario\": \"" . $usuario . "\"}";
+
+        $response = new Response($jsonContent);
         $response->headers->set('Content-Type', 'application/json');
-        return "{'usuario': '" . $usuario . "'}";
+        
+        return $response;
+        //return "{'usuario': '" . $usuario . "'}";
     }
 }

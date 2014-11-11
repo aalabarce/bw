@@ -52,12 +52,13 @@ angular.module('bloodWindowControllers', [])
 
   // ***** START API ***** Get curren user name
   $scope.getUserName = function() {
+    $scope.userName = "";
     $http({
     method: 'POST',
     url: $rootScope.serverURL + "/buscar/usuario"
     })
     .success(function(data, status){
-        console.log("Resultado de consulta por nombre de usuario: " + data);  //remove for production
+        console.log(data, status);  //remove for production
         $scope.userName = data.usuario;
     })
     .error(function(data, status){
