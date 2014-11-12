@@ -34,7 +34,7 @@ admin_corto_upload_pic:
     defaults: { _controller: "BloodWindowBWBundle:Corto:subirImagen" }
     requirements: { _method: post }
 
-admin_corto_upload_carousel_pic:
+admin_corto_upload_pic_carousel:
     path:     /upload/carousel
     defaults: { _controller: "BloodWindowBWBundle:Corto:subirImagenCarousel" }
     requirements: { _method: post }
