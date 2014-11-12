@@ -40,6 +40,6 @@ angular.module('bloodWindow', ['ngRoute', 'ui.bootstrap', 'bloodWindowController
         $rootScope.imagesSrc = "/uploads";
       } else { // For development
         $rootScope.serverURL = "/web/app_dev.php"; // URL for working local
-        $rootScope.imagesSrc = "/web/bundles/bloodwindowbw/theme/images";
+        $rootScope.imagesSrc = "/uploads";
       }
     }]);
