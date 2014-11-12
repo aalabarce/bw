@@ -28,3 +28,13 @@ admin_proyecto_delete:
     path:     /{id}/delete
     defaults: { _controller: "BloodWindowBWBundle:Proyecto:delete" }
     requirements: { _method: post|delete }
+
+admin_proyecto_upload_pic:
+    path:     /upload
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:subirImagen" }
+    requirements: { _method: post }
+
+admin_proyecto_upload_pic_thumb:
+    path:     /upload/caratula
+    defaults: { _controller: "BloodWindowBWBundle:Proyecto:subirImagenCaratula" }
+    requirements: { _method: post }

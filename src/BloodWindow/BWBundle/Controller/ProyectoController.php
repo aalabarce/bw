@@ -42,6 +42,7 @@ class ProyectoController extends Controller
     {
         // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCaratula = $request->request->get('nombreArchivoCaratula');
 
         $entity = new Proyecto();
         $form = $this->createCreateForm($entity);
@@ -57,6 +58,15 @@ class ProyectoController extends Controller
 
                 $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/temp/" . $nombreArchivo;
                 $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if(!empty($nombreArchivoCaratula))
+            {
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/caratula/temp/" . $nombreArchivoCaratula;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/caratula/" . $entity->getId() . ".jpg";
 
                 // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
                 rename($pathTemporal, $path);
@@ -177,6 +187,7 @@ class ProyectoController extends Controller
     {
         // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCaratula = $request->request->get('nombreArchivoCaratula');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -196,8 +207,17 @@ class ProyectoController extends Controller
             if (!empty($nombreArchivo))
             {
 
-                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/temp/" . $nombreArchivo;
-                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/" . $entity->getId() . ".jpg";
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if(!empty($nombreArchivoCaratula))
+            {
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/caratula/temp/" . $nombreArchivoCaratula;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/caratula/" . $entity->getId() . ".jpg";
 
                 // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
                 rename($pathTemporal, $path);
@@ -354,6 +374,40 @@ class ProyectoController extends Controller
     public function subirImagenAction()
     {
         $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/temp/";
+        if(isset($_FILES["myfile"]))
+        {
+            $ret = array();
+
+            $error =$_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if(!is_array($_FILES["myfile"]["name"])) //single file
+            {
+                $fileName = $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                $ret[]= $fileName;
+            }
+            else  //Multiple files, file[]
+            {
+              $fileCount = count($_FILES["myfile"]["name"]);
+              for($i=0; $i < $fileCount; $i++)
+              {
+                $fileName = $_FILES["myfile"]["name"][$i];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$output_dir.$fileName);
+                $ret[]= $fileName;
+              }
+            
+            }
+            $response = new Response(json_encode($ret));
+            $response->headers->set('Content-Type', 'application/json'); 
+
+            return $response;
+         }
+    }
+
+    public function subirImagenCaratulaAction()
+    {
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/proyecto/caratula/temp/";
         if(isset($_FILES["myfile"]))
         {
             $ret = array();

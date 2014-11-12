@@ -42,6 +42,7 @@ class WorkController extends Controller
     {
         // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCaratula = $request->request->get('nombreArchivoCaratula'); 
         
         $entity = new Work();
         $form = $this->createCreateForm($entity);
@@ -55,8 +56,18 @@ class WorkController extends Controller
             if (!empty($nombreArchivo))
             {
 
-                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/temp/" . $nombreArchivo;
-                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/" . $entity->getId() . ".jpg";
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if (!empty($nombreArchivoCaratula))
+            {
+
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/caratula/temp/" . $nombreArchivoCaratula;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/caratula/" . $entity->getId() . ".jpg";
 
                 // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
                 rename($pathTemporal, $path);
@@ -177,6 +188,7 @@ class WorkController extends Controller
     {
         // Recibo el nombre de las imagenes subidas
         $nombreArchivo = $request->request->get('nombreArchivo');
+        $nombreArchivoCaratula = $request->request->get('nombreArchivoCaratula');
 
         $em = $this->getDoctrine()->getManager();
 
@@ -196,8 +208,18 @@ class WorkController extends Controller
             if (!empty($nombreArchivo))
             {
 
-                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/temp/" . $nombreArchivo;
-                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/" . $entity->getId() . ".jpg";
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/temp/" . $nombreArchivo;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/" . $entity->getId() . ".jpg";
+
+                // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
+                rename($pathTemporal, $path);
+            }
+
+            if (!empty($nombreArchivoCaratula))
+            {
+
+                $pathTemporal = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/caratula/temp/" . $nombreArchivoCaratula;
+                $path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/caratula/" . $entity->getId() . ".jpg";
 
                 // Renombro y muevo la imagen (Le pongo de nombre el id, y de extension jpg)
                 rename($pathTemporal, $path);
@@ -276,7 +298,7 @@ class WorkController extends Controller
         $workHome = $this->getDoctrine()->getManager()->getConnection();
 
         $sql = "SELECT w.id, w.titulo, w.anio, w.compania, w.director, w.estado, w.pais, w.duracion, w.cargo, w.sinopsisEspaniol, 
-        w.sinopsisIngles, w.metas, w.email, w.telefono FROM wip w
+        w.sinopsisIngles, w.metas, w.email, w.telefono, w.urlVideo FROM wip w
                 WHERE w.id = " . $id . ";"; 
 
         $sth = $workHome->prepare($sql);
@@ -344,7 +366,45 @@ class WorkController extends Controller
     **/
     public function subirImagenAction()
     {
-        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/work/temp/";
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/temp/";
+        if(isset($_FILES["myfile"]))
+        {
+            $ret = array();
+
+            $error =$_FILES["myfile"]["error"];
+            //You need to handle  both cases
+            //If Any browser does not support serializing of multiple files using FormData() 
+            if(!is_array($_FILES["myfile"]["name"])) //single file
+            {
+                $fileName = $_FILES["myfile"]["name"];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"],$output_dir.$fileName);
+                $ret[]= $fileName;
+            }
+            else  //Multiple files, file[]
+            {
+              $fileCount = count($_FILES["myfile"]["name"]);
+              for($i=0; $i < $fileCount; $i++)
+              {
+                $fileName = $_FILES["myfile"]["name"][$i];
+                move_uploaded_file($_FILES["myfile"]["tmp_name"][$i],$output_dir.$fileName);
+                $ret[]= $fileName;
+              }
+            
+            }
+            $response = new Response(json_encode($ret));
+            $response->headers->set('Content-Type', 'application/json'); 
+
+            return $response;
+         }
+    }
+
+    /**
+    *   Sube una imagen de un corto a la carpeta temporal, para despues cuando es confirmado el cambio
+    *   es movida a la ruta definitiva
+    **/
+    public function subirImagenCaratulaAction()
+    {
+        $output_dir = $_SERVER['DOCUMENT_ROOT'] . "/uploads/wip/caratula/temp/";
         if(isset($_FILES["myfile"]))
         {
             $ret = array();
