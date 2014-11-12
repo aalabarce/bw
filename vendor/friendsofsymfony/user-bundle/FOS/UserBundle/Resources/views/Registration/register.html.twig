@@ -2,4 +2,28 @@
 
 {% block fos_user_content %}
 {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+
+<script>
+$(function(){
+
+    var userLang = navigator.language || navigator.userLanguage; 
+    userLang = userLang.split("-");
+    if(userLang[0] == "en") {
+    	$($("section").children()[0]).html("Register");
+    	$(".btn-reg-log").html("Submit");
+    	$(".olvide").html("YOU ALREADY HAVE AN ACCOUNT");
+
+    	$("#fos_user_registration_form_username").attr("placeholder", "Username...");
+    	$("#fos_user_registration_form_plainPassword_first").attr("placeholder", "Password...");
+    	$("#fos_user_registration_form_plainPassword_second").attr("placeholder", "Confirm password...");
+
+    	$('label[for="fos_user_registration_form_email"]').next().children().html("Sorry, but this email adress is invalid");
+    	$('label[for="fos_user_registration_form_username"]').next().children().html("Sorry, but this username is invalid");
+    	$('label[for="fos_user_registration_form_plainPassword_first"]').next().children().html("Sorry, but this password is invalid");
+
+    }
+
+})
+</script>
+
 {% endblock fos_user_content %}

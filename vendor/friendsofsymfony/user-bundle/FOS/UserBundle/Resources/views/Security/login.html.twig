@@ -11,7 +11,6 @@ function enviar()
    	$("#login-form").submit();	
 }
 
-
 $(document).ready(function() {
 
      $("form input").keypress(function (e) {
@@ -23,9 +22,17 @@ $(document).ready(function() {
         }
     });
 
-    $("#ingles").click(function() {
-    	alert();
-    });
+    var userLang = navigator.language || navigator.userLanguage; 
+    userLang = userLang.split("-");
+    if(userLang[0] == "en") {
+    	$("#ingresa").html("Welcome");
+    	$("#ingresar").html("Log in");
+    	$("#registrate").html("Register");
+    	$("#username").attr("placeholder", "Username...");
+    	$("#password").attr("placeholder", "Password...");
+
+    	$(".errores").html("INVALID USERNAME OR PASSWORD");
+    }
 
 });
 
@@ -40,16 +47,16 @@ $(document).ready(function() {
 				<h1>Blood Window</h1>
 				<h2>Latin American Fantastic Film Market</h2>
 				<section>
-					<p>ingresá</p>
+					<p id="ingresa">ingresá</p>
 					<input type="text" id="username" name="_username" value="{{ last_username }}" required="required"  placeholder="Usuario..." />
 					<input type="password" id="password" name="_password" required="required" placeholder="Contraseña..." />
 					{% if error %}
 						<div class="errores">{{ error|trans }}</div>
 					{% endif %}
-					<a href="javascript: enviar();" class="btn-enviar-log btn-block text-center">Ingresar</a>
+					<a href="javascript: enviar();" class="btn-enviar-log btn-block text-center" id="ingresar">Ingresar</a>
 					<div class="cont-reg">
 						<!-- <a href="#" class="olvide pull-left">olvidé contraseña</a> -->
-						<a href="/web/register" class="registrate pull-right">registrate</a>
+						<a href="/web/register" class="registrate pull-right" id="registrate">registrate</a>
 					</div>
 				</section>
 			</div>
