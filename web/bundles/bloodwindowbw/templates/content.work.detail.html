@@ -11,7 +11,7 @@
 	<div class="cont-detalle-proyecto col-lg-8 col-md-8 col-sm-12 col-xs-12">
 		<div ng-show="workResult" class="proyecto-video col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<div class="embed-container">
-				<iframe ng-src="{{trustSrc('109976075')}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <!-- CHANGE FOR  workResult.urlVideo -->
+				<iframe ng-src="{{trustSrc(workResult.urlVideo)}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <!-- CHANGE FOR  workResult.urlVideo -->
 			</div>
 		</div>
 		<div ng-show="workResult" class="clearfix"></div>
