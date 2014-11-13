@@ -5,7 +5,7 @@
     $(function(){
 
     // Agrego el uploader al form
-        $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: </div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/{{entity.id}}.jpg" width="100"></span><br>');
+        $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: (930 × 620)</div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/{{entity.id}}.jpg" width="100"></span><br>');
    	// Inicializo el uploader
         $("#fileuploader").uploadFile({
             url:"../upload",
@@ -21,7 +21,7 @@
     // Si es para el slider, permito editar la imagen del carousel
           if ({{entity.carousel}} == 1)
           {
-               $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivoCarousel" name="nombreArchivoCarousel" /><div class="required" style="margin-left:10px; font-weight:bold;">Imagen carousel: </div><br><div id="fileuploader_carousel">Subir imagen</div><span id="imagen_subida_carousel"><img src="/uploads/carousel/{{entity.id}}.jpg" width="100"></span><br>');
+               $("#bloodwindow_bwbundle_corto_submit").before('<input type="hidden" id="nombreArchivoCarousel" name="nombreArchivoCarousel" /><div class="required" style="margin-left:10px; font-weight:bold;">Imagen carousel: (1600 × 718)</div><br><div id="fileuploader_carousel">Subir imagen</div><span id="imagen_subida_carousel"><img src="/uploads/carousel/{{entity.id}}.jpg" width="100"></span><br>');
 
                $("#fileuploader_carousel").uploadFile({
                 url:"../upload/carousel",

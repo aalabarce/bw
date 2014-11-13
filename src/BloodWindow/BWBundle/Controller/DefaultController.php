@@ -131,8 +131,10 @@ class DefaultController extends Controller
 
         // prepare statement
         // TODO: Agregar WHERE carousel = 1
-        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol, c.sinopsisIngles, c.director, c.duracion, f.nombre as festival FROM corto c
-        JOIN festival f ON c.festivalFk = f.id;"; 
+        $sql = "SELECT c.id, c.titulo, c.anio, c.sinopsisEspaniol, c.sinopsisIngles, c.director, c.duracion,
+        f.nombre as festival 
+        FROM corto c
+        LEFT JOIN festival f ON c.festivalFk = f.id;"; 
 
         $sth = $cortoHome->prepare($sql);
 

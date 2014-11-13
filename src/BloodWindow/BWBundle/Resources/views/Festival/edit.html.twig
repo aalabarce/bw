@@ -3,7 +3,7 @@
 {% block body -%}
 	<script>
     $(function(){
-        $("#bloodwindow_bwbundle_festival_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: </div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/festival/{{entity.id}}.jpg" width="100"></span><br>');
+        $("#bloodwindow_bwbundle_festival_submit").before('<input type="hidden" id="nombreArchivo" name="nombreArchivo" /><div class="required" style="margin-left:10px; font-weight:bold;">Portada: (70 x 70)</div><br><div id="fileuploader">Subir imagen</div><span id="imagen_subida"><img src="/uploads/festival/{{entity.id}}.jpg" width="100"></span><br>');
         $("#fileuploader").uploadFile({
             url:"../upload",
             fileName:"myfile",
