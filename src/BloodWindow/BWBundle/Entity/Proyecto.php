@@ -45,7 +45,7 @@ class Proyecto
     private $sinopsisIngles;
 
     /**
-     * @var float
+     * @var string
      */
     private $presupuesto;
 
@@ -301,7 +301,7 @@ class Proyecto
     /**
      * Set presupuesto
      *
-     * @param float $presupuesto
+     * @param string $presupuesto
      * @return Proyecto
      */
     public function setPresupuesto($presupuesto)
@@ -314,7 +314,7 @@ class Proyecto
     /**
      * Get presupuesto
      *
-     * @return float 
+     * @return string 
      */
     public function getPresupuesto()
     {

@@ -27,7 +27,8 @@ BloodWindow\BWBundle\Entity\Proyecto:
             type: string
             length: '4000'
         presupuesto:
-            type: float
+            type: string
+            length: '4000'
         financiacionEspaniol:
             type: string
             length: '4000'

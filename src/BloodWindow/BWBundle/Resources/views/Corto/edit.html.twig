@@ -43,8 +43,7 @@
     <h1>Modificar un corto</h1>
 
 
-        {{ form(edit_form) }}
-
+        {{ form(edit_form, {'attr': {'novalidate': 'novalidate'}}) }}
       
         <button onclick="location.href='{{ path('admin_corto') }}'">Volver</button>
         {{ form(delete_form) }}
